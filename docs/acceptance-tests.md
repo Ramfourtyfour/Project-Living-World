@@ -4,8 +4,8 @@
 `python -m pytest -q` runs the Python/native integration suite. Version 0.3 passed
 74 local tests including checkpoint/journal interruption, both neural architectures and
 dependency-free native inference. Native world/inference checks also pass.
-[Windows/Linux CI](https://github.com/Ramfourtyfour/Project-Living-World/actions/runs/43102704838)
-passed on commit `83ef545`: each platform passed two native tests, 36 Python tests
+[Windows/Linux CI](https://github.com/Ramfourtyfour/Project-Living-World/actions/runs/43115194539)
+passed on commit `0066e5f`: each platform passed two native tests, 66 Python tests
 and recorded rollout/replay; eight optional learning tests were skipped there.
 Those optional tests passed locally. See `platforms.md` for the exact matrix.
 
