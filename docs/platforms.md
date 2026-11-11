@@ -6,14 +6,17 @@ architectures and other device platforms are unverified future targets.
 | Environment | Native toolchain | Evidence |
 | --- | --- | --- |
 | Local Windows x64, Python 3.13.2 | MSYS2 UCRT64 GCC 16.2.0 | Native world/inference checks, 83 Python tests, PyTorch/native numeric conformance, training/evaluation and packaged-binary checks |
-| GitHub Windows x64, Python 3.13 | Visual Studio C++20 through CMake | Both native tests, 66 Python tests, 8 optional learning tests skipped, rollout/replay |
-| GitHub Ubuntu x64, Python 3.13 | GCC C++20 through CMake | Both native tests, 66 Python tests, 8 optional learning tests skipped, rollout/replay |
+| GitHub Windows x64, Python 3.13 | Visual Studio C++20 through CMake | Both native tests, 75 Python tests, 8 optional learning tests skipped, rollout/replay and full 512-tick sensory-reference audit |
+| GitHub Ubuntu x64, Python 3.13 | GCC C++20 through CMake | Both native tests, 75 Python tests, 8 optional learning tests skipped, rollout/replay and full 512-tick sensory-reference audit |
 
-The successful v0.3 [Windows/Linux CI run](https://github.com/Ramfourtyfour/Project-Living-World/actions/runs/43115194539)
-checked code commit `0066e5fb5268b59d51995e1cbeaab3921d2d3e0f`. Optional PyTorch
+The successful v0.4 [Windows/Linux CI run](https://github.com/Ramfourtyfour/Project-Living-World/actions/runs/43120511320)
+checked code commit `997033da9b645eb0970ff4eefabc887a78ed6240`. Optional PyTorch
 reference/training tests were run locally; the lean CI matrix deliberately
 exercises the dependency-free deployment and core contracts. Python 3.11+ is the
-language compatibility target; only the Python versions above are verified.
+language compatibility target; only the Python versions above are verified. Both
+CI platforms reproduced the specific Windows-GCC sensory-reference hash
+`bb0215024021a6a9`. This is evidence for that trace, not a universal cross-platform
+bitwise-replay guarantee.
 
 ## Code conventions
 

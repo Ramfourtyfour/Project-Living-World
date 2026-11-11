@@ -4,9 +4,10 @@
 `python -m pytest -q` runs the Python/native integration suite. Version 0.4 passed
 83 local tests including checkpoint/journal interruption, both neural architectures and
 dependency-free native inference. Native world/inference checks also pass.
-[Windows/Linux CI](https://github.com/Ramfourtyfour/Project-Living-World/actions/runs/43115194539)
-passed on commit `0066e5f`: each platform passed two native tests, 66 Python tests
-and recorded rollout/replay; eight optional learning tests were skipped there.
+[Windows/Linux CI](https://github.com/Ramfourtyfour/Project-Living-World/actions/runs/43120511320)
+passed on commit `997033d`: each platform passed two native tests, 75 Python tests,
+recorded rollout/replay and all 512 ticks of the sensory reference, reproducing
+`bb0215024021a6a9`; eight optional learning tests were skipped there.
 Those optional tests passed locally. See `platforms.md` for the exact matrix.
 
 Covered integration scenarios:
@@ -80,4 +81,4 @@ trainer also completed a one-update rules-3 CLI smoke run with versioned config;
 that smoke run is not a trained-policy result. This remains a limited diagnostic
 UI check; no first-person or broad human playtest claim follows. First-person play,
 settlement construction, population magic, co-op, lag,
-cross-platform replay equivalence, sanitizers and release playthrough are pending.
+broad cross-platform replay guarantees, sanitizers and release playthrough are pending.
