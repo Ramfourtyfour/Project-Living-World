@@ -5,7 +5,7 @@ code from passed gates and planned work. A partial milestone is not complete.
 
 | ID | Status | Evidence / remaining gate |
 | --- | --- | --- |
-| LW-001 | Partial | Original native/Python source, contracts, platform CI and provenance policy exist; remote CI and final license choice pending. |
+| LW-001 | Foundation gate passed | Independent original repository, contracts, editing conventions, platform matrix, rights-reserved licensing/provenance policy and green Windows/Linux native/Python CI. A commercial/open-source license choice remains owner-controlled; full release audit is LW-018. |
 | LW-002 | Prototype implemented | Seeded clock/IDs, action queue, snapshots, material ledger, full controller checkpoint bundles and a single-writer fsynced action journal. Exact replay, process death and interrupted-write recovery tested. Production compaction/network service still pending. |
 | LW-003 | Prototype implemented | Empty-inventory survival, extraction/regrowth, food/water/rest and adversarial conservation tests. Crafting is not implemented. |
 | LW-004 | Partial | Local obstruction-limited sight, aged memory and private observations tested. FOV/light/hearing pending. |

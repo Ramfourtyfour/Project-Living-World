@@ -3,8 +3,11 @@
 `python tools/build.py` compiles the C++20 library and runs native checks.
 `python -m pytest -q` runs the Python/native integration suite. Version 0.2 passed
 44 tests including checkpoint/journal interruption, both neural architectures and
-dependency-free native inference. Native world/inference checks also pass. CI configuration is provided
-for Ubuntu and Windows; unexecuted CI is not a passed platform gate.
+dependency-free native inference. Native world/inference checks also pass.
+[Windows/Linux CI](https://github.com/Ramfourtyfour/Project-Living-World/actions/runs/43102704838)
+passed on commit `83ef545`: each platform passed two native tests, 36 Python tests
+and recorded rollout/replay; eight optional learning tests were skipped there.
+Those optional tests passed locally. See `platforms.md` for the exact matrix.
 
 Covered integration scenarios:
 

@@ -55,8 +55,10 @@ ctest --test-dir build -C Release --output-on-failure
 ```
 
 Set `LIVINGWORLD_LIBRARY` to an absolute library path if using a custom build
-directory. Linux GCC/Clang and Windows MSVC CI configurations are provided;
-only the local Windows GCC build has been executed during initial authoring.
+directory, and `LIVINGWORLD_POLICY_LIBRARY` for the separate policy library.
+Windows MSVC and Ubuntu GCC builds/tests have passed GitHub CI; the local Windows
+GCC run includes all 44 tests. See [the verified platform matrix](docs/platforms.md)
+for exact scope, versions and optional-test skips.
 
 ## What runs
 
