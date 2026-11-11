@@ -20,3 +20,7 @@ jobs:
       - run: python -m pytest -q
       - run: python tools/rollout.py --ticks 64 --output runs/ci.jsonl
       - run: python tools/rollout.py --replay runs/ci.jsonl
+      - name: Audit the full sensory reference journal
+        run: |
+          python -S -c "import gzip; from pathlib import Path; Path('runs/ci-perception-reference.lwj').open('xb').write(gzip.decompress(Path('examples/perception-42-social.lwj.gz').read_bytes()))"
+          python -S tools/journal.py --output runs/ci-perception-reference.lwj --verify-only --audit-compatible
