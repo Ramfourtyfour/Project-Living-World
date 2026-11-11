@@ -10,16 +10,17 @@ from tkinter import filedialog, messagebox, ttk
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from training.native import Action, RESOURCES, ROOT, World
 from training.policies import HeuristicPolicy
+from training.checkpoint import save_checkpoint,load_checkpoint
 
 BG, PANEL, INK, MUTED = "#101b20", "#19272c", "#e5ece8", "#91a79e"
 COLORS = ("#dbaa67", "#6fa2bd", "#aa8a74", "#bab8aa", "#9cac6e")
 GROUPS = ("#c9d1cb", "#c8a568", "#7aa6bd", "#a293b9", "#88ad89")
 
 class Inspector:
-    def __init__(self,root,seed=42,population=32):
+    def __init__(self,root,seed=42,population=32,native_policy=None):
         self.root=root;self.seed=seed;self.population=population
         self.world=World(seed,population);self.actor=self.world.ids[0];self.running=False
-        self.policy=HeuristicPolicy();self.pending=None;self.target=None;self.last_error=""
+        self.native_policy=native_policy;self.policy=self.make_policy();self.pending=None;self.target=None;self.last_error=""
         root.title("Project Living World — Simulation Inspector")
         root.geometry("1180x800");root.minsize(1000,720);root.configure(bg=BG)
         style=ttk.Style(root);style.theme_use("clam")
@@ -27,7 +28,7 @@ class Inspector:
         style.map("TButton",background=[("active","#30443e")])
         top=tk.Frame(root,bg=BG,padx=24,pady=18);top.pack(fill="x")
         tk.Label(top,text="LIVING WORLD",font=("Segoe UI",20,"bold"),fg=INK,bg=BG).pack(side="left")
-        tk.Label(top,text="  /  SIMULATION LAB     v0.1",font=("Segoe UI",10),fg=MUTED,bg=BG).pack(side="left")
+        tk.Label(top,text="  /  SIMULATION LAB     v0.2",font=("Segoe UI",10),fg=MUTED,bg=BG).pack(side="left")
         self.status=tk.Label(top,fg="#b6ccac",bg=BG,font=("Consolas",10));self.status.pack(side="right")
         bar=tk.Frame(root,bg=PANEL,padx=18,pady=10);bar.pack(fill="x",padx=24)
         self.run_button=ttk.Button(bar,text="▶ Run",command=self.toggle);self.run_button.pack(side="left",padx=3)
@@ -53,7 +54,15 @@ class Inspector:
         self.draw();root.after(150,self.loop)
 
     def close(self):
-        self.running=False;self.world.close();self.root.destroy()
+        self.running=False;self.world.close()
+        if hasattr(self.policy,"close"):self.policy.close()
+        self.root.destroy()
+
+    def make_policy(self):
+        if self.native_policy:
+            from inference.runtime import NativeLearnedPolicy
+            return NativeLearnedPolicy(self.native_policy)
+        return HeuristicPolicy()
 
     def toggle(self):
         self.running=not self.running;self.run_button.configure(text="Ⅱ Pause" if self.running else "▶ Run")
@@ -104,7 +113,7 @@ class Inspector:
         c.create_text(ox+10,oy+12,text="240 m FOREST REGION  /  " + ("ORACLE VIEW" if self.oracle.get() else "LOCAL PERCEPTION"),anchor="nw",fill=MUTED,font=("Segoe UI",10))
         legend="  ".join(f"■ {name}" for name in RESOURCES)
         c.create_text(ox+10,oy+24000*scale-12,text=legend,anchor="sw",fill=MUTED,font=("Segoe UI",9))
-        self.status.configure(text=f"SEED {self.seed}  ·  TICK {o['tick']:05}  ·  {'RUNNING' if self.running else 'PAUSED'}")
+        self.status.configure(text=f"{'LEARNED' if self.native_policy else 'BASELINE'}  ·  SEED {self.seed}  ·  TICK {o['tick']:05}  ·  {'RUNNING' if self.running else 'PAUSED'}")
         self.identity.configure(text=f"Person {self.actor:03}")
         self.info.configure(text=f"Agreement   {a['group'] or 'None'}\nLife        {'Alive' if a['alive'] else 'Deceased'}\nHealth      {a['health']:3}/100\nHunger      {a['hunger']:3}/100\nThirst      {a['thirst']:3}/100\nFatigue     {a['fatigue']:3}/100\nPosition    {a['x']/100:.1f}, {a['y']/100:.1f} m")
         self.inventory.configure(text="INVENTORY  " + str(sum(a["inventory"]))+" / 24\n\n"+"\n".join(f"{name.capitalize():10} {a['inventory'][i]:3}" for i,name in enumerate(RESOURCES)))
@@ -136,24 +145,34 @@ class Inspector:
         if not self.running:self.step()
 
     def save(self):
+        if self.native_policy:
+            path=filedialog.asksaveasfilename(title="Save a new complete world checkpoint",initialfile="living-world.lwcheck")
+            if path:
+                try:save_checkpoint(self.world,path,self.policy)
+                except (OSError,ValueError) as e:messagebox.showerror("Could not save checkpoint",str(e));return
+                self.last_error="Saved world and every individual's decision memory.";self.draw()
+            return
         path=filedialog.asksaveasfilename(defaultextension=".lws",initialfile="living-world.lws",filetypes=[("Living World save","*.lws")])
         if path:
             self.world.save(path);self.last_error="Saved world snapshot.";self.draw()
 
     def load(self):
-        path=filedialog.askopenfilename(filetypes=[("Living World save","*.lws")])
+        path=filedialog.askdirectory(title="Choose a complete world checkpoint") if self.native_policy else filedialog.askopenfilename(filetypes=[("Living World save","*.lws")])
         if not path:return
-        try:new=World(snapshot=Path(path).read_text(encoding="utf-8"))
+        try:new=load_checkpoint(path,self.policy) if self.native_policy else World(snapshot=Path(path).read_text(encoding="utf-8"))
         except (ValueError,OSError) as e:messagebox.showerror("Could not load save",str(e));return
         self.world.close();self.world=new;self.actor=new.ids[0];self.target=None;self.pending=None
         self.seed=new.debug_state()["seed"];self.last_error="Restored all individuals, resources, offers and memories.";self.draw()
 
     def reset(self):
         self.world.close();self.seed+=1;self.world=World(self.seed,self.population);self.actor=self.world.ids[0]
+        if hasattr(self.policy,"close"):self.policy.close()
+        self.policy=self.make_policy()
         self.target=None;self.pending=None;self.last_error="";self.draw()
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument("--seed",type=int,default=42);p.add_argument("--population",type=int,default=32);args=p.parse_args()
-    root=tk.Tk();Inspector(root,args.seed,args.population);root.mainloop()
+    p=argparse.ArgumentParser();p.add_argument("--seed",type=int,default=42);p.add_argument("--population",type=int,default=32)
+    p.add_argument("--native-policy");args=p.parse_args()
+    root=tk.Tk();Inspector(root,args.seed,args.population,args.native_policy);root.mainloop()
 
 if __name__=="__main__":main()

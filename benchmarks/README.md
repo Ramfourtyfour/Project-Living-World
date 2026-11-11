@@ -13,6 +13,19 @@ performance numbers. Tests and recordings are distinct from human play evidence.
   allocations. It is not a native-only throughput, total RAM or 60 FPS claim.
 - `curriculum-v2-protocol.md`: predeclared harder curriculum and gate. Evaluation
   output is written only after the complete paired run finishes.
+- `scarcity-diagnosis.json`: development-seed action, waste, discovery and death
+  accounting. It is neither the optimization seed set nor the sealed final test.
+- `curriculum-v3-protocol.md`: predeclared 38-feature recurrent curriculum and
+  separate validation/sealed-test partitions. Warm-start validation is retained.
+- `durable-authority.json`, `durable-resume.json`, `durable-replay.json`: actual
+  fsynced journal runs and exact reopen/replay measurements.
+- `curriculum-v3-validation.json`, `curriculum-v3-sealed-test.json`,
+  `curriculum-v3-summary.json`: fixed candidate, 8 validation/16 sealed seeds,
+  paired uncertainty and the passed bounded pilot gate.
+- `native-inference-conformance.json`: actual trained-weight numerical comparison,
+  including the native kernel's slower local timing rather than a speedup claim.
+- `sealed-20000-*-discovery.json`: verified first-sealed-seed causal exploration
+  accounting, including individual reports. Full compressed logs are in `examples/`.
 
 Run commands are in the root README. Training manifests retain seed/config/version
 and training history. Replaying a world requires the same native code/build and

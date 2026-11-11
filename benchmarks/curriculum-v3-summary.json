@@ -1,0 +1,119 @@
+{
+  "version": 1,
+  "validation_gate_passed": true,
+  "sealed_gate_passed": true,
+  "native_conformance_passed": true,
+  "source_candidate_unchanged": true,
+  "all_sealed_resources_conserved": true,
+  "sealed_seed_count": 16,
+  "paired_survival_gain": 0.111328125,
+  "paired_seed_bootstrap_95_percent_interval": [
+    0.0625,
+    0.162109375
+  ],
+  "seed_wins": 13,
+  "seed_ties": 2,
+  "seed_losses": 1,
+  "paired_seeds": [
+    {
+      "seed": 20000,
+      "heuristic_survival": 0.53125,
+      "learned_survival": 0.75,
+      "difference": 0.21875
+    },
+    {
+      "seed": 20001,
+      "heuristic_survival": 0.46875,
+      "learned_survival": 0.59375,
+      "difference": 0.125
+    },
+    {
+      "seed": 20002,
+      "heuristic_survival": 0.46875,
+      "learned_survival": 0.40625,
+      "difference": -0.0625
+    },
+    {
+      "seed": 20003,
+      "heuristic_survival": 0.53125,
+      "learned_survival": 0.59375,
+      "difference": 0.0625
+    },
+    {
+      "seed": 20004,
+      "heuristic_survival": 0.46875,
+      "learned_survival": 0.5625,
+      "difference": 0.09375
+    },
+    {
+      "seed": 20005,
+      "heuristic_survival": 0.4375,
+      "learned_survival": 0.4375,
+      "difference": 0.0
+    },
+    {
+      "seed": 20006,
+      "heuristic_survival": 0.375,
+      "learned_survival": 0.46875,
+      "difference": 0.09375
+    },
+    {
+      "seed": 20007,
+      "heuristic_survival": 0.4375,
+      "learned_survival": 0.5625,
+      "difference": 0.125
+    },
+    {
+      "seed": 20008,
+      "heuristic_survival": 0.53125,
+      "learned_survival": 0.5625,
+      "difference": 0.03125
+    },
+    {
+      "seed": 20009,
+      "heuristic_survival": 0.40625,
+      "learned_survival": 0.5625,
+      "difference": 0.15625
+    },
+    {
+      "seed": 20010,
+      "heuristic_survival": 0.375,
+      "learned_survival": 0.46875,
+      "difference": 0.09375
+    },
+    {
+      "seed": 20011,
+      "heuristic_survival": 0.4375,
+      "learned_survival": 0.4375,
+      "difference": 0.0
+    },
+    {
+      "seed": 20012,
+      "heuristic_survival": 0.5,
+      "learned_survival": 0.75,
+      "difference": 0.25
+    },
+    {
+      "seed": 20013,
+      "heuristic_survival": 0.375,
+      "learned_survival": 0.625,
+      "difference": 0.25
+    },
+    {
+      "seed": 20014,
+      "heuristic_survival": 0.59375,
+      "learned_survival": 0.625,
+      "difference": 0.03125
+    },
+    {
+      "seed": 20015,
+      "heuristic_survival": 0.46875,
+      "learned_survival": 0.78125,
+      "difference": 0.3125
+    }
+  ],
+  "causal_new_supply_units": 55,
+  "causal_new_supply_users": 8,
+  "pilot_gate_passed": true,
+  "limits": "Uncertainty resamples 16 whole-world seeds, not correlated individuals. Two small scene distributions and one fixed causal trace; no social learning, society, 3D or co-op claim."
+}

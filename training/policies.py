@@ -85,3 +85,25 @@ def intent_mask(observation):
     a = observation["self"]
     room = sum(a["inventory"]) < 24
     return [room, room, a["inventory"][0]>0, a["inventory"][1]>0, True, True, room, True]
+
+def features_v2(observation):
+    """38 local scalars: preserve v1, then encode useful consumption and local pressure.
+
+    Remembered resource stock/age is a belief, never a registry query. Crowding uses
+    visible bodies only. These features change neither available actions nor rules.
+    """
+    a=observation["self"]
+    f=features(observation)
+    f += [float(a["inventory"][0]>0),float(a["inventory"][1]>0),
+          max(0,45-a["hunger"])/45,max(0,55-a["thirst"])/55]
+    visible={n["id"]:n for n in observation["nodes"]}
+    for r,need in ((0,"hunger"),(1,"thirst")):
+        n=nearest(observation,r)
+        stock=n.get("amount",n.get("amount_at_observation",0)) if n else 0
+        distance=math.hypot(n["x"]-a["x"],n["y"]-a["y"])/1800 if n else 3
+        crowd=sum((p["x"]-n["x"])**2+(p["y"]-n["y"])**2<=300**2 for p in observation["people"]) if n else 0
+        age=0 if n and n["id"] in visible else n.get("age",128) if n else 128
+        supply=sum(node["amount"] for node in observation["nodes"] if node["resource"]==r)
+        f += [min(1,stock/40),min(3,distance),min(1,crowd/16),min(1,age/128),
+              min(2,supply/80),float(a[need]>=85)]
+    return f

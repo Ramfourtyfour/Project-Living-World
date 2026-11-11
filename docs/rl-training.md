@@ -71,4 +71,45 @@ extend training horizons, and run declared reward/memory ablations.
 
 No social learning, emergent civilization, long-run economy stability, independent
 monster behavior or online neural weight learning has been demonstrated. Negative
-results are the reason construction and 3D expansion remain pending.
+results remain preserved as evidence rather than overwritten by subsequent gains.
+
+## Third curriculum: passed bounded pilot
+
+The development diagnosis found fatigue damage and deaths with owned supplies in
+the learned policy; food waste alone did not explain the failures. The third
+protocol was declared before its evaluation. It added 38 local features and a
+64-unit GRU, alternating normal/scarce cloning demonstrations, a 512-tick PPO
+horizon, a normal/scarce training mixture and an explicit resource-waste reward
+component. This combined intervention does not identify the contribution of any
+single change. Architecture and reward versions retain legacy artifact behavior.
+
+The final run used 96 PPO updates and 1,266,864 agent steps. Exact configuration,
+source file hashes, a frozen source ZIP, native binary SHA-256 and training history
+are retained with `curriculum-v3.pt`. The live policy is exported unchanged to C++.
+
+| Test scenario / policy | Mean final survival | Mean lifetime | Explored cells/person |
+| --- | ---: | ---: | ---: |
+| Normal heuristic | 100% | 512 | 31.29 |
+| Normal learned, native | 100% | 512 | 40.35 |
+| Scarce heuristic | 46.29% | 350.07 | 31.47 |
+| Scarce learned, native | 57.42% | 399.77 | 39.07 |
+
+These are 16 sealed seeds 20000..20015, separate from optimization, development
+and the repeatedly inspected validation seeds 10000..10007. The frozen policy
+passed validation and the sealed comparison. Resource conservation holds in every
+sealed episode, including random-policy failures. It won survival on 13 world
+seeds, tied two and lost one. A paired world-seed bootstrap interval for the 11.13
+point survival gain was [6.25, 16.21] points; agents within a world are correlated
+and are not treated as independent samples.
+
+The first sealed seed was fixed in advance for causal tracing. Eight learned
+agents extracted 55 food/water units from sites outside their initial sight. The
+heuristic also had eight such users and extracted 93 units. This establishes real
+use of discoveries while limiting claims about exploration efficiency. Full
+compressed journals and individual reports are retained; no best-seed selection.
+
+The pilot stop/go gate is now passed for the declared simple survival worlds.
+This does not pass social training, richer environment, society, 3D, co-op or
+release gates. Memory/reward/relationship ablations and broader league experiments
+remain required as those capabilities are added. See `curriculum-v3-summary.json`
+and the predeclared protocol for the machine-readable audit and limits.

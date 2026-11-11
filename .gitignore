@@ -5,6 +5,7 @@ __pycache__/
 *.py[cod]
 *.lws
 *.jsonl
+*.lwj
 *.tmp
 work/
 .venv/

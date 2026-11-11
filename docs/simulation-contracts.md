@@ -94,7 +94,10 @@ identity uniqueness, references, bounds and conservation. Unknown versions fail;
 no silent migration. Saving uses atomic same-directory replacement. No in-flight
 multi-tick actions exist in v1. World snapshots exclude neural runtime memory;
 `LearnedPolicy.memory_snapshot/restore_memory` persists it separately with the
-policy SHA-256. A future game checkpoint must bundle both files atomically.
+policy SHA-256. `training/checkpoint.py` now publishes immutable bundles binding
+world and controller files with an atomic manifest; `training/journal.py` durably
+records and replays authoritative ticks and individual recurrent state. See
+`durable-authority.md` for commit ordering, file leases and interrupted-write recovery.
 
 `PolicyArtifactV1`: tensor weights plus JSON manifest: architecture, observation
 version, intent names, SHA-256, method, training seeds/config/version/metrics.

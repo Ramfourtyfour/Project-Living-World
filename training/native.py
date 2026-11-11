@@ -1,6 +1,7 @@
 """Typed in-process C ABI. Never feed debug_state() to a deployed policy."""
 import ctypes as C
 from dataclasses import dataclass
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -53,8 +54,14 @@ def library():
     _lib = lib
     return lib
 
+def native_fingerprint():
+    """Exact loaded native binary identity, for reproducible checkpoints/experiments."""
+    return hashlib.sha256(Path(library()._name).read_bytes()).hexdigest()
+
 class World:
     def __init__(self, seed=1, population=32, *, snapshot=None, scenario=0):
+        if snapshot is not None and (not isinstance(snapshot,str) or "\0" in snapshot):
+            raise ValueError("Snapshot must be a text record without NUL bytes")
         self.lib = library()
         self.handle = self.lib.lw_load(snapshot.encode("utf-8")) if snapshot is not None else self.lib.lw_create_scenario(seed, population, scenario)
         if not self.handle:

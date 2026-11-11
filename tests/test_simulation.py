@@ -123,7 +123,7 @@ def test_spent_offer_cannot_mint_items():
 def test_corrupt_or_wrong_version_saves_rejected():
     with World(1,4) as w:
         saved=w.snapshot()
-    for text in ["",saved[:-1],saved.replace("LIVING_WORLD_V1","LIVING_WORLD_V99"),saved+"garbage"]:
+    for text in ["",saved[:-1],saved.replace("LIVING_WORLD_V1","LIVING_WORLD_V99"),saved+"garbage",saved+"\0hidden"]:
         with pytest.raises(ValueError):World(snapshot=text)
 
 def rechecksum(body):

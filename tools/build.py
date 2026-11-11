@@ -12,6 +12,7 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument("--debug", action="store_true")
     p.add_argument("--build-dir", default="build", help="Use a separate directory if a running process has loaded the current DLL")
+    p.add_argument("--inference-only",action="store_true",help="Build the separate native policy runtime without replacing a loaded simulation DLL")
     args = p.parse_args()
     compiler = os.environ.get("CXX") or shutil.which("g++") or shutil.which("clang++")
     if not compiler:
@@ -29,11 +30,18 @@ def main():
         common += ["-static-libgcc", "-static-libstdc++", "-static"]
     else:
         common += ["-fPIC"]
-    subprocess.run(common + ["-shared", "sim/world.cpp", "sim/api.cpp", "-o", str(lib)], cwd=ROOT, check=True)
-    native = build / ("native_tests.exe" if windows else "native_tests")
-    subprocess.run(common + ["tests/native.cpp", "sim/world.cpp", "-o", str(native)], cwd=ROOT, check=True)
-    subprocess.run([str(native)], cwd=ROOT, check=True)
-    print(f"Built {lib}")
+    if not args.inference_only:
+        subprocess.run(common + ["-shared", "sim/world.cpp", "sim/api.cpp", "-o", str(lib)], cwd=ROOT, check=True)
+        native = build / ("native_tests.exe" if windows else "native_tests")
+        subprocess.run(common + ["tests/native.cpp", "sim/world.cpp", "-o", str(native)], cwd=ROOT, check=True)
+        subprocess.run([str(native)], cwd=ROOT, check=True)
+        print(f"Built {lib}")
+    policy=build/("livingworld_policy.dll" if windows else "liblivingworld_policy.dylib" if sys.platform=="darwin" else "liblivingworld_policy.so")
+    subprocess.run(common+["-Iinference","-shared","inference/runtime.cpp","-o",str(policy)],cwd=ROOT,check=True)
+    test=build/("inference_tests.exe" if windows else "inference_tests")
+    subprocess.run(common+["-Iinference","tests/inference_native.cpp","inference/runtime.cpp","-o",str(test)],cwd=ROOT,check=True)
+    subprocess.run([str(test)],cwd=ROOT,check=True)
+    print(f"Built {policy}")
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "tick": 160,
+  "population": 32,
+  "alive": 32,
+  "state_hash": "82d7a527ad52f82f",
+  "conserved": true,
+  "controller": "heuristic-v1",
+  "journal_bytes": 1019962,
+  "create_or_replay_seconds": 0.12339440011419356,
+  "durable_step_p95_ms": null,
+  "mean_step_ms": null,
+  "notes": "Single-writer copy-before-commit with file fsync; process-interruption tests, not a hardware power-loss guarantee."
+}

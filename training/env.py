@@ -5,9 +5,12 @@ from .policies import execute_intent
 class ParallelWorldEnv:
     metadata = {"name": "living_world_v1", "is_parallelizable": True}
 
-    def __init__(self, population=32, max_cycles=512, scenario=0):
+    def __init__(self, population=32, max_cycles=512, scenario=0, reward_version=1):
         self.population, self.max_cycles = population, max_cycles
         self.scenario=scenario
+        if reward_version not in (1,2):
+            raise ValueError("Unsupported reward version")
+        self.reward_version=reward_version
         self.world = None
         self.agents = []
         self.possible_agents = []
@@ -45,6 +48,14 @@ class ParallelWorldEnv:
                 "exploration": 0.08 if discovery and a["health"]>50 and max(a["hunger"],a["thirst"])<85 else 0.0,
                 "invalid": -0.1 if i in failures else 0.0,
             }
+            if self.reward_version==2:
+                action=native_actions.get(i)
+                wasted=0
+                if action and action.kind=="consume" and i not in failures and action.resource in (0,1):
+                    maximum=45 if action.resource==0 else 55
+                    need=old["hunger" if action.resource==0 else "thirst"]
+                    wasted=max(0,maximum-need)
+                components["waste"]=-0.02*wasted
             observations[i] = o; rewards[i] = sum(components.values())
             terminated[i] = not a["alive"]; truncated[i] = o["tick"]>=self.max_cycles and a["alive"]
             infos[i] = {"reward_components": components, "invalid": i in failures}

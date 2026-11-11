@@ -24,6 +24,10 @@ def main():
     native=ROOT/"build"/suffix
     if not native.is_file():raise SystemExit("Build the native library first")
     files.append(native)
+    policy_name="livingworld_policy.dll" if sys.platform=="win32" else "liblivingworld_policy.dylib" if sys.platform=="darwin" else "liblivingworld_policy.so"
+    policy_library=ROOT/"build"/policy_name
+    if not policy_library.is_file():raise SystemExit("Build the native policy library first")
+    files.append(policy_library)
     manifest={"version":1,"kind":"headless-prototype","full_master_plan_complete":False,"files":{}}
     for source in files:
         relative=source.relative_to(ROOT)
