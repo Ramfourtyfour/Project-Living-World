@@ -60,7 +60,7 @@ void World::initialize_social(bool starting_caches) {
 }
 
 void World::upgrade_rules() {
-    if(rules_version==2)return;
+    if(rules_version>=2)return;
     World upgraded=*this;
     upgraded.rules_version=2;
     upgraded.initialize_social(false); // Migration never spawns infrastructure or materials.
@@ -141,7 +141,7 @@ std::string World::apply_social(Individual& a,const Action& q) {
     }
     case RequestHelp: {
         auto b=individual(q.target);
-        if(!b||b==&a||b->health<=0||!sees(a,b->x,b->y))return "not_visible";
+        if(!b||b==&a||b->health<=0||!sees_person(a,*b))return "not_visible";
         if(distance2(a.x,a.y,b->x,b->y)>communication_range*communication_range)return "out_of_hearing_range";
         if(q.resource<0||q.resource>3||q.quantity<1||q.quantity>4||(q.resource>=2&&q.quantity!=1))return "invalid_request";
         if(q.resource>=2&&!location(q.x,q.y))return "outside_world";
@@ -149,7 +149,7 @@ std::string World::apply_social(Individual& a,const Action& q) {
         requests.push_back({next_id++,a.id,b->id,q.resource,q.quantity,q.resource<2?a.x:q.x,q.resource<2?a.y:q.y,0,0,tick,tick+60,0});
         requests.back().contact_x=a.x;requests.back().contact_y=a.y;requests.back().from_updated=tick;
         a.familiarity.try_emplace(b->id,0);b->familiarity.try_emplace(a.id,0);
-        tell(a.id,b->id,"request_received",{a.id,b->id});return "";
+        tell(a.id,b->id,"request_received",{a.id,b->id});make_sound(a,"voice",700);return "";
     }
     case AnswerRequest: {
         auto request=std::find_if(requests.begin(),requests.end(),[&](const auto& r){return r.id==q.target&&r.to==a.id&&r.status==0;});
@@ -157,20 +157,20 @@ std::string World::apply_social(Individual& a,const Action& q) {
         if(request->expires<tick)return "expired_request";
         if(q.quantity!=0&&q.quantity!=1)return "invalid_answer";
         auto sender=individual(request->from);
-        if(!sender||sender->health<=0||!sees(a,sender->x,sender->y)||distance2(a.x,a.y,sender->x,sender->y)>communication_range*communication_range)return "sender_unreachable";
+        if(!sender||sender->health<=0||!sees_person(a,*sender)||distance2(a.x,a.y,sender->x,sender->y)>communication_range*communication_range)return "sender_unreachable";
         request->status=q.quantity?1:2;request->answered=tick;
         request->from_status=request->status;request->from_updated=tick;
-        tell(a.id,sender->id,q.quantity?"request_accepted":"request_declined",{a.id,sender->id});return "";
+        tell(a.id,sender->id,q.quantity?"request_accepted":"request_declined",{a.id,sender->id});make_sound(a,"voice",700);return "";
     }
     case ReportRequest: {
         auto request=std::find_if(requests.begin(),requests.end(),[&](const auto& r){return r.id==q.target&&r.to==a.id&&(r.status==1||r.status==3||r.status==4);});
         if(request==requests.end())return "unknown_request";
         auto recipient=individual(request->from);
-        if(!recipient||recipient->health<=0||!sees(a,recipient->x,recipient->y)||distance2(a.x,a.y,recipient->x,recipient->y)>communication_range*communication_range)return "recipient_unreachable";
+        if(!recipient||recipient->health<=0||!sees_person(a,*recipient)||distance2(a.x,a.y,recipient->x,recipient->y)>communication_range*communication_range)return "recipient_unreachable";
         request->reported_tick=tick;request->contact_x=recipient->x;request->contact_y=recipient->y;
         if(request->status==3)confirm_request(*request,true);
         else {request->from_status=request->status;request->from_progress=request->progress;request->from_updated=tick;}
-        tell(a.id,recipient->id,"task_report",{a.id,recipient->id});return "";
+        tell(a.id,recipient->id,"task_report",{a.id,recipient->id});make_sound(a,"voice",700);return "";
     }
     case Deposit: case Withdraw: {
         auto cache=std::find_if(caches.begin(),caches.end(),[&](const auto& c){return c.id==q.target;});
@@ -183,7 +183,7 @@ std::string World::apply_social(Individual& a,const Action& q) {
             if(total(cache->inventory)+q.quantity>cache_capacity)return "storage_full";
             a.inventory[q.resource]-=q.quantity;cache->inventory[q.resource]+=q.quantity;
             emit(a.id,cache->id,"deposit","",q.quantity);
-            for(auto& observer:people)if(observer.id!=a.id&&observer.group==a.group&&sees(observer,a.x,a.y)&&sees(observer,cache->x,cache->y))interaction(observer.id,a.id,1,true,false);
+            for(auto& observer:people)if(observer.id!=a.id&&observer.group==a.group&&sees_person(observer,a)&&sees(observer,cache->x,cache->y))interaction(observer.id,a.id,1,true,false);
         } else {
             if(cache->inventory[q.resource]<q.quantity)return "insufficient_items";
             if(total(a.inventory)+q.quantity>capacity)return "inventory_full";
@@ -205,7 +205,7 @@ std::string World::apply_social(Individual& a,const Action& q) {
         if(a.inventory[2]<3||a.inventory[4]<2)return "insufficient_materials";
         SharedCache cache{};cache.id=next_id++;cache.creator=a.id;cache.group=a.group;cache.x=x;cache.y=y;cache.created=tick;
         cache.materials[2]=3;cache.materials[4]=2;a.inventory[2]-=3;a.inventory[4]-=2;caches.push_back(cache);
-        emit(a.id,cache.id,"cache_built");return "";
+        emit(a.id,cache.id,"cache_built");make_sound(a,"work",1200);return "";
     }
     default:return "unknown_action";
     }
@@ -213,7 +213,7 @@ std::string World::apply_social(Individual& a,const Action& q) {
 
 void World::refresh_social() {
     for(auto& a:people)if(a.health>0) {
-        for(const auto& b:people)if(a.id!=b.id&&sees(a,b.x,b.y)) {
+        for(const auto& b:people)if(a.id!=b.id&&sees_person(a,b)) {
             a.familiarity.try_emplace(b.id,0);
             auto badge=b.known_groups.find(b.group);
             if(badge!=b.known_groups.end()) {
@@ -250,7 +250,7 @@ void World::refresh_social() {
         // An unseen companion may finish and report later without broadcasting.
         if(request.from_status==1&&request.intent>=2&&request.expires>=tick) {
             auto actor=individual(request.to);auto witness=individual(request.from);
-            bool verified=actor&&witness&&actor->health>0&&witness->health>0&&sees(*witness,actor->x,actor->y)&&reachable(actor->x,actor->y,request.x,request.y);
+            bool verified=actor&&witness&&actor->health>0&&witness->health>0&&sees_person(*witness,*actor)&&reachable(actor->x,actor->y,request.x,request.y);
             request.from_progress=verified?(request.intent==2?1:std::min(10,request.from_progress+1)):0;
             request.from_updated=tick;
             if(request.from_progress>=(request.intent==2?1:10)) {
@@ -294,7 +294,7 @@ std::string World::social_observation(const Individual& a) const {
 }
 
 std::string World::social_debug() const {
-    std::ostringstream out;out<<",\"rules_version\":2,\"agreements\":[";bool comma=false;
+    std::ostringstream out;out<<",\"rules_version\":"<<rules_version<<",\"agreements\":[";bool comma=false;
     for(const auto& group:groups){if(comma)out<<',';comma=true;out<<"{\"id\":"<<group.id<<",\"founder\":"<<group.founder<<",\"name\":"<<std::quoted(group.name)<<",\"revision\":"<<group.revision<<'}';}
     out<<"],\"caches\":[";comma=false;for(const auto& cache:caches){if(comma)out<<',';comma=true;cache_json(out,cache,true);}
     out<<']';return out.str();

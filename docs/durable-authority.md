@@ -87,3 +87,10 @@ The rules-2 social baseline also completed a 64-person, 512-tick durable stress
 run with all 64 alive and resources conserved. Its measured p95 durable tick was
 128.04 ms with other desktop activity; this is a non-isolated headless profile,
 not a client frame-time claim. See `social-64-profile.json`.
+
+The rules-3 32-person social baseline reached tick 512 with all people alive and
+conservation true. Reopen reproduced `bb0215024021a6a9`, including facing, sighting
+memories, anonymous hearing and night phase. The measured non-isolated p95 durable
+tick was 44.82 ms. This is a headless authority measurement, not a render/network
+frame time. `examples/perception-42-social.lwj.gz` preserves the complete log;
+see `benchmarks/perception-durable.json` and `perception-replay.json`.

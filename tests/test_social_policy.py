@@ -2,7 +2,9 @@ from pathlib import Path
 import sys
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 
-from training.native import Action,World
+from training.native import Action,World as NativeWorld
+from functools import partial
+World=partial(NativeWorld,rules_version=2)
 from training.social import SocialHeuristicPolicy
 from test_social import gather,near
 

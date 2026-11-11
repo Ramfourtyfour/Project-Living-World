@@ -3,7 +3,7 @@
 An original standalone survival simulation for a future first-person co-op RPG
 inhabited by independent, locally informed agents.
 
-**Current version: 0.3.0 — native survival and social-mechanics prototype.** The full game described
+**Current version: 0.4.0 — native survival, individual senses and social-mechanics prototype.** The full game described
 in [the master plan](docs/master-plan.md) is **not complete**. This repository
 implements the initial simulation/training work package and reports its results.
 There is no 3D client, network co-op, settlement construction, combat or population magic yet.
@@ -25,8 +25,9 @@ uses a declared social heuristic; **Launch Inspector.cmd** uses the survival
 heuristic. The inspector is a desktop diagnostic
 viewer, not the first-person game. It opens paused with 32 individuals across four
 initial communities. Run, step, inspect people, and toggle manual control. In manual
-mode click terrain to move; G gathers the nearest visible node, E eats, D drinks,
-R rests and L leaves the selected individual's agreement. Save/load retains the
+mode click terrain to move or right-click to look. Q scans, C calls, Z toggles
+crouching; G gathers a visible node, E eats, D drinks, R rests and L leaves the
+selected individual's agreement. Save/load retains the
 world. Learned-mode saves include every individual's recurrent memory in a complete
 checkpoint folder. The separately labelled oracle toggle exposes global state for debugging.
 
@@ -67,7 +68,7 @@ ctest --test-dir build -C Release --output-on-failure
 Set `LIVINGWORLD_LIBRARY` to an absolute library path if using a custom build
 directory, and `LIVINGWORLD_POLICY_LIBRARY` for the separate policy library.
 Windows MSVC and Ubuntu GCC builds/tests have passed GitHub CI; the local Windows
-GCC run includes all 74 tests. See [the verified platform matrix](docs/platforms.md)
+GCC run includes all 83 tests. See [the verified platform matrix](docs/platforms.md)
 for exact scope, versions and optional-test skips.
 
 ## What runs
@@ -78,7 +79,9 @@ for exact scope, versions and optional-test skips.
   inventories, four initial agreements, hunger/thirst/fatigue and death.
 - Real node extraction/regrowth and checked per-resource conservation on every tick.
 - Local sight with obstruction, remembered sightings with age/provenance/confidence,
-  private observations and witnessed event journals.
+  private observations and witnessed event journals. Rules 3 adds facing/FOV,
+  day/night light, cover, crouching, anonymous approximate hearing and dated person/
+  landmark memories. See [perception contracts](docs/perception-contracts.md).
 - Validated move, inspect, gather, consume, gift, reciprocal trade, accept/decline,
   rest, depart and invite actions. Invitations need individual acceptance.
 - Dynamic named agreements, private directional trust, explicit help/visit/guard
@@ -116,13 +119,16 @@ efficiency. Earlier failed runs remain in `benchmarks/`; see
 
 Social choices, emergent society and the full game remain unproven. Current learned
 policies have eight survival/exploration intents and do not choose social actions.
-Live neural weights stay fixed; individual recurrent memory can change.
+Live neural weights stay fixed; individual recurrent memory can change. The frozen
+survival encoder does not yet learn from hearing, light or facing.
 
 The scores above are frozen **rules-1** results. Rules 2 adds caches and social
 contracts; its separate compatibility regression uses previously inspected seeds
 and is not a new sealed test. The social scenarios validate mechanics and a declared
 heuristic, not learned cooperation. Legacy journals can be audited exactly with
 `--verify-only --audit-compatible`; safe migration preserves the original file.
+Rules 3 adds directional, light/cover-limited sight and anonymous hearing. Its
+development checks and behavior report are separate from the frozen learning gate.
 
 ## Code map
 

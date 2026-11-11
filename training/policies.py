@@ -5,6 +5,18 @@ from .native import Action
 
 INTENTS = ("forage_food", "fetch_water", "eat", "drink", "rest", "explore", "gather_wood", "wait")
 
+def facing_target(observation,x,y):
+    if observation["version"]<3:return True
+    own=observation["self"];fx,fy=observation["senses"]["facing"]
+    dx=x-own["x"];dy=y-own["y"];dot=dx*fx+dy*fy
+    return dot>=0 and 4*dot*dot>=(dx*dx+dy*dy)*(fx*fx+fy*fy)
+
+def scan(observation):
+    own=observation["self"];fx,fy=observation["senses"]["facing"]
+    x=max(0,min(24000,own["x"]-fy));y=max(0,min(24000,own["y"]+fx))
+    if (x,y)==(own["x"],own["y"]):x=max(0,min(24000,own["x"]-fx));y=max(0,min(24000,own["y"]-fy))
+    return Action("turn",x=x,y=y)
+
 def move_toward(observation,x,y):
     """Local reactive steering around perceived circles; no hidden registry queries.
 
@@ -12,7 +24,14 @@ def move_toward(observation,x,y):
     """
     if observation["version"]<2:return Action("move",x=x,y=y)
     own=observation["self"]
+    if observation["version"]>=3:
+        blocked=any(e["actor"]==own["id"] and e["type"]=="rejected" and e["reason"]=="blocked" and e["tick"]==observation["tick"] for e in observation["events"])
+        if blocked and not facing_target(observation,x,y):return Action("turn",x=x,y=y)
     obstacles=[(b["x"],b["y"],b["radius"]+36) for b in observation["obstacles"]]
+    if observation["version"]>=3:
+        landmarks={m["id"]:(m["x"],m["y"],m["radius"]+36) for m in observation["landmark_memory"]}
+        landmarks.update({b["id"]:(b["x"],b["y"],b["radius"]+36) for b in observation["obstacles"]})
+        obstacles=list(landmarks.values())
     known={m["id"]:(m["x"],m["y"],126) for m in observation.get("place_memory",[])}
     known.update({c["id"]:(c["x"],c["y"],126) for c in observation.get("caches",[])})
     obstacles+=list(known.values())
@@ -51,12 +70,15 @@ def execute_intent(observation, intent):
         resource = {0: 0, 1: 1, 6: 2}[intent]
         target = nearest(observation, resource)
         if target:
+            if observation["version"]>=3 and not facing_target(observation,target["x"],target["y"]):
+                return Action("turn",x=target["x"],y=target["y"])
             if (target["x"]-own["x"])**2+(target["y"]-own["y"])**2 <= 300**2:
                 # A remembered target must be seen again before interaction.
                 visible = next((n for n in observation["nodes"] if n["id"] == target["id"]), None)
                 if visible and visible["amount"]:
                     return Action("gather", target=target["id"], quantity=1)
             return move_toward(observation,target["x"],target["y"])
+        if observation["version"]>=3 and observation["tick"]%4!=3:return scan(observation)
         intent = 5
     if intent in (2, 3):
         return Action("consume", resource=intent-2)

@@ -34,6 +34,12 @@ performance numbers. Tests and recordings are distinct from human play evidence.
   old-state/controller preservation and exact old-journal replay.
 - `social-64-profile.json`: non-isolated 64-person durable stress profile under
   rules 2, with all 64 alive at tick 512 and conservation true.
+- `perception-development.json`: four development seeds per normal/scarce scenario
+  under rules 3, through sunset/night. No new sealed or sensory-learning claim.
+- `perception-legacy-replay.json`, `perception-checkpoint-upgrade.json`: exact old
+  rules-2 tick-512 replay and rules-2 neural-memory migration into rules 3.
+- `perception-durable.json`, `perception-replay.json`: actual 32-person rules-3
+  run through tick 512 and exact reopen/replay; the compressed log is in `examples/`.
 
 Run commands are in the root README. Training manifests retain seed/config/version
 and training history. Replaying a world requires the same native code/build and

@@ -33,9 +33,9 @@ def main():
     else:
         common += ["-fPIC"]
     if not args.inference_only:
-        subprocess.run(common + ["-shared", "sim/world.cpp", "sim/social.cpp", "sim/api.cpp", "-o", str(lib)], cwd=ROOT, check=True)
+        subprocess.run(common + ["-shared", "sim/world.cpp", "sim/social.cpp", "sim/perception.cpp", "sim/api.cpp", "-o", str(lib)], cwd=ROOT, check=True)
         native = build / ("native_tests.exe" if windows else "native_tests")
-        subprocess.run(common + ["tests/native.cpp", "sim/world.cpp", "sim/social.cpp", "-o", str(native)], cwd=ROOT, check=True)
+        subprocess.run(common + ["tests/native.cpp", "sim/world.cpp", "sim/social.cpp", "sim/perception.cpp", "-o", str(native)], cwd=ROOT, check=True)
         subprocess.run([str(native)], cwd=ROOT, check=True)
         print(f"Built {lib}")
     if args.simulation_only:return

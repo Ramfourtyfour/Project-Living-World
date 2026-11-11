@@ -21,7 +21,7 @@ def main():
     args=p.parse_args();path=Path(args.output)
     if path.exists() and not args.overwrite:raise SystemExit("Choose a new output or explicitly --overwrite")
     if not 1<=args.seeds<=8:raise SystemExit("Use only the eight already inspected validation seeds")
-    with World(42,1) as world:
+    with World(42,1,rules_version=2) as world:
         if world.rules_version!=2:raise SystemExit("This regression requires rules 2")
     candidate=NativeLearnedPolicy(args.policy)
     report={"version":1,"rules_version":2,"native_sha256":native_fingerprint(),
@@ -36,7 +36,7 @@ def main():
             rows=[]
             for seed in report["seeds"]:
                 policy=factory()
-                try:rows.append(episode(policy,seed,32,512,scenario))
+                try:rows.append(episode(policy,seed,32,512,scenario,rules_version=2))
                 finally:
                     if hasattr(policy,"close"):policy.close()
             result={"episodes":rows,"mean_survival":statistics.mean(r["survival_fraction"] for r in rows),

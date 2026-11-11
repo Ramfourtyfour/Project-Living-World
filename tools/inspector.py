@@ -10,7 +10,7 @@ from tkinter import filedialog, messagebox, ttk
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from training.native import Action, RESOURCES, ROOT, World
-from training.policies import HeuristicPolicy
+from training.policies import HeuristicPolicy,scan
 from training.checkpoint import save_checkpoint,load_checkpoint
 
 BG, PANEL, INK, MUTED = "#101b20", "#19272c", "#e5ece8", "#91a79e"
@@ -34,7 +34,7 @@ class Inspector:
         style.map("TButton",background=[("active","#30443e")])
         top=tk.Frame(root,bg=BG,padx=24,pady=18);top.pack(fill="x")
         tk.Label(top,text="LIVING WORLD",font=("Segoe UI",20,"bold"),fg=INK,bg=BG).pack(side="left")
-        tk.Label(top,text="  /  SIMULATION LAB     v0.3",font=("Segoe UI",10),fg=MUTED,bg=BG).pack(side="left")
+        tk.Label(top,text="  /  SIMULATION LAB     v0.4",font=("Segoe UI",10),fg=MUTED,bg=BG).pack(side="left")
         self.status=tk.Label(top,fg="#b6ccac",bg=BG,font=("Consolas",10));self.status.pack(side="right")
         bar=tk.Frame(root,bg=PANEL,padx=18,pady=10);bar.pack(fill="x",padx=24)
         self.run_button=ttk.Button(bar,text="▶ Run",command=self.toggle);self.run_button.pack(side="left",padx=3)
@@ -54,8 +54,9 @@ class Inspector:
         self.journal=tk.Label(left,justify="left",anchor="nw",wraplength=240,font=("Segoe UI",10),fg=MUTED,bg=PANEL);self.journal.pack(fill="both",expand=True)
         self.canvas=tk.Canvas(main,bg="#142529",highlightthickness=0);self.canvas.pack(side="left",fill="both",expand=True)
         self.canvas.bind("<Configure>",lambda e:self.draw());self.canvas.bind("<Button-1>",self.click)
+        self.canvas.bind("<Button-3>",self.look)
         bottom=tk.Frame(root,bg=BG,padx=24,pady=10);bottom.pack(fill="x")
-        tk.Label(bottom,text="Click a person to inspect · Manual: click terrain to move · G gather · E eat · D drink · R rest · L leave group",font=("Segoe UI",10),fg=MUTED,bg=BG).pack(anchor="w")
+        tk.Label(bottom,text="Manual: click move · right-click look · Q scan · C call · Z crouch · G gather · E eat · D drink · R rest · L leave",font=("Segoe UI",10),fg=MUTED,bg=BG).pack(anchor="w")
         self.feedback=tk.Label(bottom,text="Only this individual's current sight and remembered sightings are shown.",font=("Segoe UI",9),fg="#b6ccac",bg=BG);self.feedback.pack(anchor="w",pady=5)
         root.bind("<KeyPress>",self.key);root.protocol("WM_DELETE_WINDOW",self.close)
         self.draw();root.after(150,self.loop)
@@ -114,7 +115,30 @@ class Inspector:
                 if memory["id"] not in visible_caches:
                     x,y=pos(memory["x"],memory["y"]);c.create_rectangle(x-5,y-5,x+5,y+5,outline=group_color(memory["group"]),dash=(2,2))
         x,y=pos(a["x"],a["y"]);radius=1800*scale
-        c.create_oval(x-radius,y-radius,x+radius,y+radius,fill="#203a36",outline="#52705e",dash=(3,4))
+        if o["version"]>=3:
+            radius=(300+15*o["senses"]["ambient_light"])*scale if a["alive"] else 0
+            fx,fy=o["senses"]["facing"];heading=-math.degrees(math.atan2(fy,fx))
+            c.create_arc(x-radius,y-radius,x+radius,y+radius,start=heading-60,extent=120,style="pieslice",fill="#203a36",outline="#52705e",dash=(3,4))
+            visible_landmarks={b["id"] for b in o["obstacles"]}
+            for memory in o["landmark_memory"]:
+                if memory["id"] not in visible_landmarks:
+                    bx,by=pos(memory["x"],memory["y"]);r=memory["radius"]*scale
+                    c.create_oval(bx-r,by-r,bx+r,by+r,outline="#596260",dash=(2,3))
+            latest={cue["kind"]:cue for cue in o["heard"]}
+            clues=sorted(latest.values(),key=lambda cue:cue["observed_tick"])[-3:]
+            heard_lines=[]
+            for cue in clues:
+                bx,by=pos(*cue["listener_origin"]);lo,hi=cue["distance_interval_cm"];angle=-cue["bearing_octant"]*45
+                for distance in (lo,hi):
+                    r=distance*scale
+                    if r:c.create_arc(bx-r,by-r,bx+r,by+r,start=angle-23,extent=46,style="arc",outline="#b9a383",dash=(2,3))
+                direction=("E","SE","S","SW","W","NW","N","NE")[cue["bearing_octant"]]
+                heard_lines.append(f"{cue['kind']} · {direction} · {lo//100}–{hi//100} m · t{cue['observed_tick']}")
+            if heard_lines:c.create_text(ox+24000*scale-10,oy+36,text="HEARD · UNCERTAIN\n"+"\n".join(heard_lines),anchor="ne",justify="right",fill="#b9a383",font=("Segoe UI",9))
+        else:c.create_oval(x-radius,y-radius,x+radius,y+radius,fill="#203a36",outline="#52705e",dash=(3,4))
+        for patch in (state.get("cover",[]) if self.oracle.get() else o.get("cover",[])):
+            bx,by=pos(patch["x"],patch["y"]);r=patch["radius"]*scale
+            c.create_oval(bx-r,by-r,bx+r,by+r,outline="#557050",dash=(2,4))
         for b in o["obstacles"]:
             x,y=pos(b["x"],b["y"]);r=b["radius"]*scale;c.create_oval(x-r,y-r,x+r,y+r,fill="#596260",outline="")
         for n in nodes:
@@ -138,7 +162,9 @@ class Inspector:
         self.inventory.configure(text="INVENTORY  " + str(sum(a["inventory"]))+" / 24\n\n"+"\n".join(f"{name.capitalize():10} {a['inventory'][i]:3}" for i,name in enumerate(RESOURCES)))
         lines=[f"t{e['tick']} · {e['type'].replace('_',' ')}"+(f" ({e['reason']})" if e["reason"] else "") for e in o["events"][:8]]
         self.journal.configure(text="\n\n".join(lines) or "No witnessed events yet.\n\nPeople remember what they actually see.")
-        self.feedback.configure(text=self.last_error or ("Oracle diagnostics expose global truth for debugging." if self.oracle.get() else "Only this individual's current sight and remembered sightings are shown."))
+        detail=f"Light {o['senses']['ambient_light']}% · Cover {o['senses']['cover_density']}% · {'Crouched' if o['senses']['crouching'] else 'Standing'} · Sight is limited by cover/obstruction; sounds show uncertain sectors." if o["version"]>=3 else "Only this individual's current sight and remembered sightings are shown."
+        if not a["alive"]:detail="Deceased: no current sensory information. Prior memories remain recorded."
+        self.feedback.configure(text=self.last_error or ("Oracle diagnostics expose global truth for debugging." if self.oracle.get() else detail))
 
     def click(self,event):
         scale,ox,oy=self.transform();x=round((event.x-ox)/scale);y=round((event.y-oy)/scale)
@@ -151,6 +177,12 @@ class Inspector:
             self.target=(max(0,min(24000,x)),max(0,min(24000,y)))
         self.draw()
 
+    def look(self,event):
+        if not self.manual.get() or self.world.rules_version<3:return
+        scale,ox,oy=self.transform();x=max(0,min(24000,round((event.x-ox)/scale)));y=max(0,min(24000,round((event.y-oy)/scale)))
+        self.pending=Action("turn",x=x,y=y);self.target=None
+        if not self.running:self.step()
+
     def key(self,event):
         if not self.manual.get():return
         key=event.keysym.lower()
@@ -161,6 +193,9 @@ class Inspector:
         elif key in ("e","d"):self.pending=Action("consume",resource=0 if key=="e" else 1)
         elif key=="r":self.pending=Action("rest");self.target=None
         elif key=="l":self.pending=Action("depart")
+        elif key=="q" and self.world.rules_version>=3:self.pending=scan(self.world.observe(self.actor));self.target=None
+        elif key=="c" and self.world.rules_version>=3:self.pending=Action("call")
+        elif key=="z" and self.world.rules_version>=3:self.pending=Action("crouch",quantity=int(not self.world.observe(self.actor)["senses"]["crouching"]))
         if not self.running:self.step()
 
     def save(self):

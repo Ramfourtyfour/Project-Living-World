@@ -27,6 +27,7 @@ LW_API int32_t lw_step(void* world,const LWAction* actions,int32_t count);
 LW_API int32_t lw_step_v2(void* world,const LWActionV2* actions,int32_t count);
 LW_API int32_t lw_rules_version(void* world);
 LW_API int32_t lw_upgrade_rules(void* world);
+LW_API int32_t lw_upgrade_perception(void* world);
 // Returned strings are thread-local, valid until the next string-returning API call.
 LW_API const char* lw_observe(void* world,uint64_t actor);
 LW_API const char* lw_debug(void* world);

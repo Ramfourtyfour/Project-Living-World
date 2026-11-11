@@ -42,14 +42,16 @@ class DiscoveryTrace:
                                 "new_supply_units":self.units[i],"first_new_supply_tick":self.first.get(i)} for i in sorted(self.initial)]}
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument("journal");p.add_argument("--native-policy");p.add_argument("--output",required=True);a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument("journal");p.add_argument("--native-policy");p.add_argument("--output",required=True)
+    p.add_argument("--audit-compatible",action="store_true",help="Read-only exact replay without restoring a controller");a=p.parse_args()
     policy=HeuristicPolicy()
-    if a.native_policy:
+    if a.audit_compatible:policy=None
+    elif a.native_policy:
         from inference.runtime import NativeLearnedPolicy
         policy=NativeLearnedPolicy(a.native_policy)
     trace=DiscoveryTrace()
-    with JournalRunner.open(a.journal,policy,trace) as runner:
-        report={"version":1,"controller":policy.name,"final_state_hash":runner.world.state_hash(),
+    with JournalRunner.open(a.journal,policy,trace,allow_runtime_migration=a.audit_compatible,restore_policy=not a.audit_compatible) as runner:
+        report={"version":1,"controller":runner.controller_snapshot["id"] if a.audit_compatible else policy.name,"final_state_hash":runner.world.state_hash(),
                 "final_tick":runner.world.observe(runner.world.ids[0])["tick"],"conserved":runner.world.debug_state()["conserved"],**trace.report(),
                 "scope":"Actual accepted food/water harvests from sources absent from that individual's initial sight. A causal trace, not proof of social learning."}
     path=Path(a.output);path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps(report,indent=2)+"\n",encoding="utf-8")

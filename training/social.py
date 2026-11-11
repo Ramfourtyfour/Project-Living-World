@@ -4,7 +4,7 @@ Every choice uses only that individual's current observation and received propos
 No registry inventory queries, faction commands or scripted membership splits.
 """
 from .native import Action
-from .policies import HeuristicPolicy,execute_intent,move_toward
+from .policies import HeuristicPolicy,execute_intent,move_toward,facing_target,scan
 
 def distance2(a,b):return (a["x"]-b["x"])**2+(a["y"]-b["y"])**2
 
@@ -22,6 +22,9 @@ class SocialHeuristicPolicy:
         for offer in o["offers"]:
             if offer["to"]!=a["id"]:continue
             sender=people.get(offer["from"])
+            if not sender and o["version"]>=3:
+                memory=next((p for p in o["person_memory"] if p["id"]==offer["from"]),None)
+                if memory and not facing_target(o,memory["x"],memory["y"]):return Action("turn",x=memory["x"],y=memory["y"])
             if not sender or distance2(a,sender)>300**2:continue
             failed=any(e["actor"]==a["id"] and e["type"]=="rejected" and e["target"]==offer["id"] and e["reason"] in ("insufficient_items","inventory_full","expired_offer") for e in o["events"])
             if failed:return Action("decline",target=offer["id"])
@@ -36,6 +39,11 @@ class SocialHeuristicPolicy:
         for request in o.get("requests",[]):
             if request["to"]!=a["id"] or request["status"]!=0:continue
             sender=people.get(request["from"])
+            if not sender and o["version"]>=3:
+                x,y=request["contact_x"],request["contact_y"]
+                if not facing_target(o,x,y):return Action("turn",x=x,y=y)
+                if (a["x"]-x)**2+(a["y"]-y)**2>100**2:return move_toward(o,x,y)
+                if o["tick"]%4==0:return scan(o)
             if not sender or distance2(a,sender)>1200**2:continue
             intent=request["intent"]
             can_help=(intent<2 and inventory[intent]>=request["quantity"]+1) or (intent>=2 and max(a["hunger"],a["thirst"])<60)
@@ -45,6 +53,7 @@ class SocialHeuristicPolicy:
                 partner=people.get(request["from"])
                 if partner and distance2(a,partner)<=1200**2:return Action("report_request",target=request["id"])
                 contact={"x":request["contact_x"],"y":request["contact_y"]}
+                if o["version"]>=3 and not facing_target(o,contact["x"],contact["y"]):return Action("turn",x=contact["x"],y=contact["y"])
                 if distance2(a,contact)>300**2:return move_toward(o,contact["x"],contact["y"])
         for request in o.get("requests",[]):
             if request["to"]!=a["id"] or request["status"]!=1:continue
@@ -56,6 +65,7 @@ class SocialHeuristicPolicy:
                 if distance2(a,recipient)>300**2:return move_toward(o,recipient["x"],recipient["y"])
                 return Action("offer",target=recipient["id"],resource=intent,quantity=remaining)
             if intent<2 and inventory[intent]>=remaining+1 and not recipient:
+                if o["version"]>=3 and not facing_target(o,request["x"],request["y"]):return Action("turn",x=request["x"],y=request["y"])
                 if distance2(a,request)>300**2:return move_toward(o,request["x"],request["y"])
             if intent>=2 and max(a["hunger"],a["thirst"],a["fatigue"])<75:
                 if distance2(a,request)<=300**2:return Action("rest")

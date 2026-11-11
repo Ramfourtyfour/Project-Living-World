@@ -17,7 +17,7 @@ def main():
     p.add_argument("--resume",action="store_true");p.add_argument("--verify-only",action="store_true")
     p.add_argument("--policy");p.add_argument("--seed",type=int,default=42)
     p.add_argument("--native-policy",help="Use exported C++ policy inference without PyTorch")
-    p.add_argument("--social-baseline",action="store_true");p.add_argument("--rules-version",type=int,choices=[1,2],default=2)
+    p.add_argument("--social-baseline",action="store_true");p.add_argument("--rules-version",type=int,choices=[1,2,3],default=3)
     p.add_argument("--audit-compatible",action="store_true",help="Read-only exact replay with a different simulation binary; do not restore or run a controller")
     p.add_argument("--population",type=int,default=32);p.add_argument("--scenario",type=int,choices=[0,1],default=0)
     p.add_argument("--ticks",type=int,default=128);p.add_argument("--checkpoint");p.add_argument("--report")

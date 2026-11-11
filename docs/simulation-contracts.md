@@ -53,9 +53,8 @@ both scenarios. There is no free runtime replenishment on scenario changes.
 `ObservationV1`: own record; currently visible nodes and public body records;
 remembered node sightings; own incoming/outgoing offers; known relationships;
 visible obstacles; up to 32 witnessed events. Never another person's needs,
-inventory, policy state, private offers or unseen position. Currently sight is
-omnidirectional over 18 m with circle obstruction tests. FOV, light, concealment
-and hearing are **not implemented**. A remembered location is not live truth.
+inventory, policy state, private offers or unseen position. Historical rules 1 and
+2 use omnidirectional 18 m sight with circle obstruction tests. A remembered location is not live truth.
 Memories retain source, age, last observed amount and a decaying confidence proxy.
 Memory refresh happens on world ticks, never on reads. Capacity is 32 sightings.
 
@@ -64,6 +63,11 @@ private requests, visible caches and 32 timestamped place memories. Current cach
 contents require authorized reach. Remote names, contents and unseen event-target
 IDs do not become global knowledge. The survival feature encoders project only
 their declared old/local fields; social learning still needs its own action head.
+
+`ObservationV3` adds directional sight with light and concealment, anonymous
+approximate hearing, own posture/facing, and dated person/landmark memories.
+See `perception-contracts.md` for exact limits and validation. Current dead-person
+light/cover readings are null; dead people acquire no new sensory information.
 
 `ActionRequestV1`: actor, request ID, kind, target ID, waypoint, resource/quantity,
 requested resource/quantity. Public C ABI is in `sim/api.h`; Python `Action` is in
@@ -121,6 +125,8 @@ records and replays authoritative ticks and individual recurrent state. See
 `WorldSaveV2` appends agreements, caches, personal knowledge/relations, requests and
 event redactions. Verified legacy migration retains people/materials and spawns
 no caches. Compatible journal audits verify all old hashes and remain read-only.
+`WorldSaveV3` appends checked sensory/landmark records; explicit migration preserves
+old matter and identities without spawning terrain or supplies.
 
 `PolicyArtifactV1`: tensor weights plus JSON manifest: architecture, observation
 version, intent names, SHA-256, method, training seeds/config/version/metrics.

@@ -95,15 +95,16 @@ def _load_checkpoint(path,policy=None,allow_legacy_upgrade=False):
     try:
         if list(world.ids)!=metadata["individual_ids"] or world.state_hash()!=metadata["state_hash"]:
             raise ValueError("Checkpoint world identity/hash mismatch")
-        if runtime_changed and world.rules_version!=1:
+        if runtime_changed and world.rules_version>=3:
             raise ValueError("Native runtime differs; this rules version has no verified migration")
         restore_controller(policy,record,world.ids)
         if "migration" in metadata:
             if not isinstance(metadata["migration"],dict):raise ValueError("Malformed migration provenance")
             world.migration_info=metadata["migration"]
         if runtime_changed:
+            previous_rules=world.rules_version
             world.upgrade_rules()
-            world.migration_info={"from_rules":1,"to_rules":2,"previous_native_sha256":metadata["native_sha256"],
+            world.migration_info={"from_rules":previous_rules,"to_rules":world.rules_version,"previous_native_sha256":metadata["native_sha256"],
                                   "previous_state_hash":metadata["state_hash"],"source_manifest_sha256":hashlib.sha256(raw).hexdigest()}
     except BaseException:
         world.close()

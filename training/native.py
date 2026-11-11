@@ -9,7 +9,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 KINDS = {name: i for i, name in enumerate(("wait", "move", "inspect", "gather", "consume", "offer", "accept", "trade", "rest", "depart", "invite", "decline",
-                                         "found_group","rename_group","request","answer_request","deposit","withdraw","place_cache","report_request"))}
+                                         "found_group","rename_group","request","answer_request","deposit","withdraw","place_cache","report_request","turn","call","crouch"))}
 RESOURCES = ("food", "water", "wood", "stone", "fiber")
 
 class CAction(C.Structure):
@@ -64,6 +64,8 @@ def library():
         lib.lw_action_v2_size.argtypes=[];lib.lw_action_v2_size.restype=C.c_int32
         if lib.lw_action_v2_size()!=C.sizeof(CActionV2):raise RuntimeError("Named action ABI mismatch")
     _lib = lib
+    if hasattr(lib,"lw_upgrade_perception"):
+        lib.lw_upgrade_perception.argtypes=[C.c_void_p];lib.lw_upgrade_perception.restype=C.c_int32
     return lib
 
 def native_fingerprint():
@@ -71,7 +73,7 @@ def native_fingerprint():
     return hashlib.sha256(Path(library()._name).read_bytes()).hexdigest()
 
 class World:
-    def __init__(self, seed=1, population=32, *, snapshot=None, scenario=0,rules_version=2):
+    def __init__(self, seed=1, population=32, *, snapshot=None, scenario=0,rules_version=3):
         if snapshot is not None and (not isinstance(snapshot,str) or "\0" in snapshot):
             raise ValueError("Snapshot must be a text record without NUL bytes")
         self.lib = library()
@@ -127,10 +129,12 @@ class World:
         if not self.handle:raise RuntimeError("World is closed")
         return self.lib.lw_rules_version(self.handle) if hasattr(self.lib,"lw_rules_version") else 1
 
-    def upgrade_rules(self):
+    def upgrade_rules(self,version=3):
         if not self.handle:raise RuntimeError("World is closed")
-        if not hasattr(self.lib,"lw_upgrade_rules"):raise RuntimeError("Rebuild the simulation library before migrating")
-        if self.lib.lw_upgrade_rules(self.handle):raise ValueError(self.lib.lw_error().decode())
+        if version not in (2,3) or version<self.rules_version:raise ValueError("Unsupported upgrade target")
+        name="lw_upgrade_perception" if version==3 else "lw_upgrade_rules"
+        if not hasattr(self.lib,name):raise RuntimeError("Rebuild the simulation library before migrating")
+        if getattr(self.lib,name)(self.handle):raise ValueError(self.lib.lw_error().decode())
 
     def step(self, actions, *, requests=None):
         """One intent per actor; unknown actor IDs are rejected by the native authority."""

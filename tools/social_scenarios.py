@@ -25,7 +25,7 @@ def approach(runner,actor,target):
 
 def episode(seed,stock,directory):
     path=directory/f"seed-{seed}-stock-{stock}.lwj";policy=SocialHeuristicPolicy();latencies=[];events={}
-    with JournalRunner.create(path,seed,8,policy=policy) as runner:
+    with JournalRunner.create(path,seed,8,policy=policy,rules_version=2) as runner:
         a,b=runner.world.ids[0],runner.world.ids[4]
         source=next(n for n in runner.world.observe(b)["nodes"] if n["resource"]==0)
         approach(runner,b,source)

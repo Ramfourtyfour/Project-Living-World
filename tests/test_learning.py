@@ -41,7 +41,7 @@ def test_features_and_masks_use_only_observation():
 def test_waste_reward_is_versioned_and_does_not_change_world_rules():
     from training.env import ParallelWorldEnv
     from training.native import Action
-    with ParallelWorldEnv(1,512,reward_version=1) as old,ParallelWorldEnv(1,512,reward_version=2) as new:
+    with ParallelWorldEnv(1,512,reward_version=1,rules_version=2) as old,ParallelWorldEnv(1,512,reward_version=2,rules_version=2) as new:
         for env in (old,new):
             observations,_=env.reset(seed=42);actor=env.agents[0]
             target=next(n for n in observations[actor]["nodes"] if n["resource"]==0)

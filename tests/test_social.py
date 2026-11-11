@@ -5,7 +5,10 @@ import sys
 
 import pytest
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from training.native import Action,World
+from training.native import Action,World as NativeWorld
+from functools import partial
+# Preserve the published rules-2 contract suite. Rules-3 privacy is tested separately.
+World=partial(NativeWorld,rules_version=2)
 from training.policies import HeuristicPolicy
 
 def near(world,actor,target):
@@ -162,11 +165,11 @@ def test_legacy_save_migration_preserves_resources_identities_and_does_not_spawn
         original=legacy.snapshot();state=legacy.debug_state()
         with World(snapshot=original) as migrated:
             assert migrated.rules_version==1 and migrated.snapshot()==original
-            migrated.upgrade_rules();after=migrated.debug_state()
+            migrated.upgrade_rules(2);after=migrated.debug_state()
             assert migrated.rules_version==2 and after["caches"]==[]
             assert migrated.ids==legacy.ids and after["ledger"]==state["ledger"]
             assert all(a["inventory"]==b["inventory"] for a,b in zip(after["people"],state["people"]))
-            saved=migrated.snapshot();migrated.upgrade_rules();assert migrated.snapshot()==saved
+            saved=migrated.snapshot();migrated.upgrade_rules(2);assert migrated.snapshot()==saved
             with World(snapshot=saved) as resumed:assert resumed.snapshot()==saved
 
 def test_promise_expiration_changes_only_personal_reliability_not_membership():

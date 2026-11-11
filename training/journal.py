@@ -43,7 +43,7 @@ class JournalRunner:
         self._read_only=False;self.controller_snapshot=None
 
     @classmethod
-    def create(cls,path,seed=42,population=32,scenario=0,policy=None,rules_version=2):
+    def create(cls,path,seed=42,population=32,scenario=0,policy=None,rules_version=3):
         path=Path(path);path.parent.mkdir(parents=True,exist_ok=True)
         runner=cls();runner.policy=policy
         try:

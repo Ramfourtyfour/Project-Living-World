@@ -7,9 +7,9 @@ import time
 from .env import ParallelWorldEnv
 from .policies import HeuristicPolicy,RandomPolicy
 
-def episode(policy,seed,population,ticks,scenario=0):
+def episode(policy,seed,population,ticks,scenario=0,rules_version=3):
     started=time.perf_counter()
-    with ParallelWorldEnv(population,ticks,scenario) as env:
+    with ParallelWorldEnv(population,ticks,scenario,rules_version=rules_version) as env:
         observations,_=env.reset(seed=seed)
         invalid=0;steps=0;reward=0;lifetimes={i:0 for i in env.possible_agents};inference=[]
         while env.agents:
@@ -31,15 +31,16 @@ def main():
     p.add_argument("--seeds",type=int,default=8);p.add_argument("--population",type=int,default=32)
     p.add_argument("--ticks",type=int,default=512);p.add_argument("--output",default="benchmarks/pilot-evaluation.json")
     p.add_argument("--scenario",type=int,choices=[0,1],default=0)
+    p.add_argument("--rules-version",type=int,choices=[1,2,3],default=3)
     args=p.parse_args();factories={"random":lambda:RandomPolicy(17),"heuristic":HeuristicPolicy}
     if Path(args.policy).is_file():
         import torch
         from .learn import LearnedPolicy
         torch.set_num_threads(1)
         factories["learned"]=lambda:LearnedPolicy(args.policy)
-    report={"version":1,"scenario":args.scenario,"ticks":args.ticks,"population":args.population,"held_out_seeds":list(range(10000,10000+args.seeds)),"policies":{}}
+    report={"version":1,"rules_version":args.rules_version,"scenario":args.scenario,"ticks":args.ticks,"population":args.population,"held_out_seeds":list(range(10000,10000+args.seeds)),"policies":{}}
     for name,factory in factories.items():
-        rows=[episode(factory(),seed,args.population,args.ticks,args.scenario) for seed in report["held_out_seeds"]]
+        rows=[episode(factory(),seed,args.population,args.ticks,args.scenario,args.rules_version) for seed in report["held_out_seeds"]]
         report["policies"][name]={"episodes":rows,"mean_survival":statistics.mean(r["survival_fraction"] for r in rows),
                                   "mean_explored_cells":statistics.mean(r["mean_explored_cells"] for r in rows),
                                   "mean_lifetime":statistics.mean(r["mean_lifetime"] for r in rows)}

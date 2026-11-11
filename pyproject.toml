@@ -1,6 +1,6 @@
 [project]
 name = "project-living-world"
-version = "0.3.0"
+version = "0.4.0"
 description = "Original deterministic survival simulation and decentralized learning research prototype"
 requires-python = ">=3.11"
 

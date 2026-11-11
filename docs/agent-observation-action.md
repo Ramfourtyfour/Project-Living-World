@@ -38,3 +38,10 @@ not a learned social actor. Names/requests/authorized cache stock are private or
 local under `social-contracts.md`. A local reactive navigator uses perceived and
 remembered obstacle/cache geometry, while legacy observations retain their exact
 old intent decoder for research/replay.
+
+Fresh rules-3 worlds additionally support `turn` toward `(x,y)`, anonymous `call`,
+and `crouch` with quantity 1/0. Local intent execution can turn/search rather than
+assuming a remembered object is currently visible. See `perception-contracts.md`
+for facing, light, cover, uncertain hearing and dated person/landmark knowledge.
+Training/evaluation commands accept `--rules-version`; the frozen curriculum
+evaluation defaults to its original rules 1. No new sensory-learning result is implied.

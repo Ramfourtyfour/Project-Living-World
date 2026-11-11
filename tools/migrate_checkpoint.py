@@ -1,4 +1,4 @@
-"""Verify a legacy complete checkpoint and publish a separate rules-2 bundle."""
+"""Verify a legacy complete checkpoint and publish a separate rules-3 bundle."""
 import argparse
 import hashlib
 import json
@@ -24,9 +24,14 @@ def main():
         from inference.runtime import NativeLearnedPolicy
         policy=NativeLearnedPolicy(args.native_policy)
     with load_checkpoint(source,policy,allow_legacy_upgrade=True) as world:
-        if world.rules_version==1:world.upgrade_rules()
+        if world.rules_version<3:
+            previous_rules=world.rules_version;world.upgrade_rules()
+            world.migration_info={"from_rules":previous_rules,"to_rules":world.rules_version,
+                                  "previous_native_sha256":metadata["native_sha256"],"previous_state_hash":metadata["state_hash"],
+                                  "source_manifest_sha256":hashlib.sha256(original["manifest.json"]).hexdigest(),
+                                  "previous_migration":getattr(world,"migration_info",None)}
         if not getattr(world,"migration_info",None):
-            world.migration_info={"from_rules":1 if original["world.lws"].startswith(b"LIVING_WORLD_V1") else 2,
+            world.migration_info={"from_rules":int(original["world.lws"].splitlines()[0].split(b"_V")[-1]),
                                   "to_rules":world.rules_version,"previous_native_sha256":metadata["native_sha256"],
                                   "previous_state_hash":metadata["state_hash"],
                                   "source_manifest_sha256":hashlib.sha256(original["manifest.json"]).hexdigest()}

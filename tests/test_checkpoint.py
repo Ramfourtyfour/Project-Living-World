@@ -47,7 +47,7 @@ def test_explicit_legacy_checkpoint_upgrade_preserves_original_and_materials(tmp
     before={p.name:p.read_bytes() for p in path.iterdir()}
     with pytest.raises(ValueError,match="runtime differs"):load_checkpoint(path,HeuristicPolicy())
     with load_checkpoint(path,HeuristicPolicy(),allow_legacy_upgrade=True) as upgraded:
-        assert upgraded.rules_version==2 and upgraded.debug_state()["caches"]==[]
+        assert upgraded.rules_version==3 and upgraded.debug_state()["caches"]==[] and upgraded.debug_state()["cover"]==[]
         assert upgraded.debug_state()["ledger"]==original_ledger and upgraded.migration_info["previous_native_sha256"]=="0"*64
         save_checkpoint(upgraded,tmp_path/"new",HeuristicPolicy())
         with load_checkpoint(tmp_path/"new",HeuristicPolicy()) as resumed:

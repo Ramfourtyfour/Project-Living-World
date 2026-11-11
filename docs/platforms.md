@@ -5,7 +5,7 @@ architectures and other device platforms are unverified future targets.
 
 | Environment | Native toolchain | Evidence |
 | --- | --- | --- |
-| Local Windows x64, Python 3.13.2 | MSYS2 UCRT64 GCC 16.2.0 | Native world/inference checks, 74 Python tests, PyTorch/native numeric conformance, training/evaluation and packaged-binary checks |
+| Local Windows x64, Python 3.13.2 | MSYS2 UCRT64 GCC 16.2.0 | Native world/inference checks, 83 Python tests, PyTorch/native numeric conformance, training/evaluation and packaged-binary checks |
 | GitHub Windows x64, Python 3.13 | Visual Studio C++20 through CMake | Both native tests, 66 Python tests, 8 optional learning tests skipped, rollout/replay |
 | GitHub Ubuntu x64, Python 3.13 | GCC C++20 through CMake | Both native tests, 66 Python tests, 8 optional learning tests skipped, rollout/replay |
 

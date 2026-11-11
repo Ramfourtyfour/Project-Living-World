@@ -12,6 +12,7 @@ def main():
     p.add_argument("--native-policy",help="Evaluate the same candidate using dependency-free C++ inference")
     p.add_argument("--output",default="benchmarks/curriculum-v2-evaluation.json")
     p.add_argument("--first-seed",type=int,default=10000);p.add_argument("--seeds",type=int,default=8)
+    p.add_argument("--rules-version",type=int,choices=[1,2,3],default=1,help="Frozen pilot used rules 1; richer-world results require a separate claim")
     p.add_argument("--overwrite",action="store_true");args=p.parse_args()
     path=Path(args.output)
     if path.exists() and not args.overwrite:
@@ -26,12 +27,12 @@ def main():
         torch.set_num_threads(1)
         factory=lambda:LearnedPolicy(args.policy)
         runtime="pytorch"
-    result={"version":1,"protocol":"paired normal/scarce comparison","seeds":list(range(args.first_seed,args.first_seed+args.seeds)),
+    result={"version":1,"rules_version":args.rules_version,"protocol":"paired normal/scarce comparison","seeds":list(range(args.first_seed,args.first_seed+args.seeds)),
             "ticks":512,"population":32,"scenarios":{},"runtime":runtime}
     for scenario in (0,1):
         policies={}
         for name,make_policy in {"random":lambda:RandomPolicy(17),"heuristic":HeuristicPolicy,"learned":factory}.items():
-            rows=[episode(make_policy(),seed,32,512,scenario) for seed in result["seeds"]]
+            rows=[episode(make_policy(),seed,32,512,scenario,args.rules_version) for seed in result["seeds"]]
             summary={"episodes":rows,"mean_survival":statistics.mean(r["survival_fraction"] for r in rows),
                      "mean_lifetime":statistics.mean(r["mean_lifetime"] for r in rows),
                      "mean_explored_cells":statistics.mean(r["mean_explored_cells"] for r in rows)}

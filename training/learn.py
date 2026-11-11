@@ -90,9 +90,9 @@ class LearnedPolicy:
             raise ValueError("Malformed recurrent memory")
         self.hidden={int(i):torch.tensor(h,dtype=torch.float32) for i,h in snapshot["hidden"].items()}
 
-def warm_start(model,seed,episodes=8,ticks=160,epochs=12,population=16,scenario=0,class_power=0.5):
+def warm_start(model,seed,episodes=8,ticks=160,epochs=12,population=16,scenario=0,class_power=0.5,rules_version=3):
     baseline=HeuristicPolicy();data=[]
-    with ParallelWorldEnv(population,ticks) as env:
+    with ParallelWorldEnv(population,ticks,rules_version=rules_version) as env:
         for episode in range(episodes):
             env.scenario=episode%2 if scenario==2 else scenario
             observations,_=env.reset(seed=seed+episode)
@@ -140,14 +140,14 @@ def train(args):
         model.load_state_dict(initial.model.state_dict())
     metadata=warm_start(model,args.seed,episodes=args.bc_episodes,epochs=args.bc_epochs,
                         ticks=args.bc_horizon,population=args.bc_population,scenario=args.bc_scenario,
-                        class_power=args.bc_class_power) if args.bc_epochs else {}
+                        class_power=args.bc_class_power,rules_version=args.rules_version) if args.bc_epochs else {}
     optimizer=torch.optim.Adam([{"params":model.critic.parameters(),"lr":args.critic_lr},
                                 {"params":[*model.encoder.parameters(),*model.memory.parameters(),*model.actor.parameters()],"lr":args.policy_lr}])
     records=[];total_steps=0
     output.parent.mkdir(parents=True,exist_ok=True)
     if args.bc_epochs:
         save_artifact(model,output.with_name(output.stem+"-bc.pt"),{"seed":args.seed,**metadata})
-    with ParallelWorldEnv(args.population,args.horizon,args.scenario,args.reward_version) as env:
+    with ParallelWorldEnv(args.population,args.horizon,args.scenario,args.reward_version,args.rules_version) as env:
         for update in range(args.updates):
             env.scenario=0 if args.normal_every and update%args.normal_every==0 else args.scenario
             # Training seeds are disjoint from evaluation's 10000+ partition.
@@ -219,6 +219,7 @@ def main():
     p.add_argument("--population",type=int,default=16);p.add_argument("--horizon",type=int,default=256)
     p.add_argument("--bc-episodes",type=int,default=8);p.add_argument("--bc-epochs",type=int,default=12)
     p.add_argument("--scenario",type=int,choices=[0,1],default=0);p.add_argument("--init-policy")
+    p.add_argument("--rules-version",type=int,choices=[1,2,3],default=3)
     p.add_argument("--architecture",choices=list(ARCHITECTURES),default="gru48-v1")
     p.add_argument("--bc-horizon",type=int,default=160);p.add_argument("--bc-population",type=int,default=16)
     p.add_argument("--bc-scenario",type=int,choices=[0,1,2],default=0,help="2 alternates normal/scarce demonstrations")

@@ -5,9 +5,10 @@ from .policies import execute_intent
 class ParallelWorldEnv:
     metadata = {"name": "living_world_v1", "is_parallelizable": True}
 
-    def __init__(self, population=32, max_cycles=512, scenario=0, reward_version=1):
+    def __init__(self, population=32, max_cycles=512, scenario=0, reward_version=1,rules_version=3):
         self.population, self.max_cycles = population, max_cycles
         self.scenario=scenario
+        self.rules_version=rules_version
         if reward_version not in (1,2):
             raise ValueError("Unsupported reward version")
         self.reward_version=reward_version
@@ -18,7 +19,7 @@ class ParallelWorldEnv:
 
     def reset(self, seed=1, options=None):
         self.close()
-        self.world = World(seed, self.population, scenario=self.scenario)
+        self.world = World(seed, self.population, scenario=self.scenario,rules_version=self.rules_version)
         self.agents = list(self.world.ids)
         self.possible_agents = list(self.agents)
         observations = self.world.observations()

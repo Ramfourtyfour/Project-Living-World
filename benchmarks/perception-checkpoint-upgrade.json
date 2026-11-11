@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "source_state_hash": "910f3ff6dd6554b8",
+  "source_native_sha256": "da2380dafcebfc68d16d794fe19077dc3a0b7afe189856bb12cab348641175b3",
+  "native_sha256": "f264165fbd1afb9b43279e048da494c1f12914ef5edd2352cf2f0046253e86a6",
+  "rules_version": 3,
+  "state_hash": "95e73f0eb51e5788",
+  "cache_count": 0,
+  "controller_memory_preserved": true,
+  "original_preserved": true
+}

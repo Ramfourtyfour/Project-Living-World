@@ -1,6 +1,7 @@
 # Rules 2: agreements, personal relationships, requests and caches
 
-New worlds use rules version 2. The native C ABI retains the original action struct
+Rules 2 introduced this substrate; fresh worlds now use rules 3 with stricter
+perception (see `perception-contracts.md`). The native C ABI retains the original action struct
 and functions for legacy clients, and adds `LWActionV2` with a bounded UTF-8 label.
 Python `Action.text` supports group names; names are labels, not authority. A name
 must be valid UTF-8, 1–40 bytes, without ASCII controls or leading/trailing spaces.
@@ -101,7 +102,7 @@ could not see. Private rejections remain private. Versions and reference/bounds/
 identity/material checks are enforced before a loaded world is returned.
 
 Rules-1 worlds remain rules 1 on load and preserve their original save/action/hash
-behavior. `World.upgrade_rules()` is explicit and idempotent. It preserves all
+behavior. `World.upgrade_rules(2)` is explicit and idempotent. It preserves all
 individuals, inventories and accounting, adds agreement metadata, spawns **no**
 caches/materials and conservatively redacts unverifiable old event targets. The
 original save is never rewritten by migration. A complete legacy checkpoint can

@@ -29,6 +29,7 @@ int32_t lw_step_v2(void* p,const LWActionV2* actions,int32_t count){try{
 }catch(const std::exception& e){error=e.what();return -1;}catch(...){error="native exception";return -1;}}
 int32_t lw_rules_version(void* p){try{error.clear();return world(p).rules_version;}catch(const std::exception& e){error=e.what();return -1;}}
 int32_t lw_upgrade_rules(void* p){try{error.clear();world(p).upgrade_rules();return 0;}catch(const std::exception& e){error=e.what();return -1;}catch(...){error="native exception";return -1;}}
+int32_t lw_upgrade_perception(void* p){try{error.clear();world(p).upgrade_perception();return 0;}catch(const std::exception& e){error=e.what();return -1;}catch(...){error="native exception";return -1;}}
 const char* lw_observe(void* p,uint64_t actor){return text([&]{return world(p).observation(actor);});}
 const char* lw_debug(void* p){return text([&]{return world(p).debug_json();});}
 const char* lw_save(void* p){return text([&]{return world(p).save();});}

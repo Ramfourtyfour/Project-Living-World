@@ -7,7 +7,9 @@ import sys
 import pytest
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from training.native import Action, CAction, World
+from training.native import Action, CAction, World as NativeWorld
+from functools import partial
+World=partial(NativeWorld,rules_version=2)
 from training.policies import HeuristicPolicy
 from training.env import ParallelWorldEnv
 from tools.rollout import record,replay
