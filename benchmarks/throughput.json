@@ -1,0 +1,48 @@
+{
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.13.2",
+  "runs": [
+    {
+      "population": 16,
+      "ticks": 256,
+      "seconds": 4.397341199917719,
+      "world_ticks_per_second": 58.21699712653413,
+      "agent_decisions_per_second": 931.4719540245461,
+      "p95_tick_ms": 28.073200024664402,
+      "snapshot_bytes": 21481,
+      "python_peak_bytes": 337681,
+      "python_retained_bytes": 55638,
+      "alive": 16,
+      "conserved": true,
+      "notes": "Includes Python JSON observation decoding, policies and native authority. tracemalloc excludes native memory; not a client FPS benchmark."
+    },
+    {
+      "population": 32,
+      "ticks": 256,
+      "seconds": 14.537155600031838,
+      "world_ticks_per_second": 17.610047456562913,
+      "agent_decisions_per_second": 563.5215186100132,
+      "p95_tick_ms": 63.23409988544881,
+      "snapshot_bytes": 48317,
+      "python_peak_bytes": 682734,
+      "python_retained_bytes": 46138,
+      "alive": 32,
+      "conserved": true,
+      "notes": "Includes Python JSON observation decoding, policies and native authority. tracemalloc excludes native memory; not a client FPS benchmark."
+    },
+    {
+      "population": 64,
+      "ticks": 256,
+      "seconds": 32.452689700061455,
+      "world_ticks_per_second": 7.888406242010665,
+      "agent_decisions_per_second": 504.85799948868254,
+      "p95_tick_ms": 138.180400012061,
+      "snapshot_bytes": 126709,
+      "python_peak_bytes": 1587349,
+      "python_retained_bytes": 67734,
+      "alive": 64,
+      "conserved": true,
+      "notes": "Includes Python JSON observation decoding, policies and native authority. tracemalloc excludes native memory; not a client FPS benchmark."
+    }
+  ]
+}

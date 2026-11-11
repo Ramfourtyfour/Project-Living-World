@@ -1,0 +1,10 @@
+build/
+runs/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.lws
+*.jsonl
+*.tmp
+work/
+.venv/

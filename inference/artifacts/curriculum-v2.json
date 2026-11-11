@@ -1,0 +1,255 @@
+{
+  "version": 1,
+  "architecture": "gru48-v1",
+  "sha256": "d158d1af74a6f0a1d2008fa0eb2c09bee396e41f5634cc772096e15654384500",
+  "observation_version": 1,
+  "intents": [
+    "forage_food",
+    "fetch_water",
+    "eat",
+    "drink",
+    "rest",
+    "explore",
+    "gather_wood",
+    "wait"
+  ],
+  "method": "behavior-cloning warm start + recurrent PPO",
+  "seed": 17,
+  "updates": 32,
+  "horizon": 256,
+  "population": 32,
+  "scenario": 1,
+  "initial_policy_sha256": "9b6f2231c93afab3cfa1ff465c250d5d6e51e3d59dd01a888c5679c1f78d2e29",
+  "training_agent_steps": 205166,
+  "seconds": 69.95940840011463,
+  "training_seed_partition": "0..8999",
+  "evaluation_seed_partition": "10000..",
+  "torch_version": "2.14.1+cpu",
+  "numpy_version": "2.3.0",
+  "history": [
+    {
+      "update": 1,
+      "agent_steps": 6246,
+      "reward_per_agent": 9.954874038696289,
+      "survival_fraction": 0.34375,
+      "loss": 0.18283355236053467
+    },
+    {
+      "update": 2,
+      "agent_steps": 12242,
+      "reward_per_agent": 6.9483747482299805,
+      "survival_fraction": 0.21875,
+      "loss": 0.18575966358184814
+    },
+    {
+      "update": 3,
+      "agent_steps": 18436,
+      "reward_per_agent": 8.716748237609863,
+      "survival_fraction": 0.28125,
+      "loss": 0.17997649312019348
+    },
+    {
+      "update": 4,
+      "agent_steps": 24462,
+      "reward_per_agent": 7.578124046325684,
+      "survival_fraction": 0.28125,
+      "loss": 0.18297703564167023
+    },
+    {
+      "update": 5,
+      "agent_steps": 30860,
+      "reward_per_agent": 9.030500411987305,
+      "survival_fraction": 0.28125,
+      "loss": 0.17677654325962067
+    },
+    {
+      "update": 6,
+      "agent_steps": 37216,
+      "reward_per_agent": 10.841375350952148,
+      "survival_fraction": 0.375,
+      "loss": 0.16003374755382538
+    },
+    {
+      "update": 7,
+      "agent_steps": 43483,
+      "reward_per_agent": 10.211124420166016,
+      "survival_fraction": 0.40625,
+      "loss": 0.16740404069423676
+    },
+    {
+      "update": 8,
+      "agent_steps": 50107,
+      "reward_per_agent": 13.006625175476074,
+      "survival_fraction": 0.46875,
+      "loss": 0.15350840985774994
+    },
+    {
+      "update": 9,
+      "agent_steps": 56546,
+      "reward_per_agent": 8.964500427246094,
+      "survival_fraction": 0.3125,
+      "loss": 0.1629892885684967
+    },
+    {
+      "update": 10,
+      "agent_steps": 62834,
+      "reward_per_agent": 9.665624618530273,
+      "survival_fraction": 0.34375,
+      "loss": 0.16105487942695618
+    },
+    {
+      "update": 11,
+      "agent_steps": 69413,
+      "reward_per_agent": 12.411249160766602,
+      "survival_fraction": 0.4375,
+      "loss": 0.1487632393836975
+    },
+    {
+      "update": 12,
+      "agent_steps": 75922,
+      "reward_per_agent": 10.456124305725098,
+      "survival_fraction": 0.34375,
+      "loss": 0.15723441541194916
+    },
+    {
+      "update": 13,
+      "agent_steps": 82141,
+      "reward_per_agent": 7.985499858856201,
+      "survival_fraction": 0.25,
+      "loss": 0.17018228769302368
+    },
+    {
+      "update": 14,
+      "agent_steps": 88442,
+      "reward_per_agent": 9.883625030517578,
+      "survival_fraction": 0.34375,
+      "loss": 0.15079544484615326
+    },
+    {
+      "update": 15,
+      "agent_steps": 94896,
+      "reward_per_agent": 10.395123481750488,
+      "survival_fraction": 0.34375,
+      "loss": 0.15315358340740204
+    },
+    {
+      "update": 16,
+      "agent_steps": 100747,
+      "reward_per_agent": 6.134624481201172,
+      "survival_fraction": 0.21875,
+      "loss": 0.16044743359088898
+    },
+    {
+      "update": 17,
+      "agent_steps": 106959,
+      "reward_per_agent": 7.3849992752075195,
+      "survival_fraction": 0.21875,
+      "loss": 0.15735240280628204
+    },
+    {
+      "update": 18,
+      "agent_steps": 113440,
+      "reward_per_agent": 10.381124496459961,
+      "survival_fraction": 0.34375,
+      "loss": 0.1482165902853012
+    },
+    {
+      "update": 19,
+      "agent_steps": 119682,
+      "reward_per_agent": 9.313373565673828,
+      "survival_fraction": 0.3125,
+      "loss": 0.15263555943965912
+    },
+    {
+      "update": 20,
+      "agent_steps": 126027,
+      "reward_per_agent": 9.38337516784668,
+      "survival_fraction": 0.3125,
+      "loss": 0.1547601968050003
+    },
+    {
+      "update": 21,
+      "agent_steps": 132731,
+      "reward_per_agent": 12.372873306274414,
+      "survival_fraction": 0.40625,
+      "loss": 0.14816679060459137
+    },
+    {
+      "update": 22,
+      "agent_steps": 138910,
+      "reward_per_agent": 8.500249862670898,
+      "survival_fraction": 0.3125,
+      "loss": 0.14669252932071686
+    },
+    {
+      "update": 23,
+      "agent_steps": 145409,
+      "reward_per_agent": 11.535249710083008,
+      "survival_fraction": 0.4375,
+      "loss": 0.14825083315372467
+    },
+    {
+      "update": 24,
+      "agent_steps": 152031,
+      "reward_per_agent": 13.236624717712402,
+      "survival_fraction": 0.46875,
+      "loss": 0.13968542218208313
+    },
+    {
+      "update": 25,
+      "agent_steps": 158781,
+      "reward_per_agent": 11.68537425994873,
+      "survival_fraction": 0.40625,
+      "loss": 0.13653987646102905
+    },
+    {
+      "update": 26,
+      "agent_steps": 165491,
+      "reward_per_agent": 12.973751068115234,
+      "survival_fraction": 0.46875,
+      "loss": 0.13693104684352875
+    },
+    {
+      "update": 27,
+      "agent_steps": 172194,
+      "reward_per_agent": 12.585749626159668,
+      "survival_fraction": 0.4375,
+      "loss": 0.1386914998292923
+    },
+    {
+      "update": 28,
+      "agent_steps": 179447,
+      "reward_per_agent": 16.52324867248535,
+      "survival_fraction": 0.59375,
+      "loss": 0.12551671266555786
+    },
+    {
+      "update": 29,
+      "agent_steps": 185653,
+      "reward_per_agent": 8.539249420166016,
+      "survival_fraction": 0.28125,
+      "loss": 0.14310374855995178
+    },
+    {
+      "update": 30,
+      "agent_steps": 191679,
+      "reward_per_agent": 8.632124900817871,
+      "survival_fraction": 0.3125,
+      "loss": 0.14929045736789703
+    },
+    {
+      "update": 31,
+      "agent_steps": 198631,
+      "reward_per_agent": 12.20674991607666,
+      "survival_fraction": 0.40625,
+      "loss": 0.1441492736339569
+    },
+    {
+      "update": 32,
+      "agent_steps": 205166,
+      "reward_per_agent": 10.42300033569336,
+      "survival_fraction": 0.3125,
+      "loss": 0.14516839385032654
+    }
+  ]
+}

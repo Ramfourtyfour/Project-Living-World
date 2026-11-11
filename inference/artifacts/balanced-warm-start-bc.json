@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "architecture": "gru48-v1",
+  "sha256": "efe1eb0b7bd79d70cf8c37837a266105b68266c9a096fdb026cc6461125ddf52",
+  "observation_version": 1,
+  "intents": [
+    "forage_food",
+    "fetch_water",
+    "eat",
+    "drink",
+    "rest",
+    "explore",
+    "gather_wood",
+    "wait"
+  ],
+  "method": "behavior-cloning warm start + recurrent PPO",
+  "seed": 17,
+  "demonstration_agent_steps": 30720,
+  "bc_epochs": 64
+}
