@@ -16,6 +16,14 @@ but cannot ask the registry where unseen resources are. Old sightings are belief
 Gifts and barter require voluntary acceptance, current access and real stock.
 Membership can be left without another actor's approval.
 
+Rules 2 adds named independent agreements, explicit assistance/visit/guard
+requests, personal trust and physical caches. Members may decline invitations or
+requests. Leaving revokes shared-cache access immediately. A new cache needs 3
+wood and 2 fiber through actual acquisition and construction; its matter persists.
+Remote information stays a dated belief. The lab offers a social heuristic and
+human-equivalent actions; learned social choices remain pending.
+
 This region has no terrain biomes, weather, seasons, sound, enemies, equipment,
-building, crafting, storage, new population or rebirth. Those belong to later gates.
+settlements, workstations, complex crafting, new population or rebirth. Those
+belong to later gates. The one supply-cache recipe/storage is implemented.
 The native renderer will ultimately be replaceable independently of these rules.

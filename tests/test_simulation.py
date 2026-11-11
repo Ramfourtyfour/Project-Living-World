@@ -123,7 +123,8 @@ def test_spent_offer_cannot_mint_items():
 def test_corrupt_or_wrong_version_saves_rejected():
     with World(1,4) as w:
         saved=w.snapshot()
-    for text in ["",saved[:-1],saved.replace("LIVING_WORLD_V1","LIVING_WORLD_V99"),saved+"garbage",saved+"\0hidden"]:
+    version=saved.splitlines()[0]
+    for text in ["",saved[:-1],saved.replace(version,"LIVING_WORLD_V99"),saved+"garbage",saved+"\0hidden"]:
         with pytest.raises(ValueError):World(snapshot=text)
 
 def rechecksum(body):
@@ -141,7 +142,7 @@ def test_structural_validation_even_with_valid_checksum():
     poisoned=lines.copy();poisoned[5]="1000000\n"
     with pytest.raises(ValueError):World(snapshot=rechecksum("".join(poisoned)))
     # Duplicating an ID inside the first individual's remembered sightings is rejected.
-    poisoned=body.replace("LIVING_WORLD_V1","LIVING_WORLD_V999",1)
+    poisoned=body.replace(body.splitlines()[0],"LIVING_WORLD_V999",1)
     with pytest.raises(ValueError):World(snapshot=rechecksum(poisoned))
     # Same total material count cannot hide a negative inventory.
     poisoned=lines.copy();poisoned[7]="-1 1 0 0 0\n"

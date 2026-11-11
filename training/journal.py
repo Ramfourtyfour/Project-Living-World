@@ -6,13 +6,14 @@ reopen/replay establishes what reached disk. An incomplete/corrupt record is nev
 silently dropped. The log is private server data, not a client observation stream.
 """
 from dataclasses import asdict
+from copy import deepcopy
 import hashlib
 import json
 import os
 from pathlib import Path
 import sys
 
-from .checkpoint import canonical,controller_record,restore_controller
+from .checkpoint import canonical,controller_record,restore_controller,load_checkpoint
 from .native import Action,World,native_fingerprint
 
 ZERO="0"*64
@@ -39,9 +40,10 @@ class JournalRunner:
     def __init__(self):
         self.world=None;self.policy=None;self._lease=None;self._previous=ZERO;self._broken=False
         self._controller_id=None
+        self._read_only=False;self.controller_snapshot=None
 
     @classmethod
-    def create(cls,path,seed=42,population=32,scenario=0,policy=None):
+    def create(cls,path,seed=42,population=32,scenario=0,policy=None,rules_version=2):
         path=Path(path);path.parent.mkdir(parents=True,exist_ok=True)
         runner=cls();runner.policy=policy
         try:
@@ -49,7 +51,7 @@ class JournalRunner:
             if controller["memory"] is not None and controller["memory"]["hidden"]:
                 raise ValueError("A new world requires fresh controller memory; reopen its journal to resume")
             runner._lease=_Lease(path,True)
-            runner.world=World(seed,population,scenario=scenario)
+            runner.world=World(seed,population,scenario=scenario,rules_version=rules_version)
             runner._controller_id=controller["id"]
             runner._append({"kind":"header","version":1,"native_sha256":native_fingerprint(),
                             "snapshot":runner.world.snapshot(),"controller":controller})
@@ -61,7 +63,7 @@ class JournalRunner:
         return runner
 
     @classmethod
-    def open(cls,path,policy=None,trace=None):
+    def open(cls,path,policy=None,trace=None,allow_runtime_migration=False,restore_policy=True):
         runner=cls();runner.policy=policy
         try:
             runner._lease=_Lease(path,False)
@@ -81,10 +83,14 @@ class JournalRunner:
                     if payload["kind"]!="header" or payload["version"]!=1:
                         raise ValueError("Unsupported journal contract")
                     if payload["native_sha256"]!=native_fingerprint():
-                        raise ValueError("Journal runtime differs; explicit migration required")
+                        if not allow_runtime_migration:raise ValueError("Journal runtime differs; explicit migration required")
+                        runner._read_only=True
                     runner.world=World(snapshot=payload["snapshot"])
+                    if payload.get("migration") is not None:
+                        if not isinstance(payload["migration"],dict):raise ValueError("Malformed migration provenance")
+                        runner.world.migration_info=payload["migration"]
                     runner._controller_id=payload["controller"]["id"]
-                    if trace is not None:trace(payload,runner.world.observations())
+                    if trace is not None:trace(deepcopy(payload),runner.world.observations())
                 else:
                     if payload["kind"]!="step" or payload["controller"]["id"]!=runner._controller_id:
                         raise ValueError("Invalid journal step/controller transition")
@@ -92,7 +98,7 @@ class JournalRunner:
                     if len(actions)!=len(payload["actions"]):
                         raise ValueError("Duplicate journal actor")
                     requests={int(a["actor"]):int(a["request"]) for a in payload["actions"]}
-                    if trace is not None:trace(payload,runner.world.observations())
+                    if trace is not None:trace(deepcopy(payload),runner.world.observations())
                     results=runner.world.step(actions,requests=requests)
                     if results!=payload["results"] or runner.world.state_hash()!=payload["state_hash"]:
                         raise ValueError("Journal replay diverged")
@@ -100,13 +106,32 @@ class JournalRunner:
                 runner._previous=digest;records+=1
             if not records:
                 raise ValueError("Journal is incomplete: no header")
-            restore_controller(policy,last_controller,runner.world.ids)
+            runner.controller_snapshot=last_controller
+            if restore_policy:restore_controller(policy,last_controller,runner.world.ids)
+            else:runner._read_only=True
             stream.seek(0,os.SEEK_END)
         except BaseException as error:
             runner.close()
             if isinstance(error,(KeyError,TypeError,AttributeError,UnicodeError,RecursionError,OverflowError)):
                 raise ValueError("Malformed journal contract") from error
             raise
+        return runner
+
+    @classmethod
+    def from_checkpoint(cls,path,checkpoint,policy=None):
+        """Begin a new journal from a fully verified world/controller bundle."""
+        path=Path(path);path.parent.mkdir(parents=True,exist_ok=True)
+        runner=cls();runner.policy=policy
+        try:
+            runner.world=load_checkpoint(checkpoint,policy)
+            runner._lease=_Lease(path,True)
+            controller=controller_record(policy);runner._controller_id=controller["id"]
+            runner._append({"kind":"header","version":1,"native_sha256":native_fingerprint(),
+                            "snapshot":runner.world.snapshot(),"controller":controller,
+                            "migration":getattr(runner.world,"migration_info",None),
+                            "checkpoint_sha256":hashlib.sha256((Path(checkpoint)/"manifest.json").read_bytes()).hexdigest()})
+        except BaseException:
+            runner.close();raise
         return runner
 
     def _append(self,payload):
@@ -124,6 +149,7 @@ class JournalRunner:
         self._previous=digest
 
     def advance(self,actions):
+        if self._read_only:raise RuntimeError("Migration/audit replay is read-only; start a new checkpoint/journal")
         if self._broken or self.world is None or self._lease is None:
             raise RuntimeError("Runner unavailable; close and reopen/replay the journal")
         if set(actions)-set(self.world.ids):
@@ -133,6 +159,7 @@ class JournalRunner:
             raise ValueError("Controller version changed; start a new journal/checkpoint")
         requests={i:self.world.observe(i)["self"]["last_request"]+1 for i in actions}
         proposed=World(snapshot=self.world.snapshot())
+        if getattr(self.world,"migration_info",None):proposed.migration_info=deepcopy(self.world.migration_info)
         try:
             results=proposed.step(actions,requests=requests)
             self._append({"kind":"step","actions":[{"actor":i,"request":requests[i],"action":asdict(actions[i])} for i in sorted(actions)],
@@ -144,6 +171,7 @@ class JournalRunner:
         return results
 
     def advance_policy(self,overrides=None):
+        if self._read_only:raise RuntimeError("Migration/audit replay is read-only; start a new checkpoint/journal")
         if self._broken or self.world is None or self._lease is None:
             raise RuntimeError("Runner unavailable; close and reopen/replay the journal")
         if self.policy is None:

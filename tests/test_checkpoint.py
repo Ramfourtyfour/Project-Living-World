@@ -37,6 +37,24 @@ def test_malformed_checkpoint_contract_is_rejected_cleanly(tmp_path,metadata):
     (tmp_path/"manifest.json").write_text(json.dumps(metadata))
     with pytest.raises(ValueError):load_checkpoint(tmp_path)
 
+def test_explicit_legacy_checkpoint_upgrade_preserves_original_and_materials(tmp_path):
+    path=tmp_path/"legacy"
+    with World(42,8,rules_version=1) as world:
+        original=world.snapshot();original_ledger=world.debug_state()["ledger"]
+        save_checkpoint(world,path,HeuristicPolicy())
+    manifest=path/"manifest.json";metadata=json.loads(manifest.read_bytes())
+    metadata["native_sha256"]="0"*64;manifest.write_text(json.dumps(metadata))
+    before={p.name:p.read_bytes() for p in path.iterdir()}
+    with pytest.raises(ValueError,match="runtime differs"):load_checkpoint(path,HeuristicPolicy())
+    with load_checkpoint(path,HeuristicPolicy(),allow_legacy_upgrade=True) as upgraded:
+        assert upgraded.rules_version==2 and upgraded.debug_state()["caches"]==[]
+        assert upgraded.debug_state()["ledger"]==original_ledger and upgraded.migration_info["previous_native_sha256"]=="0"*64
+        save_checkpoint(upgraded,tmp_path/"new",HeuristicPolicy())
+        with load_checkpoint(tmp_path/"new",HeuristicPolicy()) as resumed:
+            assert resumed.migration_info==upgraded.migration_info
+    assert before=={p.name:p.read_bytes() for p in path.iterdir()}
+    assert (path/"world.lws").read_text()==original
+
 @pytest.mark.skipif(importlib.util.find_spec("torch") is None,reason="Optional neural dependency")
 def test_neural_world_checkpoint_replays_with_individual_memory(tmp_path):
     import torch

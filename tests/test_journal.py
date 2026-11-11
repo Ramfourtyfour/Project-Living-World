@@ -9,6 +9,7 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from training.journal import JournalRunner,recover_incomplete_tail
 from training.native import Action
 from training.policies import HeuristicPolicy
+from training.checkpoint import save_checkpoint
 
 def test_journal_replays_and_appends_without_duplicate_items(tmp_path):
     path=tmp_path/"world.lwj"
@@ -108,3 +109,48 @@ def test_recovery_never_drops_complete_corruption(tmp_path):
     source.write_bytes(data)
     with pytest.raises(ValueError,match="Complete corrupt"):recover_incomplete_tail(source,target)
     assert not target.exists() and source.read_bytes()==data
+
+def test_compatible_runtime_audit_is_read_only_and_preserves_the_original(tmp_path):
+    import hashlib
+    from training.checkpoint import canonical
+    path=tmp_path/"legacy.lwj"
+    with JournalRunner.create(path,42,8,policy=HeuristicPolicy(),rules_version=1) as runner:
+        for _ in range(8):runner.advance_policy()
+        expected=runner.world.snapshot()
+    envelopes=[json.loads(line) for line in path.read_bytes().splitlines()]
+    envelopes[0]["payload"]["native_sha256"]="0"*64
+    previous="0"*64;lines=[]
+    for envelope in envelopes:
+        payload=envelope["payload"];digest=hashlib.sha256(previous.encode()+canonical(payload)).hexdigest()
+        lines.append(canonical({"previous":previous,"sha256":digest,"payload":payload})+b"\n");previous=digest
+    path.write_bytes(b"".join(lines));original=path.read_bytes()
+    with pytest.raises(ValueError,match="runtime differs"):JournalRunner.open(path,HeuristicPolicy())
+    with JournalRunner.open(path,HeuristicPolicy(),allow_runtime_migration=True) as audited:
+        assert audited.world.snapshot()==expected
+        with pytest.raises(RuntimeError,match="read-only"):audited.advance_policy()
+    assert path.read_bytes()==original
+
+def test_new_journal_from_complete_checkpoint_preserves_state_and_can_continue(tmp_path):
+    checkpoint=tmp_path/"checkpoint"
+    with JournalRunner.create(tmp_path/"first.lwj",42,8,policy=HeuristicPolicy()) as original:
+        for _ in range(8):original.advance_policy()
+        original.world.migration_info={"source_journal_sha256":"a"*64,"from_rules":1,"to_rules":2}
+        save_checkpoint(original.world,checkpoint,original.policy);expected=original.world.snapshot()
+    path=tmp_path/"continued.lwj"
+    with JournalRunner.from_checkpoint(path,checkpoint,HeuristicPolicy()) as continued:
+        assert continued.world.snapshot()==expected
+        continued.advance_policy();final=continued.world.snapshot()
+    with JournalRunner.open(path,HeuristicPolicy()) as verified:
+        assert verified.world.snapshot()==final
+        assert verified.world.migration_info["source_journal_sha256"]=="a"*64
+        save_checkpoint(verified.world,tmp_path/"next",verified.policy)
+        assert json.loads((tmp_path/"next"/"manifest.json").read_bytes())["migration"]["source_journal_sha256"]=="a"*64
+
+def test_replay_observers_cannot_modify_commands_or_authoritative_observations(tmp_path):
+    path=tmp_path/"trace.lwj"
+    with JournalRunner.create(path,42,4) as runner:
+        runner.advance({runner.world.ids[0]:Action("depart")});expected=runner.world.snapshot()
+    def trace(payload,observations):
+        if payload["kind"]=="step":payload["actions"].clear()
+        for observation in observations.values():observation["self"]["inventory"][0]=999
+    with JournalRunner.open(path,trace=trace) as verified:assert verified.world.snapshot()==expected

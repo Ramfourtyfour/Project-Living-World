@@ -19,7 +19,7 @@ execution chooses a waypoint using only visible or remembered resource locations
 The native authority still checks reach and stock; an intent grants no resources.
 These are one-tick proposals rather than automatic completed multi-tick projects.
 
-The learned policy consumes 22 own/local features; it gets no seed, actor ID,
+The learned policies consume 22 (legacy) or 38 (v2 encoder) own/local features; they get no seed, actor ID,
 group ID or debug state. A mask prevents unavailable consumption and gathering
 when inventory is full. It does not use an oracle to locate distant nodes.
 Weights are shared, but GRU hidden vectors are indexed by individual identity.
@@ -29,3 +29,12 @@ or inter-agent message encoder has been implemented yet.
 See `simulation-contracts.md` for schemas, capacities, fairness limitations and
 private data. Social actions exist at the native interface but are not in the
 pilot's eight-intent action space. Social training is therefore explicitly pending.
+
+Rules-2 native actions additionally expose `found_group`, `rename_group`, `request`,
+`answer_request`, `report_request`, `deposit`, `withdraw` and `place_cache`. A social request is an
+ordinary proposal with separate acceptance and no controller override. The
+`SocialHeuristicPolicy` baseline evaluates each person's own observation; it is
+not a learned social actor. Names/requests/authorized cache stock are private or
+local under `social-contracts.md`. A local reactive navigator uses perceived and
+remembered obstacle/cache geometry, while legacy observations retain their exact
+old intent decoder for research/replay.

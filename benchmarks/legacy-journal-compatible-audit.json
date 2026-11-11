@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "rules_version": 1,
+  "native_sha256": "da2380dafcebfc68d16d794fe19077dc3a0b7afe189856bb12cab348641175b3",
+  "tick": 512,
+  "population": 32,
+  "alive": 24,
+  "state_hash": "b21db7d485dd97fb",
+  "conserved": true,
+  "controller": "native-gru64-local-v2-c787058e7500-4fe75ec5d2ed",
+  "journal_bytes": 23627298,
+  "create_or_replay_seconds": 1.9684562999755144,
+  "durable_step_p95_ms": null,
+  "mean_step_ms": null,
+  "notes": "Single-writer copy-before-commit with file fsync; process-interruption tests, not a hardware power-loss guarantee."
+}

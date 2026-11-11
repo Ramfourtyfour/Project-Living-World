@@ -30,6 +30,12 @@ The journal is **private authority data**. It includes actions, private results 
 neural memory; it must never be sent wholesale to ordinary clients. Remote clients
 will receive filtered observations only when the network milestone is implemented.
 
+Read-only compatible audit can replay an older engine's recorded actions only if
+every action result and world hash still matches. It cannot append or run a
+controller. Full resume uses a verified migration into a new checkpoint/journal;
+`JournalRunner.from_checkpoint` preserves the validated world/controller bundle.
+Trace callbacks receive copies and cannot mutate replayed commands or native state.
+
 ## Incomplete writes and explicit recovery
 
 Opening refuses an incomplete last line, a broken hash chain, native replay
@@ -71,8 +77,13 @@ python tools/journal.py --output runs/world.lwj --resume --ticks 32
 python tools/journal.py --output runs/world.lwj --verify-only
 ```
 
-The measured 32-person, 128-tick run retained all individuals, with p95 durable tick
+The historical rules-1 32-person, 128-tick run retained all individuals, with p95 durable tick
 latency 17.54 ms on this machine. After 32 further ticks, reopen/replay reproduced
 the exact tick-160 hash `82d7a527ad52f82f`, with all 32 alive and conservation true.
 These are headless authority measurements, not a rendering or network benchmark.
 See `benchmarks/durable-*.json` for raw measurements.
+
+The rules-2 social baseline also completed a 64-person, 512-tick durable stress
+run with all 64 alive and resources conserved. Its measured p95 durable tick was
+128.04 ms with other desktop activity; this is a non-isolated headless profile,
+not a client frame-time claim. See `social-64-profile.json`.

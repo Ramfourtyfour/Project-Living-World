@@ -5,11 +5,11 @@ architectures and other device platforms are unverified future targets.
 
 | Environment | Native toolchain | Evidence |
 | --- | --- | --- |
-| Local Windows x64, Python 3.13.2 | MSYS2 UCRT64 GCC 16.2.0 | Native world/inference checks, 44 Python tests, PyTorch/native numeric conformance, training/evaluation and packaged-binary checks |
+| Local Windows x64, Python 3.13.2 | MSYS2 UCRT64 GCC 16.2.0 | Native world/inference checks, 74 Python tests, PyTorch/native numeric conformance, training/evaluation and packaged-binary checks |
 | GitHub Windows x64, Python 3.13 | Visual Studio C++20 through CMake | Both native tests, 36 Python tests, 8 optional learning tests skipped, rollout/replay |
 | GitHub Ubuntu x64, Python 3.13 | GCC C++20 through CMake | Both native tests, 36 Python tests, 8 optional learning tests skipped, rollout/replay |
 
-The successful [Windows/Linux CI run](https://github.com/Ramfourtyfour/Project-Living-World/actions/runs/43102704838)
+The historical v0.2 [Windows/Linux CI run](https://github.com/Ramfourtyfour/Project-Living-World/actions/runs/43102704838)
 checked code commit `83ef545daad84182203303588dfb62cb99f183dc`. Optional PyTorch
 reference/training tests were run locally; the lean CI matrix deliberately
 exercises the dependency-free deployment and core contracts. Python 3.11+ is the

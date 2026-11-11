@@ -26,6 +26,14 @@ performance numbers. Tests and recordings are distinct from human play evidence.
   including the native kernel's slower local timing rather than a speedup claim.
 - `sealed-20000-*-discovery.json`: verified first-sealed-seed causal exploration
   accounting, including individual reports. Full compressed logs are in `examples/`.
+- `social-mechanics.json`: 16 surplus/16 scarce-stock episodes with real acquisition
+  and independent declared-heuristic decisions. Not learned cooperation.
+- `rules-v2-survival-regression.json`: reused validation seeds under new cache/
+  social rules, with separate scope from the frozen rules-1 pilot.
+- `legacy-checkpoint-upgrade.json`, `legacy-journal-compatible-audit.json`: actual
+  old-state/controller preservation and exact old-journal replay.
+- `social-64-profile.json`: non-isolated 64-person durable stress profile under
+  rules 2, with all 64 alive at tick 512 and conservation true.
 
 Run commands are in the root README. Training manifests retain seed/config/version
 and training history. Replaying a world requires the same native code/build and

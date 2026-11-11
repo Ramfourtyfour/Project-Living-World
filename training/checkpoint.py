@@ -56,6 +56,7 @@ def save_checkpoint(world,path,policy=None):
     files={"world.lws":world.snapshot().encode("utf-8"),"controller.json":canonical(record)}
     metadata={"version":1,"native_sha256":native_fingerprint(),"state_hash":world.state_hash(),
               "individual_ids":list(world.ids),"files":{name:hashlib.sha256(data).hexdigest() for name,data in files.items()}}
+    if getattr(world,"migration_info",None):metadata["migration"]=world.migration_info
     # mkdir is an exclusive claim, preventing two writers from replacing a bundle.
     path.mkdir(parents=True,exist_ok=False)
     for name,data in files.items():
@@ -64,7 +65,7 @@ def save_checkpoint(world,path,policy=None):
     os.replace(path/"manifest.pending",path/"manifest.json")
     return metadata
 
-def _load_checkpoint(path,policy=None):
+def _load_checkpoint(path,policy=None,allow_legacy_upgrade=False):
     path=Path(path)
     try:
         manifest=path/"manifest.json"
@@ -78,7 +79,8 @@ def _load_checkpoint(path,policy=None):
     metadata=json.loads(raw)
     if metadata["version"]!=1 or set(metadata["files"])!={"world.lws","controller.json"}:
         raise ValueError("Unsupported checkpoint contract")
-    if metadata["native_sha256"]!=native_fingerprint():
+    runtime_changed=metadata["native_sha256"]!=native_fingerprint()
+    if runtime_changed and not allow_legacy_upgrade:
         raise ValueError("Native runtime differs; explicit save migration is required")
     files={}
     for name,expected in metadata["files"].items():
@@ -93,14 +95,23 @@ def _load_checkpoint(path,policy=None):
     try:
         if list(world.ids)!=metadata["individual_ids"] or world.state_hash()!=metadata["state_hash"]:
             raise ValueError("Checkpoint world identity/hash mismatch")
+        if runtime_changed and world.rules_version!=1:
+            raise ValueError("Native runtime differs; this rules version has no verified migration")
         restore_controller(policy,record,world.ids)
+        if "migration" in metadata:
+            if not isinstance(metadata["migration"],dict):raise ValueError("Malformed migration provenance")
+            world.migration_info=metadata["migration"]
+        if runtime_changed:
+            world.upgrade_rules()
+            world.migration_info={"from_rules":1,"to_rules":2,"previous_native_sha256":metadata["native_sha256"],
+                                  "previous_state_hash":metadata["state_hash"],"source_manifest_sha256":hashlib.sha256(raw).hexdigest()}
     except BaseException:
         world.close()
         raise
     return world
 
-def load_checkpoint(path,policy=None):
+def load_checkpoint(path,policy=None,allow_legacy_upgrade=False):
     try:
-        return _load_checkpoint(path,policy)
+        return _load_checkpoint(path,policy,allow_legacy_upgrade)
     except (KeyError,TypeError,AttributeError,UnicodeError,RecursionError,OverflowError) as error:
         raise ValueError("Malformed checkpoint contract") from error

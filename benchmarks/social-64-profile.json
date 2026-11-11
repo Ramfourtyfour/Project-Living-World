@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "rules_version": 2,
+  "native_sha256": "da2380dafcebfc68d16d794fe19077dc3a0b7afe189856bb12cab348641175b3",
+  "tick": 512,
+  "population": 64,
+  "alive": 64,
+  "state_hash": "e25b8bf8ac3f33e8",
+  "conserved": true,
+  "controller": "individual-social-heuristic-v1",
+  "journal_bytes": 6718962,
+  "create_or_replay_seconds": 0.03182179993018508,
+  "durable_step_p95_ms": 128.04019986651838,
+  "mean_step_ms": 79.02415662965723,
+  "notes": "Single-writer copy-before-commit with file fsync; process-interruption tests, not a hardware power-loss guarantee."
+}

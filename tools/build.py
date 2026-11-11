@@ -13,7 +13,9 @@ def main():
     p.add_argument("--debug", action="store_true")
     p.add_argument("--build-dir", default="build", help="Use a separate directory if a running process has loaded the current DLL")
     p.add_argument("--inference-only",action="store_true",help="Build the separate native policy runtime without replacing a loaded simulation DLL")
+    p.add_argument("--simulation-only",action="store_true",help="Preserve the versioned policy runtime when building simulation rules")
     args = p.parse_args()
+    if args.inference_only and args.simulation_only:raise SystemExit("Choose one component or build both")
     compiler = os.environ.get("CXX") or shutil.which("g++") or shutil.which("clang++")
     if not compiler:
         fallback = Path("C:/msys64/ucrt64/bin/g++.exe")
@@ -31,11 +33,12 @@ def main():
     else:
         common += ["-fPIC"]
     if not args.inference_only:
-        subprocess.run(common + ["-shared", "sim/world.cpp", "sim/api.cpp", "-o", str(lib)], cwd=ROOT, check=True)
+        subprocess.run(common + ["-shared", "sim/world.cpp", "sim/social.cpp", "sim/api.cpp", "-o", str(lib)], cwd=ROOT, check=True)
         native = build / ("native_tests.exe" if windows else "native_tests")
-        subprocess.run(common + ["tests/native.cpp", "sim/world.cpp", "-o", str(native)], cwd=ROOT, check=True)
+        subprocess.run(common + ["tests/native.cpp", "sim/world.cpp", "sim/social.cpp", "-o", str(native)], cwd=ROOT, check=True)
         subprocess.run([str(native)], cwd=ROOT, check=True)
         print(f"Built {lib}")
+    if args.simulation_only:return
     policy=build/("livingworld_policy.dll" if windows else "liblivingworld_policy.dylib" if sys.platform=="darwin" else "liblivingworld_policy.so")
     subprocess.run(common+["-Iinference","-shared","inference/runtime.cpp","-o",str(policy)],cwd=ROOT,check=True)
     test=build/("inference_tests.exe" if windows else "inference_tests")

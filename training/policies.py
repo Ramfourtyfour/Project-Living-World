@@ -5,6 +5,35 @@ from .native import Action
 
 INTENTS = ("forage_food", "fetch_water", "eat", "drink", "rest", "explore", "gather_wood", "wait")
 
+def move_toward(observation,x,y):
+    """Local reactive steering around perceived circles; no hidden registry queries.
+
+    Legacy observations retain their exact old action decoder for replay/research.
+    """
+    if observation["version"]<2:return Action("move",x=x,y=y)
+    own=observation["self"]
+    obstacles=[(b["x"],b["y"],b["radius"]+36) for b in observation["obstacles"]]
+    known={m["id"]:(m["x"],m["y"],126) for m in observation.get("place_memory",[])}
+    known.update({c["id"]:(c["x"],c["y"],126) for c in observation.get("caches",[])})
+    obstacles+=list(known.values())
+    def clear(nx,ny):
+        dx=nx-own["x"];dy=ny-own["y"];length=dx*dx+dy*dy
+        for bx,by,radius in obstacles:
+            t=max(0,min(1,((bx-own["x"])*dx+(by-own["y"])*dy)/length)) if length else 0
+            if (own["x"]+t*dx-bx)**2+(own["y"]+t*dy-by)**2<=radius**2:return False
+        return True
+    dx=x-own["x"];dy=y-own["y"];distance=math.hypot(dx,dy)
+    if distance<=200:nx,ny=x,y
+    else:nx,ny=own["x"]+round(dx*200/distance),own["y"]+round(dy*200/distance)
+    if clear(nx,ny):return Action("move",x=x,y=y)
+    angle=math.atan2(dy,dx);side=1 if own["style"]%2 else -1
+    for offset in range(1,9):
+        for direction in (side,-side):
+            heading=angle+direction*offset*math.pi/8
+            nx=own["x"]+round(math.cos(heading)*200);ny=own["y"]+round(math.sin(heading)*200)
+            if 0<=nx<=24000 and 0<=ny<=24000 and clear(nx,ny):return Action("move",x=nx,y=ny)
+    return Action()
+
 def nearest(observation, resource):
     own = observation["self"]
     candidates = {n["id"]: n for n in observation["memory"] if n["resource"] == resource and n["amount_at_observation"] > 0}
@@ -27,7 +56,7 @@ def execute_intent(observation, intent):
                 visible = next((n for n in observation["nodes"] if n["id"] == target["id"]), None)
                 if visible and visible["amount"]:
                     return Action("gather", target=target["id"], quantity=1)
-            return Action("move", x=target["x"], y=target["y"])
+            return move_toward(observation,target["x"],target["y"])
         intent = 5
     if intent in (2, 3):
         return Action("consume", resource=intent-2)
@@ -36,8 +65,8 @@ def execute_intent(observation, intent):
     if intent == 5:
         # A stable per-person sweep, without global resource/map queries.
         angle = ((own["style"] * 0.618 + observation["tick"] // 16) % 16) * math.tau / 16
-        return Action("move", x=max(0,min(24000,own["x"]+round(math.cos(angle)*800))),
-                      y=max(0,min(24000,own["y"]+round(math.sin(angle)*800))))
+        return move_toward(observation,max(0,min(24000,own["x"]+round(math.cos(angle)*800))),
+                           max(0,min(24000,own["y"]+round(math.sin(angle)*800))))
     return Action()
 
 class HeuristicPolicy:

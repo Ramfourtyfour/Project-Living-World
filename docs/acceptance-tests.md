@@ -1,8 +1,8 @@
 # Acceptance evidence
 
 `python tools/build.py` compiles the C++20 library and runs native checks.
-`python -m pytest -q` runs the Python/native integration suite. Version 0.2 passed
-44 tests including checkpoint/journal interruption, both neural architectures and
+`python -m pytest -q` runs the Python/native integration suite. Version 0.3 passed
+74 local tests including checkpoint/journal interruption, both neural architectures and
 dependency-free native inference. Native world/inference checks also pass.
 [Windows/Linux CI](https://github.com/Ramfourtyfour/Project-Living-World/actions/runs/43102704838)
 passed on commit `83ef545`: each platform passed two native tests, 36 Python tests
@@ -49,7 +49,19 @@ Additional v0.2 evidence:
   test episodes conserve materials. A fixed-seed causal trace verifies actual
   harvest from newly discovered sources, with its limitations retained.
 
-The desktop inspector has been launched. Computer-use window inspection was
-unavailable because app approval timed out, so visual/manual play verification is
-not claimed. First-person play, construction, population magic, co-op, lag,
+Additional v0.3 tests cover separate offscreen task progress/requester beliefs,
+truthful in-person reports and correction of mistaken expiry beliefs; voluntary
+named agreements and invitations; physical material-funded cache construction,
+private/stale stock and access revocation; malformed named-wire batches; exact
+legacy replay and original-preserving world/controller migration. Mixed randomized
+commands replay and conserve through saves. Migration provenance survives continued
+journals/checkpoints. Thirty-two varied-seed social baseline scenarios conserve and
+replay, with all surplus requests fulfilled and all scarce requests declined.
+
+The Windows social inspector was visually checked using computer-use on 2026-11-11:
+default paused local view, complete social dialog, manual food request, next-step
+independent refusal visible in the personal journal, and clean close. It ran with
+`python -S`, without optional learning dependencies. This is a limited diagnostic
+UI check; no first-person or broad human playtest claim follows. First-person play,
+settlement construction, population magic, co-op, lag,
 cross-platform replay equivalence, sanitizers and release playthrough are pending.
