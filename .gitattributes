@@ -1,0 +1,6 @@
+* text=auto eol=lf
+*.cmd text eol=crlf
+*.pt -text
+# Two trailing spaces encode intentional Markdown line breaks in the supplied plan.
+*.md whitespace=-blank-at-eol
+LICENSES/** -whitespace

@@ -2,8 +2,8 @@
 
 `python tools/build.py` compiles the C++20 library and runs native checks.
 `python -m pytest -q` runs the Python/native integration suite. The initial suite
-passed 22 tests before the scarcity curriculum addition; further changes require
-rerunning it. CI configuration is provided
+passed 23 tests including the scarcity curriculum; native geometry/identity checks
+also pass. CI configuration is provided
 for Ubuntu and Windows; unexecuted CI is not a passed platform gate.
 
 Covered integration scenarios:

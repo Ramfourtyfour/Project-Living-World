@@ -49,6 +49,26 @@ Do not change the metric or replace the baseline after inspecting a score to
 manufacture success. The second curriculum configuration and acceptance test were
 predeclared in `benchmarks/curriculum-v2-protocol.md` before scarcity evaluation.
 
+## Predeclared scarcity experiment
+
+Starting from balanced cloning, 32 PPO updates on 32-person scarce worlds produced
+205,166 training agent steps in 69.96 seconds locally. The same eight held-out seeds
+were then evaluated in normal and scarce scenarios for 512 ticks.
+
+| Scenario / policy | Mean final survival | Mean lifetime | Explored cells/person |
+| --- | ---: | ---: | ---: |
+| Normal heuristic | 100% | 512 | 30.58 |
+| Normal learned | 100% | 512 | 32.45 |
+| Scarce heuristic | 46.09% | 349.15 | 31.02 |
+| Scarce learned | 33.20% | 303.12 | 28.54 |
+
+The learned policy improved normal exploration while retaining survival, but
+underperformed the heuristic under scarcity. The **predeclared gate failed**.
+The complete result is `benchmarks/curriculum-v2-evaluation.json`. This is a useful
+negative result, not permission to claim the full game or successful social MARL.
+The next research increment should inspect resource waste and scarcity trajectories,
+extend training horizons, and run declared reward/memory ablations.
+
 No social learning, emergent civilization, long-run economy stability, independent
 monster behavior or online neural weight learning has been demonstrated. Negative
 results are the reason construction and 3D expansion remain pending.

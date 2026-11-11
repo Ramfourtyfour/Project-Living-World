@@ -11,7 +11,9 @@ establish a permissive grant. No third-party engine/library source is vendored.
 
 The C++ core uses the standard library. Windows builds use the MSYS2 GCC runtime
 under its applicable runtime exception. A release distribution requires a full
-runtime/notice audit; this prototype is not the audited release candidate.
+runtime/notice audit; this prototype is not the audited release candidate. The
+packaged prototype includes GCC/runtime-exception, MinGW-w64 CRT/runtime and
+winpthreads notices in `LICENSES/` and `THIRD-PARTY-NOTICES.md`.
 Python, Tk/Tcl, pytest, NumPy, PyTorch and GitHub Actions are external tools with
 their own licenses. They are not relicensed here. Experimental model weights are
 trained locally from synthetic simulation trajectories, not downloaded checkpoints.

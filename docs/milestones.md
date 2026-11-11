@@ -11,7 +11,7 @@ code from passed gates and planned work. A partial milestone is not complete.
 | LW-004 | Partial | Local obstruction-limited sight, aged memory and private observations tested. FOV/light/hearing pending. |
 | LW-005 | Partial | Individual familiarity, gifts/trades, accept/refuse, invitation/depart persistence tested. Shared storage and founding pending; no learned social behavior. |
 | LW-006 | Prototype implemented | Reproducible heuristic/random rollouts, simultaneous environment, partitions and paired evaluation. Not a PettingZoo subclass. |
-| LW-007 | Experiment failed gate | Shared recurrent cloning/PPO runs and held-out results exist. Learned sustainable survival/exploration has not beaten the declared heuristic. |
+| LW-007 | Experiment failed gate | Balanced imitation and subsequent PPO retain normal-world survival and improve normal exploration, but learned scarcity survival (33.20%) trails the heuristic (46.09%). The predeclared expansion gate failed. |
 | LW-008 | Pending | Social actions must enter the learned action space, then multi-policy training and league evaluation. |
 | LW-009 | Pending | Legitimate logistics, construction/workstation, site validation, persistence and human play. |
 | LW-010 | Pending | Creation/revival/rebirth item and identity transactions, entry presets and abuse tests. |

@@ -83,7 +83,9 @@ learned failures are retained in `benchmarks/`. A policy file is an experimental
 artifact, not proof of emergent intelligence. The inspector defaults to the
 verified heuristic. A subsequent balanced imitation run matched 100% survival,
 but did not exceed the heuristic in exploration. See
-[research results](docs/rl-training.md) for subsequent runs.
+[research results](docs/rl-training.md) for subsequent runs. The predeclared scarcity
+PPO experiment improved normal exploration, but scarcity survival was 33.20% versus
+46.09% for the heuristic; its expansion gate also failed.
 
 Expansion requires stronger evidence under the master plan's stop/go criterion.
 Successful membership/transfer tests verify mechanics, not learned cooperation.
