@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "rows": [
+    {
+      "scenario": 0,
+      "development_seed": 9010,
+      "decisions": 16384,
+      "intent_disagreements": 0,
+      "max_logit_absolute_error": 1.3828277587890625e-05,
+      "max_hidden_absolute_error": 4.798173904418945e-06,
+      "native_batch_p95_ms": 1.5664000529795885,
+      "pytorch_batch_p95_ms": 0.8761000353842974,
+      "native_runtime_sha256": "4fe75ec5d2ed67ce98dd4242a346752a0b5eb1a4eced83a4332c29748de4e818",
+      "source_policy_sha256": "3e7253344c248c36cfae0ce9aaefeb2c3bdff8d668e03029e0a008522b4fae1a",
+      "native_policy_sha256": "c787058e75007cb940233d15b88236ce8e994e221be79522b70e8bf9cd3824ed",
+      "conserved": true
+    },
+    {
+      "scenario": 1,
+      "development_seed": 9011,
+      "decisions": 12582,
+      "intent_disagreements": 0,
+      "max_logit_absolute_error": 8.58306884765625e-06,
+      "max_hidden_absolute_error": 2.9578804969787598e-06,
+      "native_batch_p95_ms": 1.5349001623690128,
+      "pytorch_batch_p95_ms": 0.8522998541593552,
+      "native_runtime_sha256": "4fe75ec5d2ed67ce98dd4242a346752a0b5eb1a4eced83a4332c29748de4e818",
+      "source_policy_sha256": "3e7253344c248c36cfae0ce9aaefeb2c3bdff8d668e03029e0a008522b4fae1a",
+      "native_policy_sha256": "c787058e75007cb940233d15b88236ce8e994e221be79522b70e8bf9cd3824ed",
+      "conserved": true
+    }
+  ],
+  "passed": true,
+  "scope": "Two development trajectories with shared inputs. Numerical conformance, not bitwise equivalence or a general-purpose model runtime."
+}

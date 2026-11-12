@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "format": "lwgru-v1",
+  "architecture": "gru64-local-v2",
+  "feature_version": 2,
+  "inputs": 38,
+  "hidden": 64,
+  "actions": 8,
+  "sha256": "c787058e75007cb940233d15b88236ce8e994e221be79522b70e8bf9cd3824ed",
+  "source_policy_sha256": "3e7253344c248c36cfae0ce9aaefeb2c3bdff8d668e03029e0a008522b4fae1a",
+  "source_method": "behavior-cloning warm start + recurrent PPO",
+  "tensor_order": [
+    "encoder.0.weight",
+    "encoder.0.bias",
+    "memory.weight_ih_l0",
+    "memory.weight_hh_l0",
+    "memory.bias_ih_l0",
+    "memory.bias_hh_l0",
+    "actor.weight",
+    "actor.bias",
+    "critic.weight",
+    "critic.bias"
+  ],
+  "numeric_contract": "little-endian IEEE float32, PyTorch GRU r/z/n equations; numerical equivalence, not cross-runtime bitwise identity"
+}

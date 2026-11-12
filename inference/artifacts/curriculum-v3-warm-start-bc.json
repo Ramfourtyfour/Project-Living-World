@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "architecture": "gru64-local-v2",
+  "feature_version": 2,
+  "sha256": "294597dd83deb8db97f4859518e0674871e949f6dfddcd41e44912abcb085928",
+  "observation_version": 1,
+  "intents": [
+    "forage_food",
+    "fetch_water",
+    "eat",
+    "drink",
+    "rest",
+    "explore",
+    "gather_wood",
+    "wait"
+  ],
+  "method": "behavior-cloning warm start + recurrent PPO",
+  "seed": 217,
+  "demonstration_agent_steps": 124281,
+  "bc_epochs": 64,
+  "bc_class_counts": [
+    29603.0,
+    46437.0,
+    2710.0,
+    2653.0,
+    12481.0,
+    30397.0,
+    0.0,
+    0.0
+  ],
+  "bc_class_power": 0.5
+}

@@ -1,0 +1,274 @@
+{
+  "version": 1,
+  "rules_version": 3,
+  "native_sha256": "f264165fbd1afb9b43279e048da494c1f12914ef5edd2352cf2f0046253e86a6",
+  "seeds": [
+    42,
+    43,
+    44,
+    45
+  ],
+  "population": 32,
+  "ticks": 512,
+  "scope": "Development smoke test across daylight, sunset and night; frozen old survival brain, no new sealed claim",
+  "scenarios": {
+    "0": {
+      "heuristic": {
+        "episodes": [
+          {
+            "seed": 42,
+            "alive": 32,
+            "population": 32,
+            "survival_fraction": 1.0,
+            "mean_lifetime": 512,
+            "mean_explored_cells": 27.53125,
+            "reward_per_agent": 53.12125000000001,
+            "invalid_action_rate": 0.0,
+            "conserved": true,
+            "final_hash": "bb0215024021a6a9",
+            "seconds": 7.7897541001439095,
+            "inference_batch_p95_ms": 0.8508998434990644
+          },
+          {
+            "seed": 43,
+            "alive": 32,
+            "population": 32,
+            "survival_fraction": 1.0,
+            "mean_lifetime": 512,
+            "mean_explored_cells": 28.75,
+            "reward_per_agent": 53.340625000000074,
+            "invalid_action_rate": 0.0,
+            "conserved": true,
+            "final_hash": "a0ce1863e72765f8",
+            "seconds": 9.10481909988448,
+            "inference_batch_p95_ms": 0.8261001203209162
+          },
+          {
+            "seed": 44,
+            "alive": 32,
+            "population": 32,
+            "survival_fraction": 1.0,
+            "mean_lifetime": 512,
+            "mean_explored_cells": 28.65625,
+            "reward_per_agent": 53.23224999999999,
+            "invalid_action_rate": 0.0,
+            "conserved": true,
+            "final_hash": "f98a326e91620e1d",
+            "seconds": 8.952171899843961,
+            "inference_batch_p95_ms": 0.8177000563591719
+          },
+          {
+            "seed": 45,
+            "alive": 32,
+            "population": 32,
+            "survival_fraction": 1.0,
+            "mean_lifetime": 512,
+            "mean_explored_cells": 27.375,
+            "reward_per_agent": 53.162749999999996,
+            "invalid_action_rate": 0.0,
+            "conserved": true,
+            "final_hash": "dac716f18078c97f",
+            "seconds": 9.133054899983108,
+            "inference_batch_p95_ms": 0.8469000458717346
+          }
+        ],
+        "mean_survival": 1.0,
+        "mean_explored_cells": 28.078125,
+        "all_conserved": true
+      },
+      "frozen_native": {
+        "episodes": [
+          {
+            "seed": 42,
+            "alive": 32,
+            "population": 32,
+            "survival_fraction": 1.0,
+            "mean_lifetime": 512,
+            "mean_explored_cells": 38,
+            "reward_per_agent": 53.486625,
+            "invalid_action_rate": 0.0,
+            "conserved": true,
+            "final_hash": "6f91dd60e7702139",
+            "seconds": 9.900153400143608,
+            "inference_batch_p95_ms": 3.4280000254511833
+          },
+          {
+            "seed": 43,
+            "alive": 32,
+            "population": 32,
+            "survival_fraction": 1.0,
+            "mean_lifetime": 512,
+            "mean_explored_cells": 39.46875,
+            "reward_per_agent": 53.68475000000005,
+            "invalid_action_rate": 0.0,
+            "conserved": true,
+            "final_hash": "0a942074df502373",
+            "seconds": 10.019608200062066,
+            "inference_batch_p95_ms": 3.6751998122781515
+          },
+          {
+            "seed": 44,
+            "alive": 32,
+            "population": 32,
+            "survival_fraction": 1.0,
+            "mean_lifetime": 512,
+            "mean_explored_cells": 40.375,
+            "reward_per_agent": 53.73100000000006,
+            "invalid_action_rate": 0.0,
+            "conserved": true,
+            "final_hash": "0fb080b3abc24ae1",
+            "seconds": 9.620223399950191,
+            "inference_batch_p95_ms": 3.570500062778592
+          },
+          {
+            "seed": 45,
+            "alive": 32,
+            "population": 32,
+            "survival_fraction": 1.0,
+            "mean_lifetime": 512,
+            "mean_explored_cells": 36.71875,
+            "reward_per_agent": 53.46399999999999,
+            "invalid_action_rate": 0.0,
+            "conserved": true,
+            "final_hash": "4daadf07d0fc151d",
+            "seconds": 9.386977599933743,
+            "inference_batch_p95_ms": 3.2737001311033964
+          }
+        ],
+        "mean_survival": 1.0,
+        "mean_explored_cells": 38.640625,
+        "all_conserved": true
+      }
+    },
+    "1": {
+      "heuristic": {
+        "episodes": [
+          {
+            "seed": 42,
+            "alive": 14,
+            "population": 32,
+            "survival_fraction": 0.4375,
+            "mean_lifetime": 357.9375,
+            "mean_explored_cells": 14.75,
+            "reward_per_agent": 25.88025000000001,
+            "invalid_action_rate": 0.003754147022874105,
+            "conserved": true,
+            "final_hash": "c2cbe4d8dca88a28",
+            "seconds": 5.97612510016188,
+            "inference_batch_p95_ms": 0.7241999264806509
+          },
+          {
+            "seed": 43,
+            "alive": 17,
+            "population": 32,
+            "survival_fraction": 0.53125,
+            "mean_lifetime": 382.96875,
+            "mean_explored_cells": 15.34375,
+            "reward_per_agent": 30.57837499999995,
+            "invalid_action_rate": 0.002529579763361893,
+            "conserved": true,
+            "final_hash": "71a30369edef05c0",
+            "seconds": 6.195152299944311,
+            "inference_batch_p95_ms": 0.6959999445825815
+          },
+          {
+            "seed": 44,
+            "alive": 16,
+            "population": 32,
+            "survival_fraction": 0.5,
+            "mean_lifetime": 366.75,
+            "mean_explored_cells": 18.71875,
+            "reward_per_agent": 28.351749999999967,
+            "invalid_action_rate": 0.002044989775051125,
+            "conserved": true,
+            "final_hash": "43cca5cedbb9b1b7",
+            "seconds": 5.462395600043237,
+            "inference_batch_p95_ms": 0.6689999718219042
+          },
+          {
+            "seed": 45,
+            "alive": 14,
+            "population": 32,
+            "survival_fraction": 0.4375,
+            "mean_lifetime": 350.40625,
+            "mean_explored_cells": 15.15625,
+            "reward_per_agent": 25.550999999999974,
+            "invalid_action_rate": 0.002140372781592794,
+            "conserved": true,
+            "final_hash": "7b9fef7794324854",
+            "seconds": 5.2120072999969125,
+            "inference_batch_p95_ms": 0.6448999047279358
+          }
+        ],
+        "mean_survival": 0.4765625,
+        "mean_explored_cells": 15.9921875,
+        "all_conserved": true
+      },
+      "frozen_native": {
+        "episodes": [
+          {
+            "seed": 42,
+            "alive": 18,
+            "population": 32,
+            "survival_fraction": 0.5625,
+            "mean_lifetime": 423.59375,
+            "mean_explored_cells": 23.65625,
+            "reward_per_agent": 35.57137499999997,
+            "invalid_action_rate": 0.0019918849133161195,
+            "conserved": true,
+            "final_hash": "8b60cf5582e0954e",
+            "seconds": 7.723411699989811,
+            "inference_batch_p95_ms": 3.0758001375943422
+          },
+          {
+            "seed": 43,
+            "alive": 23,
+            "population": 32,
+            "survival_fraction": 0.71875,
+            "mean_lifetime": 441.8125,
+            "mean_explored_cells": 23.6875,
+            "reward_per_agent": 39.030499999999975,
+            "invalid_action_rate": 0.0014853586080067903,
+            "conserved": true,
+            "final_hash": "854422c546f47b0a",
+            "seconds": 8.15815049991943,
+            "inference_batch_p95_ms": 3.091400023549795
+          },
+          {
+            "seed": 44,
+            "alive": 17,
+            "population": 32,
+            "survival_fraction": 0.53125,
+            "mean_lifetime": 396.96875,
+            "mean_explored_cells": 25.03125,
+            "reward_per_agent": 32.66800000000002,
+            "invalid_action_rate": 0.0009446587420294418,
+            "conserved": true,
+            "final_hash": "a3b0299c1b410507",
+            "seconds": 7.277011299971491,
+            "inference_batch_p95_ms": 3.1910999678075314
+          },
+          {
+            "seed": 45,
+            "alive": 17,
+            "population": 32,
+            "survival_fraction": 0.53125,
+            "mean_lifetime": 380.5625,
+            "mean_explored_cells": 22.90625,
+            "reward_per_agent": 30.65124999999994,
+            "invalid_action_rate": 0.0012317293480045984,
+            "conserved": true,
+            "final_hash": "d58488603fa4d578",
+            "seconds": 6.7826185000594705,
+            "inference_batch_p95_ms": 3.0889001209288836
+          }
+        ],
+        "mean_survival": 0.5859375,
+        "mean_explored_cells": 23.8203125,
+        "all_conserved": true
+      }
+    }
+  },
+  "policy_sha256": "c787058e75007cb940233d15b88236ce8e994e221be79522b70e8bf9cd3824ed",
+  "policy_runtime_sha256": "4fe75ec5d2ed67ce98dd4242a346752a0b5eb1a4eced83a4332c29748de4e818"
+}

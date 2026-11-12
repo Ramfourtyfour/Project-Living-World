@@ -1,0 +1,275 @@
+{
+  "version": 1,
+  "rules_version": 2,
+  "native_sha256": "da2380dafcebfc68d16d794fe19077dc3a0b7afe189856bb12cab348641175b3",
+  "policy_sha256": "c787058e75007cb940233d15b88236ce8e994e221be79522b70e8bf9cd3824ed",
+  "policy_runtime_sha256": "4fe75ec5d2ed67ce98dd4242a346752a0b5eb1a4eced83a4332c29748de4e818",
+  "source_policy_sha256": "3e7253344c248c36cfae0ce9aaefeb2c3bdff8d668e03029e0a008522b4fae1a",
+  "scope": "Previously inspected validation seeds; compatibility regression, not a new sealed claim",
+  "seeds": [
+    10000,
+    10001,
+    10002,
+    10003
+  ],
+  "ticks": 512,
+  "population": 32,
+  "scenarios": {
+    "0": {
+      "heuristic": {
+        "episodes": [
+          {
+            "seed": 10000,
+            "alive": 32,
+            "population": 32,
+            "survival_fraction": 1.0,
+            "mean_lifetime": 512,
+            "mean_explored_cells": 30.25,
+            "reward_per_agent": 53.35262500000002,
+            "invalid_action_rate": 0.0,
+            "conserved": true,
+            "final_hash": "1447431a60c40183",
+            "seconds": 11.218649200163782,
+            "inference_batch_p95_ms": 1.3027000240981579
+          },
+          {
+            "seed": 10001,
+            "alive": 32,
+            "population": 32,
+            "survival_fraction": 1.0,
+            "mean_lifetime": 512,
+            "mean_explored_cells": 30.5625,
+            "reward_per_agent": 53.48300000000005,
+            "invalid_action_rate": 0.0,
+            "conserved": true,
+            "final_hash": "9e797ee56b575129",
+            "seconds": 8.46161019988358,
+            "inference_batch_p95_ms": 1.065499847754836
+          },
+          {
+            "seed": 10002,
+            "alive": 32,
+            "population": 32,
+            "survival_fraction": 1.0,
+            "mean_lifetime": 512,
+            "mean_explored_cells": 32.46875,
+            "reward_per_agent": 53.584874999999975,
+            "invalid_action_rate": 0.0,
+            "conserved": true,
+            "final_hash": "e99fa0c40b4e92d6",
+            "seconds": 7.952959100017324,
+            "inference_batch_p95_ms": 1.0411001276224852
+          },
+          {
+            "seed": 10003,
+            "alive": 32,
+            "population": 32,
+            "survival_fraction": 1.0,
+            "mean_lifetime": 512,
+            "mean_explored_cells": 30.75,
+            "reward_per_agent": 53.44437500000004,
+            "invalid_action_rate": 0.0,
+            "conserved": true,
+            "final_hash": "3b5113449db5ac0b",
+            "seconds": 7.6496647000312805,
+            "inference_batch_p95_ms": 0.894700177013874
+          }
+        ],
+        "mean_survival": 1.0,
+        "mean_lifetime": 512,
+        "mean_explored_cells": 31.0078125
+      },
+      "native": {
+        "episodes": [
+          {
+            "seed": 10000,
+            "alive": 32,
+            "population": 32,
+            "survival_fraction": 1.0,
+            "mean_lifetime": 512,
+            "mean_explored_cells": 38.71875,
+            "reward_per_agent": 53.68137499999997,
+            "invalid_action_rate": 0.0,
+            "conserved": true,
+            "final_hash": "ceb2c5a961d9f702",
+            "seconds": 9.687660600058734,
+            "inference_batch_p95_ms": 6.489800056442618
+          },
+          {
+            "seed": 10001,
+            "alive": 32,
+            "population": 32,
+            "survival_fraction": 1.0,
+            "mean_lifetime": 512,
+            "mean_explored_cells": 40.25,
+            "reward_per_agent": 53.70637500000006,
+            "invalid_action_rate": 0.0,
+            "conserved": true,
+            "final_hash": "03fcdef4388b388d",
+            "seconds": 7.427658400032669,
+            "inference_batch_p95_ms": 3.7426999770104885
+          },
+          {
+            "seed": 10002,
+            "alive": 32,
+            "population": 32,
+            "survival_fraction": 1.0,
+            "mean_lifetime": 512,
+            "mean_explored_cells": 41.4375,
+            "reward_per_agent": 53.7575,
+            "invalid_action_rate": 0.0,
+            "conserved": true,
+            "final_hash": "b92df1dfe28995eb",
+            "seconds": 7.607857899973169,
+            "inference_batch_p95_ms": 4.129600012674928
+          },
+          {
+            "seed": 10003,
+            "alive": 32,
+            "population": 32,
+            "survival_fraction": 1.0,
+            "mean_lifetime": 512,
+            "mean_explored_cells": 39.40625,
+            "reward_per_agent": 53.69775000000005,
+            "invalid_action_rate": 0.0,
+            "conserved": true,
+            "final_hash": "956034f16b9533e8",
+            "seconds": 7.754718100186437,
+            "inference_batch_p95_ms": 4.506899975240231
+          }
+        ],
+        "mean_survival": 1.0,
+        "mean_lifetime": 512,
+        "mean_explored_cells": 39.953125
+      }
+    },
+    "1": {
+      "heuristic": {
+        "episodes": [
+          {
+            "seed": 10000,
+            "alive": 16,
+            "population": 32,
+            "survival_fraction": 0.5,
+            "mean_lifetime": 356.3125,
+            "mean_explored_cells": 32.46875,
+            "reward_per_agent": 28.490624999999945,
+            "invalid_action_rate": 0.0019294860550780565,
+            "conserved": true,
+            "final_hash": "2c62d749b7914b17",
+            "seconds": 4.351481599966064,
+            "inference_batch_p95_ms": 0.5131000652909279
+          },
+          {
+            "seed": 10001,
+            "alive": 17,
+            "population": 32,
+            "survival_fraction": 0.53125,
+            "mean_lifetime": 363.8125,
+            "mean_explored_cells": 29.125,
+            "reward_per_agent": 29.299124999999922,
+            "invalid_action_rate": 0.0017179178835251675,
+            "conserved": true,
+            "final_hash": "79c80bd5dad2e02c",
+            "seconds": 5.383491599932313,
+            "inference_batch_p95_ms": 0.6772000342607498
+          },
+          {
+            "seed": 10002,
+            "alive": 20,
+            "population": 32,
+            "survival_fraction": 0.625,
+            "mean_lifetime": 395.90625,
+            "mean_explored_cells": 34.9375,
+            "reward_per_agent": 35.09525000000001,
+            "invalid_action_rate": 0.0014997237351014286,
+            "conserved": true,
+            "final_hash": "f69a5d280d163b14",
+            "seconds": 4.795661699958146,
+            "inference_batch_p95_ms": 0.5090998020023108
+          },
+          {
+            "seed": 10003,
+            "alive": 15,
+            "population": 32,
+            "survival_fraction": 0.46875,
+            "mean_lifetime": 344.28125,
+            "mean_explored_cells": 29.28125,
+            "reward_per_agent": 26.63549999999999,
+            "invalid_action_rate": 0.0010892257420350368,
+            "conserved": true,
+            "final_hash": "1387193034ee4fc4",
+            "seconds": 4.239314500009641,
+            "inference_batch_p95_ms": 0.5234000273048878
+          }
+        ],
+        "mean_survival": 0.53125,
+        "mean_lifetime": 365.078125,
+        "mean_explored_cells": 31.453125
+      },
+      "native": {
+        "episodes": [
+          {
+            "seed": 10000,
+            "alive": 19,
+            "population": 32,
+            "survival_fraction": 0.59375,
+            "mean_lifetime": 407.34375,
+            "mean_explored_cells": 38.9375,
+            "reward_per_agent": 35.31112499999998,
+            "invalid_action_rate": 0.0017644802454929037,
+            "conserved": true,
+            "final_hash": "4f4a1a5cf6118cf6",
+            "seconds": 6.145705200033262,
+            "inference_batch_p95_ms": 3.4134001471102238
+          },
+          {
+            "seed": 10001,
+            "alive": 19,
+            "population": 32,
+            "survival_fraction": 0.59375,
+            "mean_lifetime": 403.75,
+            "mean_explored_cells": 40.9375,
+            "reward_per_agent": 35.15124999999994,
+            "invalid_action_rate": 0.0007739938080495357,
+            "conserved": true,
+            "final_hash": "acde662898bbaf87",
+            "seconds": 5.906331199919805,
+            "inference_batch_p95_ms": 3.0815000645816326
+          },
+          {
+            "seed": 10002,
+            "alive": 24,
+            "population": 32,
+            "survival_fraction": 0.75,
+            "mean_lifetime": 441.28125,
+            "mean_explored_cells": 39.28125,
+            "reward_per_agent": 42.060375,
+            "invalid_action_rate": 0.0010622477161674102,
+            "conserved": true,
+            "final_hash": "106ae20b25a927ea",
+            "seconds": 7.4368221999611706,
+            "inference_batch_p95_ms": 4.465000005438924
+          },
+          {
+            "seed": 10003,
+            "alive": 15,
+            "population": 32,
+            "survival_fraction": 0.46875,
+            "mean_lifetime": 373.8125,
+            "mean_explored_cells": 38.5625,
+            "reward_per_agent": 30.565750000000016,
+            "invalid_action_rate": 0.0007523825447249624,
+            "conserved": true,
+            "final_hash": "05d1380337a68332",
+            "seconds": 5.6525640999898314,
+            "inference_batch_p95_ms": 3.077999921515584
+          }
+        ],
+        "mean_survival": 0.6015625,
+        "mean_lifetime": 406.546875,
+        "mean_explored_cells": 39.4296875
+      }
+    }
+  }
+}

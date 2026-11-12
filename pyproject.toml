@@ -1,0 +1,9 @@
+[project]
+name = "project-living-world"
+version = "0.4.0"
+description = "Original deterministic survival simulation and decentralized learning research prototype"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--basetemp=build/pytest-temp"

@@ -1,0 +1,234 @@
+{
+  "version": 1,
+  "architecture": "social-gru64-slate-v1",
+  "observation_version": 3,
+  "proposal_version": 1,
+  "base_inputs": 64,
+  "candidate_inputs": 52,
+  "hidden": 64,
+  "max_candidates": 128,
+  "candidate_kinds": [
+    "food",
+    "water",
+    "eat",
+    "drink",
+    "rest",
+    "explore",
+    "wood",
+    "wait",
+    "look",
+    "approach",
+    "offer",
+    "trade",
+    "request",
+    "accept",
+    "decline",
+    "answer_yes",
+    "answer_no",
+    "invite",
+    "leave",
+    "found",
+    "deposit",
+    "withdraw",
+    "report",
+    "call",
+    "crouch"
+  ],
+  "sha256": "15f005a195993a436778e038dde1c6f2110f73841a54ebc4f753acaf5eb91bbe",
+  "phase": "recurrent PPO candidate; unevaluated",
+  "configuration": {
+    "output": "runs/social-curriculum-v1",
+    "seed": 31,
+    "bc_episodes": 24,
+    "bc_epochs": 24,
+    "updates": 96,
+    "horizon": 64,
+    "ppo_epochs": 4,
+    "init": "inference/artifacts/curriculum-v3.pt",
+    "native_sha256": "f264165fbd1afb9b43279e048da494c1f12914ef5edd2352cf2f0046253e86a6",
+    "training_partition": "below 45000",
+    "validation_partition": "50000..50015",
+    "sealed_partition": "60000..60031",
+    "source_sha256": {
+      "training\\checkpoint.py": "182df42da9c26212db6705e598c59060f3b09cd27651839d812838bc688f5f0d",
+      "training\\diagnose.py": "70f590571f9eaf9b2f37c690fe4f9635650a03b7acf00764b6a48ea71e360f34",
+      "training\\env.py": "644a2c7187f1fb02daac0179c05c6bb36d509a6aeaee62bae046845a6ab3fd42",
+      "training\\evaluate.py": "88c5868bc2f5d08acabfce40839e5866e39738960b5590834a5f8e1d9fba0dd5",
+      "training\\evaluate_curriculum.py": "eb1adf50c5c54f37c7f3f1689b400fff5ca0dae69d0cf327b544f16e4169cfb2",
+      "training\\journal.py": "2c36cd578a1e53189abbc5a5df2f9ff1104e673ad898a0718bdb2bc75c5fe1da",
+      "training\\learn.py": "3672f2d5cdb43ee66af3770ec3dd17282facde8b14dbbd3d8f566ca45ee98507",
+      "training\\native.py": "d31a6a3f08232a13c37cbfe8a1915cbce2b6c42abe998dc3bbc21be7a6e2ea8a",
+      "training\\policies.py": "8f38d4851bd852a4de4f5171ba16b511c4e1b87d9642920927b1a3e2d17b428d",
+      "training\\proposals.py": "e7e6b383b2af8ac3a9a4d405c9c346d13a279d6992612e36c6a95fc768a2b2b4",
+      "training\\proposal_baselines.py": "ff29e725a24b95dac395015577b9e5a3431ae7d460d3389306cb02b676a9232f",
+      "training\\provenance.py": "08910e3e0c8304c658b6f749c2d5d33fa116ce6feb5e3ee2e46edd0c38c0ced8",
+      "training\\social.py": "c0863236f87936074edda214928e1bd22f228d0624a2e1f83f0349de6c7b9e80",
+      "training\\social_arena.py": "7d207f6282c4a2b7fb6cf3e26073ec88b0f25019f9ba7c030c9f9efd48ddfa6c",
+      "training\\social_model.py": "aa38ec7ac0b977c4f660c2109b2396d3e3c0e1f827506342ee7cc91a7f61cc46",
+      "training\\social_train.py": "13cd63633f992ac9a187da1d2402dc76870bf46ef84b952ec0aa9a2061b425c6",
+      "training\\__init__.py": "e44911a85e533eca18cd83f45bea4dfa1be69e51cf2117c28fe678680c9d8d58",
+      "sim\\api.cpp": "224cdcdaba818e1a78092a6f9ee377490e5eebd5a9fd96389fa8bbdb2a77f126",
+      "sim\\perception.cpp": "9f7c31b98aa29537573e1842b987f026cf083edeac6fb87b6ec44516eec81c8e",
+      "sim\\social.cpp": "539b24064cc75c94eb7cc39c1d16698febac4114046f607292883dd9e23f4d33",
+      "sim\\world.cpp": "95e907c56c57332cf6b7df6e5e9bc7360d245f8376f170e74e4eeb398ab9ae77",
+      "sim\\world.hpp": "6d8055e6c461624ddee84681bafbffc90d67ead07d2e27f2f7f372cefc78c74e",
+      "sim\\api.h": "85d04906d460a07dd33687fc2d9542ac5be307f047887e34bd6b51b6ecfd996d"
+    },
+    "source_bundle_sha256": "d7c191ee4737f21a628f558fef877368a11d3ae32317c31fd07f84b0e3de7621",
+    "transfer_policy_sha256": "3e7253344c248c36cfae0ce9aaefeb2c3bdff8d668e03029e0a008522b4fae1a"
+  },
+  "bc": {
+    "class_counts": {
+      "food": 4331.0,
+      "water": 4711.0,
+      "eat": 466.0,
+      "drink": 404.0,
+      "rest": 1769.0,
+      "explore": 5748.0,
+      "wood": 0.0,
+      "wait": 0.0,
+      "look": 44.0,
+      "approach": 115.0,
+      "offer": 6.0,
+      "trade": 0.0,
+      "request": 2.0,
+      "accept": 11.0,
+      "decline": 9.0,
+      "answer_yes": 6.0,
+      "answer_no": 0.0,
+      "invite": 0.0,
+      "leave": 0.0,
+      "found": 0.0,
+      "deposit": 0.0,
+      "withdraw": 42.0,
+      "report": 0.0,
+      "call": 0.0,
+      "crouch": 0.0
+    },
+    "history": [
+      {
+        "bc_epoch": 1,
+        "accuracy": 0.7723618659420289,
+        "loss": 2.429277405142784
+      },
+      {
+        "bc_epoch": 2,
+        "accuracy": 0.810745018115942,
+        "loss": 1.753878701191682
+      },
+      {
+        "bc_epoch": 3,
+        "accuracy": 0.818161231884058,
+        "loss": 1.3212320409142053
+      },
+      {
+        "bc_epoch": 4,
+        "accuracy": 0.8292006340579711,
+        "loss": 1.1843401749546711
+      },
+      {
+        "bc_epoch": 5,
+        "accuracy": 0.8375226449275363,
+        "loss": 1.0639764898671553
+      },
+      {
+        "bc_epoch": 6,
+        "accuracy": 0.8451653079710145,
+        "loss": 1.0347847548814921
+      },
+      {
+        "bc_epoch": 7,
+        "accuracy": 0.8478260869565217,
+        "loss": 0.9778576825673764
+      },
+      {
+        "bc_epoch": 8,
+        "accuracy": 0.8575067934782609,
+        "loss": 0.9510506907334695
+      },
+      {
+        "bc_epoch": 9,
+        "accuracy": 0.8559216485507246,
+        "loss": 0.9257295905397489
+      },
+      {
+        "bc_epoch": 10,
+        "accuracy": 0.8613564311594203,
+        "loss": 0.8817742292124492
+      },
+      {
+        "bc_epoch": 11,
+        "accuracy": 0.8603940217391305,
+        "loss": 0.8325661303332219
+      },
+      {
+        "bc_epoch": 12,
+        "accuracy": 0.8628283514492754,
+        "loss": 0.825425375969364
+      },
+      {
+        "bc_epoch": 13,
+        "accuracy": 0.8666213768115942,
+        "loss": 0.8120197427387421
+      },
+      {
+        "bc_epoch": 14,
+        "accuracy": 0.8692255434782609,
+        "loss": 0.7904381921085027
+      },
+      {
+        "bc_epoch": 15,
+        "accuracy": 0.8705276268115942,
+        "loss": 0.7750777709656037
+      },
+      {
+        "bc_epoch": 16,
+        "accuracy": 0.8735846920289855,
+        "loss": 0.7618231061272897
+      },
+      {
+        "bc_epoch": 17,
+        "accuracy": 0.8747169384057971,
+        "loss": 0.74566684391063
+      },
+      {
+        "bc_epoch": 18,
+        "accuracy": 0.8768115942028986,
+        "loss": 0.7273491621017456
+      },
+      {
+        "bc_epoch": 19,
+        "accuracy": 0.8783967391304348,
+        "loss": 0.7044295660005166
+      },
+      {
+        "bc_epoch": 20,
+        "accuracy": 0.881057518115942,
+        "loss": 0.6903647965250107
+      },
+      {
+        "bc_epoch": 21,
+        "accuracy": 0.8831521739130435,
+        "loss": 0.6581080851073449
+      },
+      {
+        "bc_epoch": 22,
+        "accuracy": 0.8834918478260869,
+        "loss": 0.6529211490773238
+      },
+      {
+        "bc_epoch": 23,
+        "accuracy": 0.8839447463768116,
+        "loss": 0.616453126216164
+      },
+      {
+        "bc_epoch": 24,
+        "accuracy": 0.8859261775362319,
+        "loss": 0.6323062116996601
+      }
+    ]
+  },
+  "updates": 96,
+  "seconds": 501.027491599787,
+  "history_sha256": "263e058313efd2d890477747a9f612831fd605e33f05e80d5f22670b5fb374c3"
+}

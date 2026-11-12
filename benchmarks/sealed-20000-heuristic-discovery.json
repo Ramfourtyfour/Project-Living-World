@@ -1,0 +1,293 @@
+{
+  "version": 1,
+  "controller": "heuristic-v1",
+  "final_state_hash": "2470712abf944af1",
+  "final_tick": 512,
+  "conserved": true,
+  "mean_new_supply_nodes_seen": 0.65625,
+  "mean_new_supply_nodes_harvested": 0.53125,
+  "individuals_using_new_supplies": 8,
+  "units_from_new_survival_supplies": 93,
+  "individuals": [
+    {
+      "id": 41,
+      "new_supplies_seen": [],
+      "new_supplies_harvested": [],
+      "new_supply_units": 0,
+      "first_new_supply_tick": null
+    },
+    {
+      "id": 42,
+      "new_supplies_seen": [
+        26,
+        27,
+        29
+      ],
+      "new_supplies_harvested": [
+        27,
+        29
+      ],
+      "new_supply_units": 17,
+      "first_new_supply_tick": 93
+    },
+    {
+      "id": 43,
+      "new_supplies_seen": [],
+      "new_supplies_harvested": [],
+      "new_supply_units": 0,
+      "first_new_supply_tick": null
+    },
+    {
+      "id": 44,
+      "new_supplies_seen": [],
+      "new_supplies_harvested": [],
+      "new_supply_units": 0,
+      "first_new_supply_tick": null
+    },
+    {
+      "id": 45,
+      "new_supplies_seen": [],
+      "new_supplies_harvested": [],
+      "new_supply_units": 0,
+      "first_new_supply_tick": null
+    },
+    {
+      "id": 46,
+      "new_supplies_seen": [],
+      "new_supplies_harvested": [],
+      "new_supply_units": 0,
+      "first_new_supply_tick": null
+    },
+    {
+      "id": 47,
+      "new_supplies_seen": [],
+      "new_supplies_harvested": [],
+      "new_supply_units": 0,
+      "first_new_supply_tick": null
+    },
+    {
+      "id": 48,
+      "new_supplies_seen": [
+        25
+      ],
+      "new_supplies_harvested": [
+        25
+      ],
+      "new_supply_units": 2,
+      "first_new_supply_tick": 6
+    },
+    {
+      "id": 49,
+      "new_supplies_seen": [
+        6,
+        7,
+        26,
+        27,
+        29
+      ],
+      "new_supplies_harvested": [
+        6,
+        7,
+        26,
+        27,
+        29
+      ],
+      "new_supply_units": 22,
+      "first_new_supply_tick": 138
+    },
+    {
+      "id": 50,
+      "new_supplies_seen": [
+        38
+      ],
+      "new_supplies_harvested": [
+        38
+      ],
+      "new_supply_units": 4,
+      "first_new_supply_tick": 136
+    },
+    {
+      "id": 51,
+      "new_supplies_seen": [],
+      "new_supplies_harvested": [],
+      "new_supply_units": 0,
+      "first_new_supply_tick": null
+    },
+    {
+      "id": 52,
+      "new_supplies_seen": [
+        11,
+        12
+      ],
+      "new_supplies_harvested": [
+        11,
+        12
+      ],
+      "new_supply_units": 19,
+      "first_new_supply_tick": 174
+    },
+    {
+      "id": 53,
+      "new_supplies_seen": [],
+      "new_supplies_harvested": [],
+      "new_supply_units": 0,
+      "first_new_supply_tick": null
+    },
+    {
+      "id": 54,
+      "new_supplies_seen": [],
+      "new_supplies_harvested": [],
+      "new_supply_units": 0,
+      "first_new_supply_tick": null
+    },
+    {
+      "id": 55,
+      "new_supplies_seen": [],
+      "new_supplies_harvested": [],
+      "new_supply_units": 0,
+      "first_new_supply_tick": null
+    },
+    {
+      "id": 56,
+      "new_supplies_seen": [],
+      "new_supplies_harvested": [],
+      "new_supply_units": 0,
+      "first_new_supply_tick": null
+    },
+    {
+      "id": 57,
+      "new_supplies_seen": [],
+      "new_supplies_harvested": [],
+      "new_supply_units": 0,
+      "first_new_supply_tick": null
+    },
+    {
+      "id": 58,
+      "new_supplies_seen": [
+        26,
+        27,
+        29
+      ],
+      "new_supplies_harvested": [
+        26,
+        27,
+        29
+      ],
+      "new_supply_units": 23,
+      "first_new_supply_tick": 39
+    },
+    {
+      "id": 59,
+      "new_supplies_seen": [],
+      "new_supplies_harvested": [],
+      "new_supply_units": 0,
+      "first_new_supply_tick": null
+    },
+    {
+      "id": 60,
+      "new_supplies_seen": [],
+      "new_supplies_harvested": [],
+      "new_supply_units": 0,
+      "first_new_supply_tick": null
+    },
+    {
+      "id": 61,
+      "new_supplies_seen": [],
+      "new_supplies_harvested": [],
+      "new_supply_units": 0,
+      "first_new_supply_tick": null
+    },
+    {
+      "id": 62,
+      "new_supplies_seen": [],
+      "new_supplies_harvested": [],
+      "new_supply_units": 0,
+      "first_new_supply_tick": null
+    },
+    {
+      "id": 63,
+      "new_supplies_seen": [],
+      "new_supplies_harvested": [],
+      "new_supply_units": 0,
+      "first_new_supply_tick": null
+    },
+    {
+      "id": 64,
+      "new_supplies_seen": [],
+      "new_supplies_harvested": [],
+      "new_supply_units": 0,
+      "first_new_supply_tick": null
+    },
+    {
+      "id": 65,
+      "new_supplies_seen": [],
+      "new_supplies_harvested": [],
+      "new_supply_units": 0,
+      "first_new_supply_tick": null
+    },
+    {
+      "id": 66,
+      "new_supplies_seen": [
+        26,
+        27
+      ],
+      "new_supplies_harvested": [],
+      "new_supply_units": 0,
+      "first_new_supply_tick": 447
+    },
+    {
+      "id": 67,
+      "new_supplies_seen": [],
+      "new_supplies_harvested": [],
+      "new_supply_units": 0,
+      "first_new_supply_tick": null
+    },
+    {
+      "id": 68,
+      "new_supplies_seen": [],
+      "new_supplies_harvested": [],
+      "new_supply_units": 0,
+      "first_new_supply_tick": null
+    },
+    {
+      "id": 69,
+      "new_supplies_seen": [
+        38
+      ],
+      "new_supplies_harvested": [
+        38
+      ],
+      "new_supply_units": 3,
+      "first_new_supply_tick": 47
+    },
+    {
+      "id": 70,
+      "new_supplies_seen": [
+        26,
+        27,
+        29
+      ],
+      "new_supplies_harvested": [
+        26,
+        27
+      ],
+      "new_supply_units": 3,
+      "first_new_supply_tick": 225
+    },
+    {
+      "id": 71,
+      "new_supplies_seen": [],
+      "new_supplies_harvested": [],
+      "new_supply_units": 0,
+      "first_new_supply_tick": null
+    },
+    {
+      "id": 72,
+      "new_supplies_seen": [],
+      "new_supplies_harvested": [],
+      "new_supply_units": 0,
+      "first_new_supply_tick": null
+    }
+  ],
+  "scope": "Actual accepted food/water harvests from sources absent from that individual's initial sight. A causal trace, not proof of social learning."
+}

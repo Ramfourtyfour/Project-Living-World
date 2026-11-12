@@ -1,0 +1,9 @@
+* text=auto eol=lf
+*.cmd text eol=crlf
+*.pt -text
+*.lwgru -text
+*.gz -text
+*.zip -text
+# Two trailing spaces encode intentional Markdown line breaks in the supplied plan.
+*.md whitespace=-blank-at-eol
+LICENSES/** -whitespace

@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "architecture": "gru48-v1",
+  "sha256": "9b6f2231c93afab3cfa1ff465c250d5d6e51e3d59dd01a888c5679c1f78d2e29",
+  "observation_version": 1,
+  "intents": [
+    "forage_food",
+    "fetch_water",
+    "eat",
+    "drink",
+    "rest",
+    "explore",
+    "gather_wood",
+    "wait"
+  ],
+  "method": "behavior-cloning warm start + recurrent PPO",
+  "demonstration_agent_steps": 30720,
+  "bc_epochs": 64,
+  "seed": 17,
+  "updates": 0,
+  "horizon": 256,
+  "population": 16,
+  "training_agent_steps": 0,
+  "seconds": 60.21813950012438,
+  "training_seed_partition": "0..8999",
+  "evaluation_seed_partition": "10000..",
+  "torch_version": "2.14.1+cpu",
+  "numpy_version": "2.3.0",
+  "history": []
+}

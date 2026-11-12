@@ -1,0 +1,134 @@
+{
+  "version": 2,
+  "scenario_version": 2,
+  "scope": "Development trajectories, trained weights; shared observations, separate individual recurrent memory",
+  "runtime_sha256": "c911f83d0131b0b112405b1d9d22d38e72312212ec888f51d2b77ad9d72b3a99",
+  "policy_sha256": "e4d7751c5751045058daffa5fbef1107850b987b9a2922a1a1917e5a11e5298b",
+  "source_policy_sha256": "e0ce301c825c484b5844d2db54333c38904f436ecf02f546d7c82059f1d315ea",
+  "episodes": [
+    {
+      "seed": 40000,
+      "task": "trade_good",
+      "decisions": 128,
+      "choice_disagreements": 0,
+      "max_logit_error": 1.52587890625e-05,
+      "max_hidden_error": 1.7844140529632568e-06,
+      "max_value_error": 0,
+      "conserved": true
+    },
+    {
+      "seed": 40000,
+      "task": "trade_bad",
+      "decisions": 128,
+      "choice_disagreements": 0,
+      "max_logit_error": 1.33514404296875e-05,
+      "max_hidden_error": 1.0132789611816406e-06,
+      "max_value_error": 0,
+      "conserved": true
+    },
+    {
+      "seed": 40000,
+      "task": "help_reciprocal",
+      "decisions": 128,
+      "choice_disagreements": 0,
+      "max_logit_error": 1.52587890625e-05,
+      "max_hidden_error": 1.2218952178955078e-06,
+      "max_value_error": 0,
+      "conserved": true
+    },
+    {
+      "seed": 40000,
+      "task": "invite_good",
+      "decisions": 128,
+      "choice_disagreements": 0,
+      "max_logit_error": 1.52587890625e-05,
+      "max_hidden_error": 9.313225746154785e-07,
+      "max_value_error": 0,
+      "conserved": true
+    },
+    {
+      "seed": 40000,
+      "task": "invite_bad",
+      "decisions": 128,
+      "choice_disagreements": 0,
+      "max_logit_error": 1.52587890625e-05,
+      "max_hidden_error": 1.1920928955078125e-06,
+      "max_value_error": 0,
+      "conserved": true
+    },
+    {
+      "seed": 40000,
+      "task": "survival",
+      "decisions": 2048,
+      "choice_disagreements": 0,
+      "max_logit_error": 1.9073486328125e-05,
+      "max_hidden_error": 2.086162567138672e-06,
+      "max_value_error": 0,
+      "conserved": true
+    },
+    {
+      "seed": 40001,
+      "task": "trade_good",
+      "decisions": 106,
+      "choice_disagreements": 0,
+      "max_logit_error": 1.52587890625e-05,
+      "max_hidden_error": 5.960464477539062e-07,
+      "max_value_error": 0,
+      "conserved": true
+    },
+    {
+      "seed": 40001,
+      "task": "trade_bad",
+      "decisions": 128,
+      "choice_disagreements": 0,
+      "max_logit_error": 1.33514404296875e-05,
+      "max_hidden_error": 1.1920928955078125e-06,
+      "max_value_error": 0,
+      "conserved": true
+    },
+    {
+      "seed": 40001,
+      "task": "help_reciprocal",
+      "decisions": 128,
+      "choice_disagreements": 0,
+      "max_logit_error": 1.621246337890625e-05,
+      "max_hidden_error": 1.5385448932647705e-06,
+      "max_value_error": 0,
+      "conserved": true
+    },
+    {
+      "seed": 40001,
+      "task": "invite_good",
+      "decisions": 128,
+      "choice_disagreements": 0,
+      "max_logit_error": 2.193450927734375e-05,
+      "max_hidden_error": 2.0153820514678955e-06,
+      "max_value_error": 0,
+      "conserved": true
+    },
+    {
+      "seed": 40001,
+      "task": "invite_bad",
+      "decisions": 128,
+      "choice_disagreements": 0,
+      "max_logit_error": 1.52587890625e-05,
+      "max_hidden_error": 1.4454126358032227e-06,
+      "max_value_error": 0,
+      "conserved": true
+    },
+    {
+      "seed": 40001,
+      "task": "survival",
+      "decisions": 2048,
+      "choice_disagreements": 0,
+      "max_logit_error": 1.52587890625e-05,
+      "max_hidden_error": 2.7194619178771973e-06,
+      "max_value_error": 0,
+      "conserved": true
+    }
+  ],
+  "decisions": 5354,
+  "choice_disagreements": 0,
+  "max_logit_error": 2.193450927734375e-05,
+  "max_hidden_error": 2.7194619178771973e-06
+}

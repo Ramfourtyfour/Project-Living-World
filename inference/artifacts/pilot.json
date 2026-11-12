@@ -1,0 +1,143 @@
+{
+  "version": 1,
+  "architecture": "gru48-v1",
+  "sha256": "736a9b18bbe97b31fb664e798da675b6b645dea79749ed904f26b9c43afbe446",
+  "observation_version": 1,
+  "intents": [
+    "forage_food",
+    "fetch_water",
+    "eat",
+    "drink",
+    "rest",
+    "explore",
+    "gather_wood",
+    "wait"
+  ],
+  "method": "behavior-cloning warm start + recurrent PPO",
+  "demonstration_agent_steps": 20480,
+  "bc_epochs": 16,
+  "seed": 17,
+  "updates": 16,
+  "horizon": 256,
+  "population": 16,
+  "training_agent_steps": 40388,
+  "seconds": 57.29207960003987,
+  "training_seed_partition": "0..8999",
+  "evaluation_seed_partition": "10000..",
+  "torch_version": "2.14.1+cpu",
+  "numpy_version": "2.3.0",
+  "history": [
+    {
+      "update": 1,
+      "agent_steps": 3839,
+      "reward_per_agent": 21.603748321533203,
+      "survival_fraction": 0.875,
+      "loss": 1.1952075958251953
+    },
+    {
+      "update": 2,
+      "agent_steps": 7215,
+      "reward_per_agent": 13.011249542236328,
+      "survival_fraction": 0.5,
+      "loss": 1.5311585664749146
+    },
+    {
+      "update": 3,
+      "agent_steps": 10333,
+      "reward_per_agent": 9.951000213623047,
+      "survival_fraction": 0.375,
+      "loss": 1.8264797925949097
+    },
+    {
+      "update": 4,
+      "agent_steps": 13644,
+      "reward_per_agent": 12.778499603271484,
+      "survival_fraction": 0.5,
+      "loss": 1.610573649406433
+    },
+    {
+      "update": 5,
+      "agent_steps": 16545,
+      "reward_per_agent": 5.623499870300293,
+      "survival_fraction": 0.25,
+      "loss": 1.9614167213439941
+    },
+    {
+      "update": 6,
+      "agent_steps": 19354,
+      "reward_per_agent": 5.8600006103515625,
+      "survival_fraction": 0.25,
+      "loss": 2.0002787113189697
+    },
+    {
+      "update": 7,
+      "agent_steps": 21487,
+      "reward_per_agent": -2.2834997177124023,
+      "survival_fraction": 0.0,
+      "loss": 2.6904072761535645
+    },
+    {
+      "update": 8,
+      "agent_steps": 23794,
+      "reward_per_agent": -0.37499991059303284,
+      "survival_fraction": 0.0625,
+      "loss": 2.4230618476867676
+    },
+    {
+      "update": 9,
+      "agent_steps": 25939,
+      "reward_per_agent": -2.255499839782715,
+      "survival_fraction": 0.0,
+      "loss": 2.6139004230499268
+    },
+    {
+      "update": 10,
+      "agent_steps": 28088,
+      "reward_per_agent": -2.2190001010894775,
+      "survival_fraction": 0.0,
+      "loss": 2.5537054538726807
+    },
+    {
+      "update": 11,
+      "agent_steps": 30106,
+      "reward_per_agent": -3.011000156402588,
+      "survival_fraction": 0.0,
+      "loss": 2.6492552757263184
+    },
+    {
+      "update": 12,
+      "agent_steps": 32142,
+      "reward_per_agent": -2.8872499465942383,
+      "survival_fraction": 0.0,
+      "loss": 2.545530319213867
+    },
+    {
+      "update": 13,
+      "agent_steps": 34226,
+      "reward_per_agent": -2.6409997940063477,
+      "survival_fraction": 0.0,
+      "loss": 2.602693557739258
+    },
+    {
+      "update": 14,
+      "agent_steps": 36320,
+      "reward_per_agent": -2.4760000705718994,
+      "survival_fraction": 0.0,
+      "loss": 2.4319891929626465
+    },
+    {
+      "update": 15,
+      "agent_steps": 38366,
+      "reward_per_agent": -2.9599997997283936,
+      "survival_fraction": 0.0,
+      "loss": 2.381525754928589
+    },
+    {
+      "update": 16,
+      "agent_steps": 40388,
+      "reward_per_agent": -3.133000373840332,
+      "survival_fraction": 0.0,
+      "loss": 2.365569591522217
+    }
+  ]
+}

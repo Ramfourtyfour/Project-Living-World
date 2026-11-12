@@ -1,0 +1,4 @@
+# Verified locally on Python 3.13 / Windows x64. Simulation itself needs no Python packages.
+numpy==2.3.0
+torch==2.14.1
+pytest==8.4.2
