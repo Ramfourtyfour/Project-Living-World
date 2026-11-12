@@ -57,3 +57,23 @@ python -S tools/journal.py --native-policy inference/artifacts/curriculum-v3.lwg
 Training/export needs PyTorch/NumPy. The exported runtime, inspector and durable
 world loop require only Python's standard library and the two native libraries.
 The Windows package contains those libraries and the selected frozen model.
+
+## Experimental social runtime
+
+`social_runtime.cpp` implements the independent GRU64 context plus shared
+candidate-scoring MLP. Build versions 1 and 2 into separate libraries with
+candidate widths 52 and 64. `lwslate-v1/v2` use eight-byte magic, six uint32 fields
+and respectively 37,258/38,026 bounded float32 parameters. Neither format changes
+the existing `lwgru-v1` runtime or frozen survival weights.
+
+Each batch has distinct individual IDs, 64 context inputs and variable candidate
+slices (1–128 per person), with at most 256 people and 4,096 remembered identities.
+Invalid offsets, masks, features and memory are rejected before memory commits.
+Manifests bind observation/proposal decoder sources as well as model and runtime
+hashes. Complete checkpoints retain independent hidden vectors. A real `python -S`
+checkpoint continuation test covers v2 without PyTorch or NumPy.
+
+The actual v1 trained model agrees with PyTorch on 4,736 development decisions:
+zero choice disagreements, maximum logit error 0.00001526 and hidden error
+0.00000036. This is arithmetic conformance, not evidence that its behavior passed
+social validation. See `social-learning.md` for behavioral results and v2 commands.

@@ -27,8 +27,9 @@ The training critic sees the same features in this pilot. No centralized critic
 or inter-agent message encoder has been implemented yet.
 
 See `simulation-contracts.md` for schemas, capacities, fairness limitations and
-private data. Social actions exist at the native interface but are not in the
-pilot's eight-intent action space. Social training is therefore explicitly pending.
+private data. Social actions are separate from the frozen pilot's eight-intent
+action space. The experimental versioned GRU/slate models now choose those actions;
+see `social-learning.md` for their contracts, failed validation and remaining gates.
 
 Rules-2 native actions additionally expose `found_group`, `rename_group`, `request`,
 `answer_request`, `report_request`, `deposit`, `withdraw` and `place_cache`. A social request is an

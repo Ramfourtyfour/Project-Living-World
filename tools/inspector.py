@@ -23,10 +23,11 @@ def group_color(group):
     return "#"+"".join(f"{round(value*255):02x}" for value in rgb)
 
 class Inspector:
-    def __init__(self,root,seed=42,population=32,native_policy=None,social_baseline=False):
+    def __init__(self,root,seed=42,population=32,native_policy=None,social_baseline=False,social_native_policy=None):
         self.root=root;self.seed=seed;self.population=population
         self.world=World(seed,population);self.actor=self.world.ids[0];self.running=False
-        self.native_policy=native_policy;self.social_baseline=social_baseline;self.policy=self.make_policy();self.pending=None;self.target=None;self.last_error=""
+        self.native_policy=native_policy;self.social_baseline=social_baseline;self.social_native_policy=social_native_policy
+        self.neural=bool(native_policy or social_native_policy);self.policy=self.make_policy();self.pending=None;self.target=None;self.last_error=""
         root.title("Project Living World — Simulation Inspector")
         root.geometry("1180x800");root.minsize(1000,720);root.configure(bg=BG)
         style=ttk.Style(root);style.theme_use("clam")
@@ -34,7 +35,7 @@ class Inspector:
         style.map("TButton",background=[("active","#30443e")])
         top=tk.Frame(root,bg=BG,padx=24,pady=18);top.pack(fill="x")
         tk.Label(top,text="LIVING WORLD",font=("Segoe UI",20,"bold"),fg=INK,bg=BG).pack(side="left")
-        tk.Label(top,text="  /  SIMULATION LAB     v0.4",font=("Segoe UI",10),fg=MUTED,bg=BG).pack(side="left")
+        tk.Label(top,text="  /  SIMULATION LAB     v0.5",font=("Segoe UI",10),fg=MUTED,bg=BG).pack(side="left")
         self.status=tk.Label(top,fg="#b6ccac",bg=BG,font=("Consolas",10));self.status.pack(side="right")
         bar=tk.Frame(root,bg=PANEL,padx=18,pady=10);bar.pack(fill="x",padx=24)
         self.run_button=ttk.Button(bar,text="▶ Run",command=self.toggle);self.run_button.pack(side="left",padx=3)
@@ -67,6 +68,9 @@ class Inspector:
         self.root.destroy()
 
     def make_policy(self):
+        if self.social_native_policy:
+            from tools.social_loading import learned_factory
+            return learned_factory(self.social_native_policy,native=True)()
         if self.native_policy:
             from inference.runtime import NativeLearnedPolicy
             return NativeLearnedPolicy(self.native_policy)
@@ -77,6 +81,7 @@ class Inspector:
 
     def toggle(self):
         self.running=not self.running;self.run_button.configure(text="Ⅱ Pause" if self.running else "▶ Run")
+        self.draw()
 
     def loop(self):
         if self.running:self.step()
@@ -155,7 +160,7 @@ class Inspector:
         c.create_text(ox+10,oy+12,text="240 m FOREST REGION  /  " + ("ORACLE VIEW" if self.oracle.get() else "LOCAL PERCEPTION"),anchor="nw",fill=MUTED,font=("Segoe UI",10))
         legend="  ".join(f"■ {name}" for name in RESOURCES)
         c.create_text(ox+10,oy+24000*scale-12,text=legend,anchor="sw",fill=MUTED,font=("Segoe UI",9))
-        mode="LEARNED SURVIVAL" if self.native_policy else "SOCIAL BASELINE" if self.social_baseline else "BASELINE"
+        mode="EXPERIMENTAL LEARNED SOCIAL" if self.social_native_policy else "LEARNED SURVIVAL" if self.native_policy else "SOCIAL BASELINE" if self.social_baseline else "BASELINE"
         self.status.configure(text=f"{mode}  ·  SEED {self.seed}  ·  TICK {o['tick']:05}  ·  {'RUNNING' if self.running else 'PAUSED'}")
         self.identity.configure(text=f"Person {self.actor:03}")
         self.info.configure(text=f"Agreement   {a['group'] or 'None'}\nLife        {'Alive' if a['alive'] else 'Deceased'}\nHealth      {a['health']:3}/100\nHunger      {a['hunger']:3}/100\nThirst      {a['thirst']:3}/100\nFatigue     {a['fatigue']:3}/100\nPosition    {a['x']/100:.1f}, {a['y']/100:.1f} m")
@@ -199,7 +204,7 @@ class Inspector:
         if not self.running:self.step()
 
     def save(self):
-        if self.native_policy:
+        if self.neural:
             path=filedialog.asksaveasfilename(title="Save a new complete world checkpoint",initialfile="living-world.lwcheck")
             if path:
                 try:save_checkpoint(self.world,path,self.policy)
@@ -211,9 +216,9 @@ class Inspector:
             self.world.save(path);self.last_error="Saved world snapshot.";self.draw()
 
     def load(self):
-        path=filedialog.askdirectory(title="Choose a complete world checkpoint") if self.native_policy else filedialog.askopenfilename(filetypes=[("Living World save","*.lws")])
+        path=filedialog.askdirectory(title="Choose a complete world checkpoint") if self.neural else filedialog.askopenfilename(filetypes=[("Living World save","*.lws")])
         if not path:return
-        try:new=load_checkpoint(path,self.policy,allow_legacy_upgrade=True) if self.native_policy else World(snapshot=Path(path).read_text(encoding="utf-8"))
+        try:new=load_checkpoint(path,self.policy,allow_legacy_upgrade=not self.social_native_policy) if self.neural else World(snapshot=Path(path).read_text(encoding="utf-8"))
         except (ValueError,OSError) as e:messagebox.showerror("Could not load save",str(e));return
         self.world.close();self.world=new;self.actor=new.ids[0];self.target=None;self.pending=None
         self.seed=new.debug_state()["seed"];self.last_error="Restored all individuals, resources, offers and memories.";self.draw()
@@ -307,8 +312,10 @@ class Inspector:
 
 def main():
     p=argparse.ArgumentParser();p.add_argument("--seed",type=int,default=42);p.add_argument("--population",type=int,default=32)
-    p.add_argument("--native-policy");p.add_argument("--social-baseline",action="store_true");args=p.parse_args()
-    if args.native_policy and args.social_baseline:raise SystemExit("Choose one controller")
-    root=tk.Tk();Inspector(root,args.seed,args.population,args.native_policy,args.social_baseline);root.mainloop()
+    group=p.add_mutually_exclusive_group()
+    group.add_argument("--native-policy");group.add_argument("--social-baseline",action="store_true")
+    group.add_argument("--social-native-policy",help="Experimental learned social model; broader behavioral gates remain open")
+    args=p.parse_args()
+    root=tk.Tk();Inspector(root,args.seed,args.population,args.native_policy,args.social_baseline,args.social_native_policy);root.mainloop()
 
 if __name__=="__main__":main()

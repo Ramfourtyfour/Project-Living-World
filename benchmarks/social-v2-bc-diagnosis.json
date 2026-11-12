@@ -1,0 +1,7455 @@
+{
+  "version": 1,
+  "scope": "Descriptive recorded-action diagnostics, not an optimal-action oracle or a gate",
+  "episodes": [
+    {
+      "trace": "50000-help_reciprocal.jsonl.gz",
+      "seed": 50000,
+      "task": "help_reciprocal",
+      "scenario_version": 2,
+      "actions": {
+        "answer_request": 1,
+        "request": 8,
+        "turn": 35,
+        "move": 46,
+        "gather": 5,
+        "consume": 6,
+        "decline": 15,
+        "accept": 1,
+        "offer": 1,
+        "rest": 8,
+        "withdraw": 2
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50000-invite_bad.jsonl.gz",
+      "seed": 50000,
+      "task": "invite_bad",
+      "scenario_version": 2,
+      "actions": {
+        "decline": 1,
+        "consume": 7,
+        "turn": 12,
+        "withdraw": 8,
+        "move": 91,
+        "rest": 9
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50000-invite_good.jsonl.gz",
+      "seed": 50000,
+      "task": "invite_good",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "turn": 85,
+        "withdraw": 6,
+        "consume": 6,
+        "move": 21,
+        "rest": 9
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50000-survival.jsonl.gz",
+      "seed": 50000,
+      "task": "survival",
+      "scenario_version": 2,
+      "actions": {
+        "turn": 221,
+        "move": 3015,
+        "gather": 220,
+        "consume": 195,
+        "request": 8,
+        "answer_request": 8,
+        "rest": 429
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 8,
+      "learner_population": 8,
+      "conserved": true
+    },
+    {
+      "trace": "50000-trade_bad.jsonl.gz",
+      "seed": 50000,
+      "task": "trade_bad",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "answer_request": 1,
+        "offer": 7,
+        "request": 17,
+        "turn": 5,
+        "move": 76,
+        "gather": 5,
+        "consume": 7,
+        "rest": 9
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50000-trade_good.jsonl.gz",
+      "seed": 50000,
+      "task": "trade_good",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "consume": 8,
+        "offer": 1,
+        "move": 96,
+        "gather": 8,
+        "turn": 5,
+        "rest": 9
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50001-help_reciprocal.jsonl.gz",
+      "seed": 50001,
+      "task": "help_reciprocal",
+      "scenario_version": 2,
+      "actions": {
+        "answer_request": 1,
+        "offer": 2,
+        "consume": 6,
+        "request": 23,
+        "accept": 5,
+        "turn": 43,
+        "move": 41,
+        "gather": 1,
+        "decline": 3,
+        "rest": 3
+      },
+      "invalid_reasons": {
+        "no_direction": 34
+      },
+      "urgent_need_with_alternative_action": {
+        "fatigue": 43,
+        "hunger": 14
+      },
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50001-invite_bad.jsonl.gz",
+      "seed": 50001,
+      "task": "invite_bad",
+      "scenario_version": 2,
+      "actions": {
+        "decline": 1,
+        "turn": 29,
+        "withdraw": 8,
+        "consume": 8,
+        "move": 71,
+        "rest": 9,
+        "gather": 2
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50001-invite_good.jsonl.gz",
+      "seed": 50001,
+      "task": "invite_good",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "turn": 5,
+        "withdraw": 7,
+        "consume": 8,
+        "move": 94,
+        "gather": 4,
+        "rest": 9
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {
+        "hunger": 2
+      },
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50001-survival.jsonl.gz",
+      "seed": 50001,
+      "task": "survival",
+      "scenario_version": 2,
+      "actions": {
+        "turn": 207,
+        "move": 3040,
+        "gather": 223,
+        "consume": 194,
+        "rest": 432
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 8,
+      "learner_population": 8,
+      "conserved": true
+    },
+    {
+      "trace": "50001-trade_bad.jsonl.gz",
+      "seed": 50001,
+      "task": "trade_bad",
+      "scenario_version": 2,
+      "actions": {
+        "decline": 1,
+        "answer_request": 1,
+        "consume": 4,
+        "offer": 6,
+        "move": 12,
+        "turn": 92,
+        "gather": 1,
+        "rest": 11
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50001-trade_good.jsonl.gz",
+      "seed": 50001,
+      "task": "trade_good",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "consume": 6,
+        "gather": 1,
+        "turn": 76,
+        "move": 31,
+        "withdraw": 6,
+        "rest": 7
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {
+        "fatigue": 2
+      },
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50002-help_reciprocal.jsonl.gz",
+      "seed": 50002,
+      "task": "help_reciprocal",
+      "scenario_version": 2,
+      "actions": {
+        "answer_request": 1,
+        "offer": 1,
+        "request": 3,
+        "accept": 4,
+        "consume": 5,
+        "move": 32,
+        "decline": 20,
+        "turn": 54,
+        "rest": 8
+      },
+      "invalid_reasons": {
+        "no_direction": 48
+      },
+      "urgent_need_with_alternative_action": {
+        "fatigue": 16
+      },
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50002-invite_bad.jsonl.gz",
+      "seed": 50002,
+      "task": "invite_bad",
+      "scenario_version": 2,
+      "actions": {
+        "decline": 1,
+        "turn": 8,
+        "withdraw": 7,
+        "consume": 7,
+        "move": 90,
+        "offer": 2,
+        "gather": 4,
+        "rest": 9
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50002-invite_good.jsonl.gz",
+      "seed": 50002,
+      "task": "invite_good",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "withdraw": 8,
+        "consume": 8,
+        "turn": 19,
+        "move": 80,
+        "rest": 9,
+        "gather": 3
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50002-survival.jsonl.gz",
+      "seed": 50002,
+      "task": "survival",
+      "scenario_version": 2,
+      "actions": {
+        "turn": 196,
+        "move": 3048,
+        "gather": 220,
+        "consume": 195,
+        "offer": 2,
+        "decline": 2,
+        "rest": 433
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 8,
+      "learner_population": 8,
+      "conserved": true
+    },
+    {
+      "trace": "50002-trade_bad.jsonl.gz",
+      "seed": 50002,
+      "task": "trade_bad",
+      "scenario_version": 2,
+      "actions": {
+        "consume": 8,
+        "decline": 1,
+        "turn": 6,
+        "request": 12,
+        "move": 86,
+        "gather": 6,
+        "rest": 9
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50002-trade_good.jsonl.gz",
+      "seed": 50002,
+      "task": "trade_good",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "consume": 8,
+        "turn": 22,
+        "move": 81,
+        "gather": 7,
+        "rest": 9
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50003-help_reciprocal.jsonl.gz",
+      "seed": 50003,
+      "task": "help_reciprocal",
+      "scenario_version": 2,
+      "actions": {
+        "answer_request": 1,
+        "offer": 5,
+        "request": 4,
+        "accept": 8,
+        "consume": 7,
+        "move": 43,
+        "decline": 18,
+        "turn": 34,
+        "rest": 5,
+        "gather": 3
+      },
+      "invalid_reasons": {
+        "no_direction": 10
+      },
+      "urgent_need_with_alternative_action": {
+        "fatigue": 4
+      },
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50003-invite_bad.jsonl.gz",
+      "seed": 50003,
+      "task": "invite_bad",
+      "scenario_version": 2,
+      "actions": {
+        "decline": 1,
+        "answer_request": 2,
+        "consume": 8,
+        "turn": 25,
+        "withdraw": 7,
+        "move": 74,
+        "rest": 11
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50003-invite_good.jsonl.gz",
+      "seed": 50003,
+      "task": "invite_good",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "withdraw": 5,
+        "consume": 7,
+        "move": 89,
+        "turn": 14,
+        "rest": 9,
+        "gather": 3
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50003-survival.jsonl.gz",
+      "seed": 50003,
+      "task": "survival",
+      "scenario_version": 2,
+      "actions": {
+        "turn": 204,
+        "move": 3039,
+        "gather": 220,
+        "consume": 195,
+        "rest": 437,
+        "request": 1
+      },
+      "invalid_reasons": {
+        "not_visible": 1
+      },
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 8,
+      "learner_population": 8,
+      "conserved": true
+    },
+    {
+      "trace": "50003-trade_bad.jsonl.gz",
+      "seed": 50003,
+      "task": "trade_bad",
+      "scenario_version": 2,
+      "actions": {
+        "decline": 1,
+        "answer_request": 1,
+        "consume": 8,
+        "turn": 23,
+        "move": 81,
+        "rest": 9,
+        "gather": 5
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50003-trade_good.jsonl.gz",
+      "seed": 50003,
+      "task": "trade_good",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "consume": 8,
+        "gather": 6,
+        "turn": 29,
+        "move": 75,
+        "rest": 9
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50004-help_reciprocal.jsonl.gz",
+      "seed": 50004,
+      "task": "help_reciprocal",
+      "scenario_version": 2,
+      "actions": {
+        "answer_request": 1,
+        "offer": 9,
+        "request": 5,
+        "move": 60,
+        "consume": 6,
+        "turn": 5,
+        "gather": 13,
+        "accept": 3,
+        "decline": 20,
+        "rest": 6
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50004-invite_bad.jsonl.gz",
+      "seed": 50004,
+      "task": "invite_bad",
+      "scenario_version": 2,
+      "actions": {
+        "decline": 1,
+        "turn": 20,
+        "withdraw": 8,
+        "consume": 7,
+        "move": 79,
+        "offer": 2,
+        "rest": 9,
+        "gather": 2
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50004-invite_good.jsonl.gz",
+      "seed": 50004,
+      "task": "invite_good",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "withdraw": 8,
+        "consume": 8,
+        "turn": 22,
+        "move": 77,
+        "rest": 9,
+        "gather": 3
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50004-survival.jsonl.gz",
+      "seed": 50004,
+      "task": "survival",
+      "scenario_version": 2,
+      "actions": {
+        "turn": 260,
+        "move": 2678,
+        "rest": 395,
+        "gather": 197,
+        "consume": 173,
+        "offer": 4,
+        "accept": 2
+      },
+      "invalid_reasons": {
+        "insufficient_items": 1,
+        "out_of_reach": 1
+      },
+      "urgent_need_with_alternative_action": {},
+      "deaths": [
+        {
+          "actor": 46,
+          "observed_tick": 125,
+          "recent_steps": [
+            {
+              "tick": 109,
+              "health": 32,
+              "hunger": 58,
+              "thirst": 100,
+              "fatigue": 34,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 20650,
+                "y": 4000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 110,
+              "health": 30,
+              "hunger": 59,
+              "thirst": 100,
+              "fatigue": 35,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 20000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 111,
+              "health": 28,
+              "hunger": 60,
+              "thirst": 100,
+              "fatigue": 36,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 20650,
+                "y": 4000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 112,
+              "health": 26,
+              "hunger": 61,
+              "thirst": 100,
+              "fatigue": 37,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 20000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 113,
+              "health": 24,
+              "hunger": 62,
+              "thirst": 100,
+              "fatigue": 38,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 20650,
+                "y": 4000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 114,
+              "health": 22,
+              "hunger": 63,
+              "thirst": 100,
+              "fatigue": 39,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 20000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 115,
+              "health": 20,
+              "hunger": 64,
+              "thirst": 100,
+              "fatigue": 40,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 20650,
+                "y": 4000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 116,
+              "health": 18,
+              "hunger": 65,
+              "thirst": 100,
+              "fatigue": 41,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 20000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 117,
+              "health": 16,
+              "hunger": 66,
+              "thirst": 100,
+              "fatigue": 42,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 20650,
+                "y": 4000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 118,
+              "health": 14,
+              "hunger": 67,
+              "thirst": 100,
+              "fatigue": 43,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 20000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 119,
+              "health": 12,
+              "hunger": 68,
+              "thirst": 100,
+              "fatigue": 44,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "rest",
+                "target": 0,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 120,
+              "health": 10,
+              "hunger": 69,
+              "thirst": 100,
+              "fatigue": 36,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 20650,
+                "y": 4000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 121,
+              "health": 8,
+              "hunger": 70,
+              "thirst": 100,
+              "fatigue": 37,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 20000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 122,
+              "health": 6,
+              "hunger": 71,
+              "thirst": 100,
+              "fatigue": 38,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 20650,
+                "y": 4000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 123,
+              "health": 4,
+              "hunger": 72,
+              "thirst": 100,
+              "fatigue": 39,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 20000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 124,
+              "health": 2,
+              "hunger": 73,
+              "thirst": 100,
+              "fatigue": 40,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 20650,
+                "y": 4000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            }
+          ]
+        }
+      ],
+      "learner_survivors": 7,
+      "learner_population": 8,
+      "conserved": true
+    },
+    {
+      "trace": "50004-trade_bad.jsonl.gz",
+      "seed": 50004,
+      "task": "trade_bad",
+      "scenario_version": 2,
+      "actions": {
+        "offer": 2,
+        "consume": 7,
+        "move": 75,
+        "turn": 18,
+        "decline": 4,
+        "request": 8,
+        "accept": 2,
+        "gather": 3,
+        "rest": 9
+      },
+      "invalid_reasons": {
+        "no_direction": 12
+      },
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50004-trade_good.jsonl.gz",
+      "seed": 50004,
+      "task": "trade_good",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "consume": 8,
+        "offer": 2,
+        "move": 85,
+        "gather": 10,
+        "turn": 13,
+        "rest": 9
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50005-help_reciprocal.jsonl.gz",
+      "seed": 50005,
+      "task": "help_reciprocal",
+      "scenario_version": 2,
+      "actions": {
+        "answer_request": 1,
+        "offer": 2,
+        "request": 8,
+        "consume": 7,
+        "turn": 8,
+        "move": 81,
+        "gather": 6,
+        "accept": 3,
+        "rest": 9,
+        "decline": 3
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50005-invite_bad.jsonl.gz",
+      "seed": 50005,
+      "task": "invite_bad",
+      "scenario_version": 2,
+      "actions": {
+        "decline": 1,
+        "answer_request": 2,
+        "offer": 25,
+        "consume": 7,
+        "turn": 16,
+        "withdraw": 5,
+        "move": 55,
+        "gather": 7,
+        "rest": 10
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50005-invite_good.jsonl.gz",
+      "seed": 50005,
+      "task": "invite_good",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 3,
+        "request": 8,
+        "turn": 34,
+        "withdraw": 5,
+        "decline": 6,
+        "consume": 7,
+        "move": 50,
+        "offer": 3,
+        "rest": 9,
+        "gather": 3
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {
+        "hunger": 1
+      },
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50005-survival.jsonl.gz",
+      "seed": 50005,
+      "task": "survival",
+      "scenario_version": 2,
+      "actions": {
+        "turn": 207,
+        "move": 2982,
+        "gather": 222,
+        "consume": 195,
+        "offer": 28,
+        "decline": 25,
+        "accept": 3,
+        "rest": 434
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 8,
+      "learner_population": 8,
+      "conserved": true
+    },
+    {
+      "trace": "50005-trade_bad.jsonl.gz",
+      "seed": 50005,
+      "task": "trade_bad",
+      "scenario_version": 2,
+      "actions": {
+        "consume": 8,
+        "decline": 1,
+        "turn": 6,
+        "move": 98,
+        "gather": 6,
+        "rest": 9
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50005-trade_good.jsonl.gz",
+      "seed": 50005,
+      "task": "trade_good",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "consume": 8,
+        "turn": 14,
+        "move": 89,
+        "gather": 7,
+        "rest": 9
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50006-help_reciprocal.jsonl.gz",
+      "seed": 50006,
+      "task": "help_reciprocal",
+      "scenario_version": 2,
+      "actions": {
+        "answer_request": 15,
+        "consume": 3,
+        "request": 11,
+        "turn": 35,
+        "accept": 3,
+        "decline": 17,
+        "offer": 8,
+        "move": 22,
+        "rest": 7
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {
+        "thirst": 3
+      },
+      "deaths": [
+        {
+          "actor": 43,
+          "observed_tick": "footer",
+          "recent_steps": [
+            {
+              "tick": 165,
+              "health": 32,
+              "hunger": 62,
+              "thirst": 100,
+              "fatigue": 61,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "answer_request",
+                "target": 385,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 0,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 166,
+              "health": 30,
+              "hunger": 63,
+              "thirst": 100,
+              "fatigue": 62,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "decline",
+                "target": 388,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 167,
+              "health": 28,
+              "hunger": 64,
+              "thirst": 100,
+              "fatigue": 63,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "answer_request",
+                "target": 392,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 0,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 168,
+              "health": 26,
+              "hunger": 65,
+              "thirst": 100,
+              "fatigue": 64,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "decline",
+                "target": 395,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 169,
+              "health": 24,
+              "hunger": 66,
+              "thirst": 100,
+              "fatigue": 65,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "answer_request",
+                "target": 399,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 0,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 170,
+              "health": 22,
+              "hunger": 67,
+              "thirst": 100,
+              "fatigue": 66,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "rest",
+                "target": 0,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 171,
+              "health": 20,
+              "hunger": 68,
+              "thirst": 100,
+              "fatigue": 58,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "decline",
+                "target": 404,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 172,
+              "health": 18,
+              "hunger": 69,
+              "thirst": 100,
+              "fatigue": 59,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "answer_request",
+                "target": 408,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 0,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 173,
+              "health": 16,
+              "hunger": 70,
+              "thirst": 100,
+              "fatigue": 60,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "decline",
+                "target": 411,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 174,
+              "health": 14,
+              "hunger": 71,
+              "thirst": 100,
+              "fatigue": 61,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "answer_request",
+                "target": 415,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 0,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 175,
+              "health": 12,
+              "hunger": 72,
+              "thirst": 100,
+              "fatigue": 62,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "decline",
+                "target": 418,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 176,
+              "health": 10,
+              "hunger": 73,
+              "thirst": 100,
+              "fatigue": 63,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "answer_request",
+                "target": 422,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 0,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 177,
+              "health": 8,
+              "hunger": 74,
+              "thirst": 100,
+              "fatigue": 64,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "decline",
+                "target": 425,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 178,
+              "health": 6,
+              "hunger": 75,
+              "thirst": 100,
+              "fatigue": 65,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "answer_request",
+                "target": 430,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 0,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 179,
+              "health": 4,
+              "hunger": 76,
+              "thirst": 100,
+              "fatigue": 66,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "rest",
+                "target": 0,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 180,
+              "health": 2,
+              "hunger": 77,
+              "thirst": 100,
+              "fatigue": 58,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "decline",
+                "target": 435,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            }
+          ]
+        }
+      ],
+      "learner_survivors": 0,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50006-invite_bad.jsonl.gz",
+      "seed": 50006,
+      "task": "invite_bad",
+      "scenario_version": 2,
+      "actions": {
+        "decline": 1,
+        "answer_request": 2,
+        "turn": 17,
+        "consume": 7,
+        "withdraw": 8,
+        "move": 81,
+        "offer": 1,
+        "rest": 10,
+        "gather": 1
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50006-invite_good.jsonl.gz",
+      "seed": 50006,
+      "task": "invite_good",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "withdraw": 6,
+        "consume": 8,
+        "move": 88,
+        "turn": 13,
+        "rest": 9,
+        "gather": 3
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50006-survival.jsonl.gz",
+      "seed": 50006,
+      "task": "survival",
+      "scenario_version": 2,
+      "actions": {
+        "turn": 209,
+        "move": 3024,
+        "gather": 220,
+        "consume": 194,
+        "rest": 433,
+        "offer": 8,
+        "decline": 8
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 8,
+      "learner_population": 8,
+      "conserved": true
+    },
+    {
+      "trace": "50006-trade_bad.jsonl.gz",
+      "seed": 50006,
+      "task": "trade_bad",
+      "scenario_version": 2,
+      "actions": {
+        "consume": 6,
+        "answer_request": 1,
+        "decline": 1,
+        "turn": 45,
+        "move": 61,
+        "withdraw": 6,
+        "rest": 8
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {
+        "fatigue": 20
+      },
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50006-trade_good.jsonl.gz",
+      "seed": 50006,
+      "task": "trade_good",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "consume": 8,
+        "move": 82,
+        "turn": 21,
+        "gather": 7,
+        "rest": 9
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50007-help_reciprocal.jsonl.gz",
+      "seed": 50007,
+      "task": "help_reciprocal",
+      "scenario_version": 2,
+      "actions": {
+        "answer_request": 1,
+        "offer": 4,
+        "request": 5,
+        "accept": 8,
+        "consume": 6,
+        "turn": 42,
+        "decline": 9,
+        "move": 47,
+        "gather": 2,
+        "rest": 4
+      },
+      "invalid_reasons": {
+        "no_direction": 36
+      },
+      "urgent_need_with_alternative_action": {
+        "fatigue": 13
+      },
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50007-invite_bad.jsonl.gz",
+      "seed": 50007,
+      "task": "invite_bad",
+      "scenario_version": 2,
+      "actions": {
+        "decline": 1,
+        "turn": 8,
+        "withdraw": 8,
+        "consume": 7,
+        "move": 92,
+        "rest": 9,
+        "gather": 3
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50007-invite_good.jsonl.gz",
+      "seed": 50007,
+      "task": "invite_good",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "turn": 53,
+        "withdraw": 6,
+        "consume": 5,
+        "move": 33,
+        "offer": 19,
+        "rest": 11
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50007-survival.jsonl.gz",
+      "seed": 50007,
+      "task": "survival",
+      "scenario_version": 2,
+      "actions": {
+        "turn": 210,
+        "move": 3008,
+        "gather": 224,
+        "consume": 195,
+        "rest": 433,
+        "offer": 13,
+        "decline": 10,
+        "accept": 3
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {
+        "fatigue": 12
+      },
+      "deaths": [],
+      "learner_survivors": 8,
+      "learner_population": 8,
+      "conserved": true
+    },
+    {
+      "trace": "50007-trade_bad.jsonl.gz",
+      "seed": 50007,
+      "task": "trade_bad",
+      "scenario_version": 2,
+      "actions": {
+        "decline": 1,
+        "consume": 8,
+        "turn": 28,
+        "move": 77,
+        "gather": 5,
+        "rest": 9
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50007-trade_good.jsonl.gz",
+      "seed": 50007,
+      "task": "trade_good",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "consume": 6,
+        "turn": 8,
+        "move": 100,
+        "gather": 4,
+        "rest": 9
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {
+        "thirst": 1
+      },
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50008-help_reciprocal.jsonl.gz",
+      "seed": 50008,
+      "task": "help_reciprocal",
+      "scenario_version": 2,
+      "actions": {
+        "answer_request": 10,
+        "consume": 4,
+        "offer": 2,
+        "request": 11,
+        "turn": 38,
+        "move": 17,
+        "accept": 2,
+        "decline": 26,
+        "rest": 4
+      },
+      "invalid_reasons": {
+        "no_direction": 11
+      },
+      "urgent_need_with_alternative_action": {},
+      "deaths": [
+        {
+          "actor": 41,
+          "observed_tick": "footer",
+          "recent_steps": [
+            {
+              "tick": 152,
+              "health": 28,
+              "hunger": 97,
+              "thirst": 6,
+              "fatigue": 63,
+              "inventory": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "answer_request",
+                "target": 343,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 0,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 153,
+              "health": 28,
+              "hunger": 98,
+              "thirst": 7,
+              "fatigue": 64,
+              "inventory": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "decline",
+                "target": 348,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 154,
+              "health": 28,
+              "hunger": 99,
+              "thirst": 8,
+              "fatigue": 65,
+              "inventory": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "answer_request",
+                "target": 351,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 0,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 155,
+              "health": 26,
+              "hunger": 100,
+              "thirst": 9,
+              "fatigue": 66,
+              "inventory": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "decline",
+                "target": 355,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 156,
+              "health": 24,
+              "hunger": 100,
+              "thirst": 10,
+              "fatigue": 67,
+              "inventory": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "answer_request",
+                "target": 359,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 0,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 157,
+              "health": 22,
+              "hunger": 100,
+              "thirst": 11,
+              "fatigue": 68,
+              "inventory": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "decline",
+                "target": 362,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 158,
+              "health": 20,
+              "hunger": 100,
+              "thirst": 12,
+              "fatigue": 69,
+              "inventory": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "answer_request",
+                "target": 365,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 0,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 159,
+              "health": 18,
+              "hunger": 100,
+              "thirst": 13,
+              "fatigue": 70,
+              "inventory": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "decline",
+                "target": 369,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 160,
+              "health": 16,
+              "hunger": 100,
+              "thirst": 14,
+              "fatigue": 71,
+              "inventory": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "answer_request",
+                "target": 373,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 0,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 161,
+              "health": 14,
+              "hunger": 100,
+              "thirst": 15,
+              "fatigue": 72,
+              "inventory": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "decline",
+                "target": 377,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 162,
+              "health": 12,
+              "hunger": 100,
+              "thirst": 16,
+              "fatigue": 73,
+              "inventory": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "answer_request",
+                "target": 380,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 0,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 163,
+              "health": 10,
+              "hunger": 100,
+              "thirst": 17,
+              "fatigue": 74,
+              "inventory": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "decline",
+                "target": 384,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 164,
+              "health": 8,
+              "hunger": 100,
+              "thirst": 18,
+              "fatigue": 75,
+              "inventory": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "answer_request",
+                "target": 388,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 0,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 165,
+              "health": 6,
+              "hunger": 100,
+              "thirst": 19,
+              "fatigue": 76,
+              "inventory": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "decline",
+                "target": 391,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 166,
+              "health": 4,
+              "hunger": 100,
+              "thirst": 20,
+              "fatigue": 77,
+              "inventory": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "answer_request",
+                "target": 394,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 0,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 167,
+              "health": 2,
+              "hunger": 100,
+              "thirst": 21,
+              "fatigue": 78,
+              "inventory": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "decline",
+                "target": 397,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            }
+          ]
+        }
+      ],
+      "learner_survivors": 0,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50008-invite_bad.jsonl.gz",
+      "seed": 50008,
+      "task": "invite_bad",
+      "scenario_version": 2,
+      "actions": {
+        "decline": 1,
+        "turn": 8,
+        "withdraw": 8,
+        "consume": 8,
+        "move": 88,
+        "offer": 3,
+        "rest": 9,
+        "gather": 3
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50008-invite_good.jsonl.gz",
+      "seed": 50008,
+      "task": "invite_good",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "turn": 13,
+        "withdraw": 8,
+        "consume": 8,
+        "move": 86,
+        "rest": 9,
+        "gather": 3
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {
+        "hunger": 2
+      },
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50008-survival.jsonl.gz",
+      "seed": 50008,
+      "task": "survival",
+      "scenario_version": 2,
+      "actions": {
+        "turn": 255,
+        "move": 2673,
+        "gather": 196,
+        "consume": 172,
+        "rest": 388,
+        "request": 8,
+        "answer_request": 8
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [
+        {
+          "actor": 45,
+          "observed_tick": 116,
+          "recent_steps": [
+            {
+              "tick": 100,
+              "health": 32,
+              "hunger": 45,
+              "thirst": 100,
+              "fatigue": 38,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "move",
+                "target": 0,
+                "x": 4001,
+                "y": 5268,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 101,
+              "health": 30,
+              "hunger": 46,
+              "thirst": 100,
+              "fatigue": 39,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 102,
+              "health": 28,
+              "hunger": 47,
+              "thirst": 100,
+              "fatigue": 40,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "move",
+                "target": 0,
+                "x": 4176,
+                "y": 5171,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 103,
+              "health": 26,
+              "hunger": 48,
+              "thirst": 100,
+              "fatigue": 41,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 104,
+              "health": 24,
+              "hunger": 49,
+              "thirst": 100,
+              "fatigue": 42,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "rest",
+                "target": 0,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 105,
+              "health": 22,
+              "hunger": 50,
+              "thirst": 100,
+              "fatigue": 34,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4650,
+                "y": 4000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 106,
+              "health": 20,
+              "hunger": 51,
+              "thirst": 100,
+              "fatigue": 35,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 107,
+              "health": 18,
+              "hunger": 52,
+              "thirst": 100,
+              "fatigue": 36,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4650,
+                "y": 4000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 108,
+              "health": 16,
+              "hunger": 53,
+              "thirst": 100,
+              "fatigue": 37,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 109,
+              "health": 14,
+              "hunger": 54,
+              "thirst": 100,
+              "fatigue": 38,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "rest",
+                "target": 0,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 110,
+              "health": 12,
+              "hunger": 55,
+              "thirst": 100,
+              "fatigue": 30,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4650,
+                "y": 4000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 111,
+              "health": 10,
+              "hunger": 56,
+              "thirst": 100,
+              "fatigue": 31,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 112,
+              "health": 8,
+              "hunger": 57,
+              "thirst": 100,
+              "fatigue": 32,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "move",
+                "target": 0,
+                "x": 3996,
+                "y": 4076,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 113,
+              "health": 6,
+              "hunger": 58,
+              "thirst": 100,
+              "fatigue": 33,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 114,
+              "health": 4,
+              "hunger": 59,
+              "thirst": 100,
+              "fatigue": 34,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4650,
+                "y": 4000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 115,
+              "health": 2,
+              "hunger": 60,
+              "thirst": 100,
+              "fatigue": 35,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            }
+          ]
+        }
+      ],
+      "learner_survivors": 7,
+      "learner_population": 8,
+      "conserved": true
+    },
+    {
+      "trace": "50008-trade_bad.jsonl.gz",
+      "seed": 50008,
+      "task": "trade_bad",
+      "scenario_version": 2,
+      "actions": {
+        "decline": 1,
+        "answer_request": 1,
+        "consume": 5,
+        "offer": 8,
+        "move": 36,
+        "turn": 67,
+        "rest": 10
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50008-trade_good.jsonl.gz",
+      "seed": 50008,
+      "task": "trade_good",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "consume": 7,
+        "offer": 3,
+        "gather": 6,
+        "move": 90,
+        "turn": 12,
+        "rest": 9
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50009-help_reciprocal.jsonl.gz",
+      "seed": 50009,
+      "task": "help_reciprocal",
+      "scenario_version": 2,
+      "actions": {
+        "answer_request": 5,
+        "request": 8,
+        "move": 50,
+        "gather": 6,
+        "consume": 7,
+        "turn": 29,
+        "decline": 10,
+        "rest": 10,
+        "offer": 2,
+        "accept": 1
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50009-invite_bad.jsonl.gz",
+      "seed": 50009,
+      "task": "invite_bad",
+      "scenario_version": 2,
+      "actions": {
+        "decline": 1,
+        "answer_request": 1,
+        "consume": 8,
+        "turn": 19,
+        "withdraw": 6,
+        "move": 82,
+        "rest": 9,
+        "gather": 2
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50009-invite_good.jsonl.gz",
+      "seed": 50009,
+      "task": "invite_good",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "offer": 1,
+        "request": 9,
+        "move": 4,
+        "gather": 2,
+        "turn": 91,
+        "withdraw": 6,
+        "consume": 5,
+        "rest": 9
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {
+        "hunger": 1
+      },
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50009-survival.jsonl.gz",
+      "seed": 50009,
+      "task": "survival",
+      "scenario_version": 2,
+      "actions": {
+        "turn": 224,
+        "move": 3023,
+        "gather": 220,
+        "consume": 195,
+        "rest": 434
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 8,
+      "learner_population": 8,
+      "conserved": true
+    },
+    {
+      "trace": "50009-trade_bad.jsonl.gz",
+      "seed": 50009,
+      "task": "trade_bad",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "answer_request": 1,
+        "request": 2,
+        "turn": 15,
+        "move": 86,
+        "consume": 7,
+        "gather": 7,
+        "rest": 9
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50009-trade_good.jsonl.gz",
+      "seed": 50009,
+      "task": "trade_good",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "consume": 8,
+        "move": 94,
+        "gather": 8,
+        "turn": 8,
+        "rest": 9
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50010-help_reciprocal.jsonl.gz",
+      "seed": 50010,
+      "task": "help_reciprocal",
+      "scenario_version": 2,
+      "actions": {
+        "answer_request": 18,
+        "consume": 4,
+        "offer": 2,
+        "request": 11,
+        "turn": 39,
+        "move": 16,
+        "accept": 3,
+        "decline": 32,
+        "rest": 3
+      },
+      "invalid_reasons": {
+        "no_direction": 10
+      },
+      "urgent_need_with_alternative_action": {
+        "fatigue": 22
+      },
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50010-invite_bad.jsonl.gz",
+      "seed": 50010,
+      "task": "invite_bad",
+      "scenario_version": 2,
+      "actions": {
+        "decline": 1,
+        "turn": 10,
+        "withdraw": 8,
+        "move": 83,
+        "offer": 7,
+        "consume": 6,
+        "rest": 9,
+        "gather": 4
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50010-invite_good.jsonl.gz",
+      "seed": 50010,
+      "task": "invite_good",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "withdraw": 6,
+        "consume": 8,
+        "move": 88,
+        "turn": 14,
+        "rest": 9,
+        "gather": 2
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50010-survival.jsonl.gz",
+      "seed": 50010,
+      "task": "survival",
+      "scenario_version": 2,
+      "actions": {
+        "turn": 331,
+        "move": 2329,
+        "gather": 175,
+        "consume": 154,
+        "offer": 11,
+        "accept": 4,
+        "rest": 352,
+        "decline": 8
+      },
+      "invalid_reasons": {
+        "insufficient_items": 3
+      },
+      "urgent_need_with_alternative_action": {},
+      "deaths": [
+        {
+          "actor": 45,
+          "observed_tick": 133,
+          "recent_steps": [
+            {
+              "tick": 117,
+              "health": 32,
+              "hunger": 67,
+              "thirst": 100,
+              "fatigue": 36,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4650,
+                "y": 4000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 118,
+              "health": 30,
+              "hunger": 68,
+              "thirst": 100,
+              "fatigue": 37,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 119,
+              "health": 28,
+              "hunger": 69,
+              "thirst": 100,
+              "fatigue": 38,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "move",
+                "target": 0,
+                "x": 4174,
+                "y": 5103,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 120,
+              "health": 26,
+              "hunger": 70,
+              "thirst": 100,
+              "fatigue": 39,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 121,
+              "health": 24,
+              "hunger": 71,
+              "thirst": 100,
+              "fatigue": 40,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "rest",
+                "target": 0,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 122,
+              "health": 22,
+              "hunger": 72,
+              "thirst": 100,
+              "fatigue": 32,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4650,
+                "y": 4000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 123,
+              "health": 20,
+              "hunger": 73,
+              "thirst": 100,
+              "fatigue": 33,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 124,
+              "health": 18,
+              "hunger": 74,
+              "thirst": 100,
+              "fatigue": 34,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4650,
+                "y": 4000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 125,
+              "health": 16,
+              "hunger": 75,
+              "thirst": 100,
+              "fatigue": 35,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 126,
+              "health": 14,
+              "hunger": 76,
+              "thirst": 100,
+              "fatigue": 36,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4650,
+                "y": 4000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 127,
+              "health": 12,
+              "hunger": 77,
+              "thirst": 100,
+              "fatigue": 37,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 128,
+              "health": 10,
+              "hunger": 78,
+              "thirst": 100,
+              "fatigue": 38,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4650,
+                "y": 4000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 129,
+              "health": 8,
+              "hunger": 79,
+              "thirst": 100,
+              "fatigue": 39,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 130,
+              "health": 6,
+              "hunger": 80,
+              "thirst": 100,
+              "fatigue": 40,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "rest",
+                "target": 0,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 131,
+              "health": 4,
+              "hunger": 81,
+              "thirst": 100,
+              "fatigue": 32,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4650,
+                "y": 4000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 132,
+              "health": 2,
+              "hunger": 82,
+              "thirst": 100,
+              "fatigue": 33,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            }
+          ]
+        },
+        {
+          "actor": 44,
+          "observed_tick": 159,
+          "recent_steps": [
+            {
+              "tick": 143,
+              "health": 32,
+              "hunger": 100,
+              "thirst": 30,
+              "fatigue": 43,
+              "inventory": [
+                0,
+                2,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 20000,
+                "y": 21100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 144,
+              "health": 30,
+              "hunger": 100,
+              "thirst": 31,
+              "fatigue": 44,
+              "inventory": [
+                0,
+                2,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 20662,
+                "y": 21273,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 145,
+              "health": 28,
+              "hunger": 100,
+              "thirst": 32,
+              "fatigue": 45,
+              "inventory": [
+                0,
+                2,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 20000,
+                "y": 21100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 146,
+              "health": 26,
+              "hunger": 100,
+              "thirst": 33,
+              "fatigue": 46,
+              "inventory": [
+                0,
+                2,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "move",
+                "target": 0,
+                "x": 20000,
+                "y": 21100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 147,
+              "health": 24,
+              "hunger": 100,
+              "thirst": 34,
+              "fatigue": 47,
+              "inventory": [
+                0,
+                2,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "move",
+                "target": 0,
+                "x": 20000,
+                "y": 21100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 148,
+              "health": 22,
+              "hunger": 100,
+              "thirst": 35,
+              "fatigue": 48,
+              "inventory": [
+                0,
+                2,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "move",
+                "target": 0,
+                "x": 20000,
+                "y": 21100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 149,
+              "health": 20,
+              "hunger": 100,
+              "thirst": 36,
+              "fatigue": 49,
+              "inventory": [
+                0,
+                2,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "move",
+                "target": 0,
+                "x": 19992,
+                "y": 20871,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 150,
+              "health": 18,
+              "hunger": 100,
+              "thirst": 37,
+              "fatigue": 50,
+              "inventory": [
+                0,
+                2,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 20000,
+                "y": 21100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 151,
+              "health": 16,
+              "hunger": 100,
+              "thirst": 38,
+              "fatigue": 51,
+              "inventory": [
+                0,
+                2,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "rest",
+                "target": 0,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 152,
+              "health": 14,
+              "hunger": 100,
+              "thirst": 39,
+              "fatigue": 43,
+              "inventory": [
+                0,
+                2,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "move",
+                "target": 0,
+                "x": 20662,
+                "y": 21273,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 153,
+              "health": 12,
+              "hunger": 100,
+              "thirst": 40,
+              "fatigue": 44,
+              "inventory": [
+                0,
+                2,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 20000,
+                "y": 21100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 154,
+              "health": 10,
+              "hunger": 100,
+              "thirst": 41,
+              "fatigue": 45,
+              "inventory": [
+                0,
+                2,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "move",
+                "target": 0,
+                "x": 19968,
+                "y": 20930,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 155,
+              "health": 8,
+              "hunger": 100,
+              "thirst": 42,
+              "fatigue": 46,
+              "inventory": [
+                0,
+                2,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 20000,
+                "y": 21100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 156,
+              "health": 6,
+              "hunger": 100,
+              "thirst": 43,
+              "fatigue": 47,
+              "inventory": [
+                0,
+                2,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "consume",
+                "target": 0,
+                "x": 0,
+                "y": 0,
+                "resource": 1,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 157,
+              "health": 4,
+              "hunger": 100,
+              "thirst": 1,
+              "fatigue": 48,
+              "inventory": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "rest",
+                "target": 0,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 158,
+              "health": 2,
+              "hunger": 100,
+              "thirst": 2,
+              "fatigue": 40,
+              "inventory": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 20650,
+                "y": 20000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            }
+          ]
+        }
+      ],
+      "learner_survivors": 6,
+      "learner_population": 8,
+      "conserved": true
+    },
+    {
+      "trace": "50010-trade_bad.jsonl.gz",
+      "seed": 50010,
+      "task": "trade_bad",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "consume": 3,
+        "turn": 21,
+        "request": 8,
+        "move": 29,
+        "decline": 3,
+        "rest": 5
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [
+        {
+          "actor": 43,
+          "observed_tick": "footer",
+          "recent_steps": [
+            {
+              "tick": 116,
+              "health": 32,
+              "hunger": 21,
+              "thirst": 100,
+              "fatigue": 28,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "move",
+                "target": 0,
+                "x": 4650,
+                "y": 20000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 117,
+              "health": 30,
+              "hunger": 22,
+              "thirst": 100,
+              "fatigue": 29,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 21100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 118,
+              "health": 28,
+              "hunger": 23,
+              "thirst": 100,
+              "fatigue": 30,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "rest",
+                "target": 0,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 119,
+              "health": 26,
+              "hunger": 24,
+              "thirst": 100,
+              "fatigue": 22,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "move",
+                "target": 0,
+                "x": 3154,
+                "y": 21276,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 120,
+              "health": 24,
+              "hunger": 25,
+              "thirst": 100,
+              "fatigue": 23,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 21100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 121,
+              "health": 22,
+              "hunger": 26,
+              "thirst": 100,
+              "fatigue": 24,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "move",
+                "target": 0,
+                "x": 2965,
+                "y": 21343,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 122,
+              "health": 20,
+              "hunger": 27,
+              "thirst": 100,
+              "fatigue": 25,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 21100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 123,
+              "health": 18,
+              "hunger": 28,
+              "thirst": 100,
+              "fatigue": 26,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "move",
+                "target": 0,
+                "x": 4000,
+                "y": 21100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 124,
+              "health": 16,
+              "hunger": 29,
+              "thirst": 100,
+              "fatigue": 27,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "move",
+                "target": 0,
+                "x": 4650,
+                "y": 20000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 125,
+              "health": 14,
+              "hunger": 30,
+              "thirst": 100,
+              "fatigue": 28,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 21100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 126,
+              "health": 12,
+              "hunger": 31,
+              "thirst": 100,
+              "fatigue": 29,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4650,
+                "y": 20000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 127,
+              "health": 10,
+              "hunger": 32,
+              "thirst": 100,
+              "fatigue": 30,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 21100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 128,
+              "health": 8,
+              "hunger": 33,
+              "thirst": 100,
+              "fatigue": 31,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "decline",
+                "target": 215,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 129,
+              "health": 6,
+              "hunger": 34,
+              "thirst": 100,
+              "fatigue": 32,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "rest",
+                "target": 0,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 130,
+              "health": 4,
+              "hunger": 35,
+              "thirst": 100,
+              "fatigue": 24,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "decline",
+                "target": 223,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 131,
+              "health": 2,
+              "hunger": 36,
+              "thirst": 100,
+              "fatigue": 25,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "consume",
+                "target": 0,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            }
+          ]
+        }
+      ],
+      "learner_survivors": 0,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50010-trade_good.jsonl.gz",
+      "seed": 50010,
+      "task": "trade_good",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "consume": 8,
+        "gather": 7,
+        "turn": 31,
+        "move": 72,
+        "rest": 9
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {
+        "thirst": 1
+      },
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50011-help_reciprocal.jsonl.gz",
+      "seed": 50011,
+      "task": "help_reciprocal",
+      "scenario_version": 2,
+      "actions": {
+        "answer_request": 3,
+        "offer": 10,
+        "request": 5,
+        "accept": 13,
+        "consume": 3,
+        "move": 6,
+        "decline": 2,
+        "turn": 80,
+        "rest": 1
+      },
+      "invalid_reasons": {
+        "no_direction": 79
+      },
+      "urgent_need_with_alternative_action": {
+        "hunger": 61,
+        "fatigue": 43
+      },
+      "deaths": [
+        {
+          "actor": 44,
+          "observed_tick": "footer",
+          "recent_steps": [
+            {
+              "tick": 160,
+              "health": 39,
+              "hunger": 100,
+              "thirst": 31,
+              "fatigue": 100,
+              "inventory": [
+                1,
+                6,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 20328,
+                "y": 19685,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 161,
+              "health": 36,
+              "hunger": 100,
+              "thirst": 32,
+              "fatigue": 100,
+              "inventory": [
+                1,
+                6,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "rest",
+                "target": 0,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 162,
+              "health": 34,
+              "hunger": 100,
+              "thirst": 33,
+              "fatigue": 92,
+              "inventory": [
+                1,
+                6,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 20328,
+                "y": 19685,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 163,
+              "health": 32,
+              "hunger": 100,
+              "thirst": 34,
+              "fatigue": 93,
+              "inventory": [
+                1,
+                6,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 20328,
+                "y": 19685,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 164,
+              "health": 30,
+              "hunger": 100,
+              "thirst": 35,
+              "fatigue": 94,
+              "inventory": [
+                1,
+                6,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 20328,
+                "y": 19685,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 165,
+              "health": 28,
+              "hunger": 100,
+              "thirst": 36,
+              "fatigue": 95,
+              "inventory": [
+                1,
+                6,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 20328,
+                "y": 19685,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 166,
+              "health": 26,
+              "hunger": 100,
+              "thirst": 37,
+              "fatigue": 96,
+              "inventory": [
+                1,
+                6,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 20328,
+                "y": 19685,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 167,
+              "health": 24,
+              "hunger": 100,
+              "thirst": 38,
+              "fatigue": 97,
+              "inventory": [
+                1,
+                6,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 20328,
+                "y": 19685,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 168,
+              "health": 22,
+              "hunger": 100,
+              "thirst": 39,
+              "fatigue": 98,
+              "inventory": [
+                1,
+                6,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 20328,
+                "y": 19685,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 169,
+              "health": 20,
+              "hunger": 100,
+              "thirst": 40,
+              "fatigue": 99,
+              "inventory": [
+                1,
+                6,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 20328,
+                "y": 19685,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 170,
+              "health": 17,
+              "hunger": 100,
+              "thirst": 41,
+              "fatigue": 100,
+              "inventory": [
+                1,
+                6,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 20328,
+                "y": 19685,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 171,
+              "health": 14,
+              "hunger": 100,
+              "thirst": 42,
+              "fatigue": 100,
+              "inventory": [
+                1,
+                6,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 20138,
+                "y": 19746,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 172,
+              "health": 11,
+              "hunger": 100,
+              "thirst": 43,
+              "fatigue": 100,
+              "inventory": [
+                1,
+                6,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "answer_request",
+                "target": 346,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 0,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 173,
+              "health": 8,
+              "hunger": 100,
+              "thirst": 44,
+              "fatigue": 100,
+              "inventory": [
+                1,
+                6,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "move",
+                "target": 0,
+                "x": 20138,
+                "y": 19746,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 174,
+              "health": 5,
+              "hunger": 100,
+              "thirst": 45,
+              "fatigue": 100,
+              "inventory": [
+                1,
+                6,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "move",
+                "target": 0,
+                "x": 20138,
+                "y": 19746,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 175,
+              "health": 2,
+              "hunger": 100,
+              "thirst": 46,
+              "fatigue": 100,
+              "inventory": [
+                1,
+                6,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "answer_request",
+                "target": 394,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 0,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            }
+          ]
+        }
+      ],
+      "learner_survivors": 0,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50011-invite_bad.jsonl.gz",
+      "seed": 50011,
+      "task": "invite_bad",
+      "scenario_version": 2,
+      "actions": {
+        "decline": 1,
+        "turn": 7,
+        "withdraw": 7,
+        "consume": 7,
+        "move": 96,
+        "rest": 9,
+        "gather": 1
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50011-invite_good.jsonl.gz",
+      "seed": 50011,
+      "task": "invite_good",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "turn": 32,
+        "withdraw": 6,
+        "consume": 8,
+        "move": 67,
+        "rest": 9,
+        "gather": 5
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50011-survival.jsonl.gz",
+      "seed": 50011,
+      "task": "survival",
+      "scenario_version": 2,
+      "actions": {
+        "turn": 214,
+        "move": 3024,
+        "gather": 221,
+        "consume": 196,
+        "rest": 435,
+        "offer": 3,
+        "decline": 3
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 8,
+      "learner_population": 8,
+      "conserved": true
+    },
+    {
+      "trace": "50011-trade_bad.jsonl.gz",
+      "seed": 50011,
+      "task": "trade_bad",
+      "scenario_version": 2,
+      "actions": {
+        "decline": 1,
+        "offer": 1,
+        "consume": 7,
+        "turn": 9,
+        "move": 97,
+        "gather": 4,
+        "rest": 9
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50011-trade_good.jsonl.gz",
+      "seed": 50011,
+      "task": "trade_good",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "offer": 2,
+        "consume": 4,
+        "move": 26,
+        "turn": 83,
+        "gather": 2,
+        "rest": 10
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {
+        "thirst": 1
+      },
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50012-help_reciprocal.jsonl.gz",
+      "seed": 50012,
+      "task": "help_reciprocal",
+      "scenario_version": 2,
+      "actions": {
+        "answer_request": 22,
+        "consume": 4,
+        "offer": 2,
+        "request": 14,
+        "turn": 36,
+        "decline": 37,
+        "accept": 2,
+        "move": 7,
+        "rest": 3
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {
+        "fatigue": 21
+      },
+      "deaths": [
+        {
+          "actor": 41,
+          "observed_tick": "footer",
+          "recent_steps": [
+            {
+              "tick": 169,
+              "health": 32,
+              "hunger": 100,
+              "thirst": 10,
+              "fatigue": 85,
+              "inventory": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "decline",
+                "target": 426,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 170,
+              "health": 30,
+              "hunger": 100,
+              "thirst": 11,
+              "fatigue": 86,
+              "inventory": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "answer_request",
+                "target": 429,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 0,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 171,
+              "health": 28,
+              "hunger": 100,
+              "thirst": 12,
+              "fatigue": 87,
+              "inventory": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "decline",
+                "target": 432,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 172,
+              "health": 26,
+              "hunger": 100,
+              "thirst": 13,
+              "fatigue": 88,
+              "inventory": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "answer_request",
+                "target": 436,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 0,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 173,
+              "health": 24,
+              "hunger": 100,
+              "thirst": 14,
+              "fatigue": 89,
+              "inventory": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "decline",
+                "target": 441,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 174,
+              "health": 22,
+              "hunger": 100,
+              "thirst": 15,
+              "fatigue": 90,
+              "inventory": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "answer_request",
+                "target": 444,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 0,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 175,
+              "health": 20,
+              "hunger": 100,
+              "thirst": 16,
+              "fatigue": 91,
+              "inventory": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "decline",
+                "target": 447,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 176,
+              "health": 18,
+              "hunger": 100,
+              "thirst": 17,
+              "fatigue": 92,
+              "inventory": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "answer_request",
+                "target": 451,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 0,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 177,
+              "health": 16,
+              "hunger": 100,
+              "thirst": 18,
+              "fatigue": 93,
+              "inventory": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "move",
+                "target": 0,
+                "x": 4562,
+                "y": 4023,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 178,
+              "health": 14,
+              "hunger": 100,
+              "thirst": 19,
+              "fatigue": 94,
+              "inventory": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "decline",
+                "target": 455,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 179,
+              "health": 12,
+              "hunger": 100,
+              "thirst": 20,
+              "fatigue": 95,
+              "inventory": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "answer_request",
+                "target": 458,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 0,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 180,
+              "health": 10,
+              "hunger": 100,
+              "thirst": 21,
+              "fatigue": 96,
+              "inventory": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "decline",
+                "target": 461,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 181,
+              "health": 8,
+              "hunger": 100,
+              "thirst": 22,
+              "fatigue": 97,
+              "inventory": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "answer_request",
+                "target": 466,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 0,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 182,
+              "health": 6,
+              "hunger": 100,
+              "thirst": 23,
+              "fatigue": 98,
+              "inventory": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "decline",
+                "target": 470,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 183,
+              "health": 4,
+              "hunger": 100,
+              "thirst": 24,
+              "fatigue": 99,
+              "inventory": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "answer_request",
+                "target": 475,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 0,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 184,
+              "health": 1,
+              "hunger": 100,
+              "thirst": 25,
+              "fatigue": 100,
+              "inventory": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "decline",
+                "target": 479,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            }
+          ]
+        }
+      ],
+      "learner_survivors": 0,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50012-invite_bad.jsonl.gz",
+      "seed": 50012,
+      "task": "invite_bad",
+      "scenario_version": 2,
+      "actions": {
+        "decline": 1,
+        "answer_request": 2,
+        "consume": 7,
+        "turn": 36,
+        "withdraw": 7,
+        "move": 66,
+        "rest": 8,
+        "gather": 1
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50012-invite_good.jsonl.gz",
+      "seed": 50012,
+      "task": "invite_good",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "turn": 15,
+        "withdraw": 5,
+        "consume": 8,
+        "move": 86,
+        "rest": 9,
+        "gather": 3,
+        "offer": 1
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50012-survival.jsonl.gz",
+      "seed": 50012,
+      "task": "survival",
+      "scenario_version": 2,
+      "actions": {
+        "turn": 262,
+        "move": 2677,
+        "gather": 193,
+        "consume": 172,
+        "rest": 392,
+        "offer": 2,
+        "accept": 1
+      },
+      "invalid_reasons": {
+        "insufficient_items": 1
+      },
+      "urgent_need_with_alternative_action": {},
+      "deaths": [
+        {
+          "actor": 47,
+          "observed_tick": 115,
+          "recent_steps": [
+            {
+              "tick": 99,
+              "health": 36,
+              "hunger": 85,
+              "thirst": 100,
+              "fatigue": 47,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 21100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 100,
+              "health": 34,
+              "hunger": 86,
+              "thirst": 100,
+              "fatigue": 48,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "rest",
+                "target": 0,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 101,
+              "health": 32,
+              "hunger": 87,
+              "thirst": 100,
+              "fatigue": 40,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "rest",
+                "target": 0,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 102,
+              "health": 30,
+              "hunger": 88,
+              "thirst": 100,
+              "fatigue": 32,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4650,
+                "y": 20000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 103,
+              "health": 28,
+              "hunger": 89,
+              "thirst": 100,
+              "fatigue": 33,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 21100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 104,
+              "health": 26,
+              "hunger": 90,
+              "thirst": 100,
+              "fatigue": 34,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4650,
+                "y": 20000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 105,
+              "health": 24,
+              "hunger": 91,
+              "thirst": 100,
+              "fatigue": 35,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 21100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 106,
+              "health": 22,
+              "hunger": 92,
+              "thirst": 100,
+              "fatigue": 36,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4650,
+                "y": 20000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 107,
+              "health": 20,
+              "hunger": 93,
+              "thirst": 100,
+              "fatigue": 37,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 21100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 108,
+              "health": 18,
+              "hunger": 94,
+              "thirst": 100,
+              "fatigue": 38,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4650,
+                "y": 20000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 109,
+              "health": 16,
+              "hunger": 95,
+              "thirst": 100,
+              "fatigue": 39,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 21100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 110,
+              "health": 14,
+              "hunger": 96,
+              "thirst": 100,
+              "fatigue": 40,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "rest",
+                "target": 0,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 111,
+              "health": 12,
+              "hunger": 97,
+              "thirst": 100,
+              "fatigue": 32,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4650,
+                "y": 20000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 112,
+              "health": 10,
+              "hunger": 98,
+              "thirst": 100,
+              "fatigue": 33,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 21100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 113,
+              "health": 8,
+              "hunger": 99,
+              "thirst": 100,
+              "fatigue": 34,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4650,
+                "y": 20000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 114,
+              "health": 4,
+              "hunger": 100,
+              "thirst": 100,
+              "fatigue": 35,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 21100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            }
+          ]
+        }
+      ],
+      "learner_survivors": 7,
+      "learner_population": 8,
+      "conserved": true
+    },
+    {
+      "trace": "50012-trade_bad.jsonl.gz",
+      "seed": 50012,
+      "task": "trade_bad",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "answer_request": 1,
+        "consume": 2,
+        "offer": 9,
+        "request": 9,
+        "move": 12,
+        "turn": 37,
+        "rest": 5
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [
+        {
+          "actor": 41,
+          "observed_tick": "footer",
+          "recent_steps": [
+            {
+              "tick": 119,
+              "health": 32,
+              "hunger": 15,
+              "thirst": 100,
+              "fatigue": 52,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 3582,
+                "y": 4036,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 120,
+              "health": 30,
+              "hunger": 16,
+              "thirst": 100,
+              "fatigue": 53,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 121,
+              "health": 28,
+              "hunger": 17,
+              "thirst": 100,
+              "fatigue": 54,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "move",
+                "target": 0,
+                "x": 4000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 122,
+              "health": 26,
+              "hunger": 18,
+              "thirst": 100,
+              "fatigue": 55,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "move",
+                "target": 0,
+                "x": 4000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 123,
+              "health": 24,
+              "hunger": 19,
+              "thirst": 100,
+              "fatigue": 56,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "move",
+                "target": 0,
+                "x": 4000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 124,
+              "health": 22,
+              "hunger": 20,
+              "thirst": 100,
+              "fatigue": 57,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "move",
+                "target": 0,
+                "x": 4000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 125,
+              "health": 20,
+              "hunger": 21,
+              "thirst": 100,
+              "fatigue": 58,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "rest",
+                "target": 0,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 126,
+              "health": 18,
+              "hunger": 22,
+              "thirst": 100,
+              "fatigue": 50,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "rest",
+                "target": 0,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 127,
+              "health": 16,
+              "hunger": 23,
+              "thirst": 100,
+              "fatigue": 42,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "rest",
+                "target": 0,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 128,
+              "health": 14,
+              "hunger": 24,
+              "thirst": 100,
+              "fatigue": 34,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "rest",
+                "target": 0,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 129,
+              "health": 12,
+              "hunger": 25,
+              "thirst": 100,
+              "fatigue": 26,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "move",
+                "target": 0,
+                "x": 4747,
+                "y": 4991,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 130,
+              "health": 10,
+              "hunger": 26,
+              "thirst": 100,
+              "fatigue": 27,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 131,
+              "health": 8,
+              "hunger": 27,
+              "thirst": 100,
+              "fatigue": 28,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "move",
+                "target": 0,
+                "x": 4947,
+                "y": 4997,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 132,
+              "health": 6,
+              "hunger": 28,
+              "thirst": 100,
+              "fatigue": 29,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 133,
+              "health": 4,
+              "hunger": 29,
+              "thirst": 100,
+              "fatigue": 30,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "move",
+                "target": 0,
+                "x": 4000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 134,
+              "health": 2,
+              "hunger": 30,
+              "thirst": 100,
+              "fatigue": 31,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4650,
+                "y": 4000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            }
+          ]
+        }
+      ],
+      "learner_survivors": 0,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50012-trade_good.jsonl.gz",
+      "seed": 50012,
+      "task": "trade_good",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "consume": 8,
+        "offer": 2,
+        "turn": 8,
+        "move": 92,
+        "gather": 8,
+        "rest": 9
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {
+        "thirst": 2
+      },
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50013-help_reciprocal.jsonl.gz",
+      "seed": 50013,
+      "task": "help_reciprocal",
+      "scenario_version": 2,
+      "actions": {
+        "answer_request": 1,
+        "offer": 5,
+        "request": 6,
+        "accept": 8,
+        "consume": 6,
+        "move": 22,
+        "decline": 8,
+        "turn": 68,
+        "rest": 3,
+        "gather": 1
+      },
+      "invalid_reasons": {
+        "no_direction": 67
+      },
+      "urgent_need_with_alternative_action": {
+        "hunger": 44,
+        "fatigue": 32
+      },
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50013-invite_bad.jsonl.gz",
+      "seed": 50013,
+      "task": "invite_bad",
+      "scenario_version": 2,
+      "actions": {
+        "decline": 1,
+        "turn": 20,
+        "withdraw": 8,
+        "consume": 7,
+        "move": 63,
+        "offer": 18,
+        "rest": 9,
+        "gather": 2
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50013-invite_good.jsonl.gz",
+      "seed": 50013,
+      "task": "invite_good",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "withdraw": 7,
+        "consume": 8,
+        "move": 86,
+        "turn": 15,
+        "rest": 10,
+        "gather": 1
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50013-survival.jsonl.gz",
+      "seed": 50013,
+      "task": "survival",
+      "scenario_version": 2,
+      "actions": {
+        "turn": 257,
+        "move": 2668,
+        "gather": 192,
+        "consume": 173,
+        "offer": 12,
+        "rest": 388,
+        "decline": 9,
+        "accept": 2
+      },
+      "invalid_reasons": {
+        "insufficient_items": 2
+      },
+      "urgent_need_with_alternative_action": {},
+      "deaths": [
+        {
+          "actor": 45,
+          "observed_tick": 117,
+          "recent_steps": [
+            {
+              "tick": 101,
+              "health": 38,
+              "hunger": 87,
+              "thirst": 100,
+              "fatigue": 43,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "rest",
+                "target": 0,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 102,
+              "health": 36,
+              "hunger": 88,
+              "thirst": 100,
+              "fatigue": 35,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4650,
+                "y": 4000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 103,
+              "health": 34,
+              "hunger": 89,
+              "thirst": 100,
+              "fatigue": 36,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 104,
+              "health": 32,
+              "hunger": 90,
+              "thirst": 100,
+              "fatigue": 37,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4650,
+                "y": 4000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 105,
+              "health": 30,
+              "hunger": 91,
+              "thirst": 100,
+              "fatigue": 38,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 106,
+              "health": 28,
+              "hunger": 92,
+              "thirst": 100,
+              "fatigue": 39,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4650,
+                "y": 4000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 107,
+              "health": 26,
+              "hunger": 93,
+              "thirst": 100,
+              "fatigue": 40,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 108,
+              "health": 24,
+              "hunger": 94,
+              "thirst": 100,
+              "fatigue": 41,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4650,
+                "y": 4000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 109,
+              "health": 22,
+              "hunger": 95,
+              "thirst": 100,
+              "fatigue": 42,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 110,
+              "health": 20,
+              "hunger": 96,
+              "thirst": 100,
+              "fatigue": 43,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "rest",
+                "target": 0,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 111,
+              "health": 18,
+              "hunger": 97,
+              "thirst": 100,
+              "fatigue": 35,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4650,
+                "y": 4000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 112,
+              "health": 16,
+              "hunger": 98,
+              "thirst": 100,
+              "fatigue": 36,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 113,
+              "health": 14,
+              "hunger": 99,
+              "thirst": 100,
+              "fatigue": 37,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4650,
+                "y": 4000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 114,
+              "health": 10,
+              "hunger": 100,
+              "thirst": 100,
+              "fatigue": 38,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 115,
+              "health": 6,
+              "hunger": 100,
+              "thirst": 100,
+              "fatigue": 39,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4650,
+                "y": 4000,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 116,
+              "health": 2,
+              "hunger": 100,
+              "thirst": 100,
+              "fatigue": 40,
+              "inventory": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 5100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            }
+          ]
+        }
+      ],
+      "learner_survivors": 7,
+      "learner_population": 8,
+      "conserved": true
+    },
+    {
+      "trace": "50013-trade_bad.jsonl.gz",
+      "seed": 50013,
+      "task": "trade_bad",
+      "scenario_version": 2,
+      "actions": {
+        "decline": 1,
+        "consume": 8,
+        "move": 97,
+        "gather": 6,
+        "turn": 7,
+        "rest": 9
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50013-trade_good.jsonl.gz",
+      "seed": 50013,
+      "task": "trade_good",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 2,
+        "consume": 8,
+        "request": 8,
+        "move": 85,
+        "offer": 2,
+        "turn": 6,
+        "gather": 7,
+        "decline": 1,
+        "rest": 9
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {
+        "thirst": 1
+      },
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50014-help_reciprocal.jsonl.gz",
+      "seed": 50014,
+      "task": "help_reciprocal",
+      "scenario_version": 2,
+      "actions": {
+        "answer_request": 1,
+        "offer": 1,
+        "request": 13,
+        "consume": 4,
+        "accept": 4,
+        "turn": 60,
+        "move": 32,
+        "decline": 9,
+        "rest": 4
+      },
+      "invalid_reasons": {
+        "no_direction": 52
+      },
+      "urgent_need_with_alternative_action": {
+        "fatigue": 28
+      },
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50014-invite_bad.jsonl.gz",
+      "seed": 50014,
+      "task": "invite_bad",
+      "scenario_version": 2,
+      "actions": {
+        "decline": 1,
+        "turn": 12,
+        "consume": 8,
+        "withdraw": 8,
+        "move": 86,
+        "offer": 3,
+        "rest": 9,
+        "gather": 1
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {
+        "thirst": 2
+      },
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50014-invite_good.jsonl.gz",
+      "seed": 50014,
+      "task": "invite_good",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "turn": 38,
+        "withdraw": 4,
+        "consume": 5,
+        "move": 62,
+        "offer": 2,
+        "rest": 11,
+        "request": 1,
+        "decline": 4
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50014-survival.jsonl.gz",
+      "seed": 50014,
+      "task": "survival",
+      "scenario_version": 2,
+      "actions": {
+        "turn": 194,
+        "move": 3048,
+        "gather": 220,
+        "consume": 197,
+        "rest": 437
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 8,
+      "learner_population": 8,
+      "conserved": true
+    },
+    {
+      "trace": "50014-trade_bad.jsonl.gz",
+      "seed": 50014,
+      "task": "trade_bad",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "consume": 2,
+        "turn": 22,
+        "move": 41,
+        "rest": 5
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [
+        {
+          "actor": 43,
+          "observed_tick": "footer",
+          "recent_steps": [
+            {
+              "tick": 118,
+              "health": 32,
+              "hunger": 19,
+              "thirst": 100,
+              "fatigue": 29,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 21100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 119,
+              "health": 30,
+              "hunger": 20,
+              "thirst": 100,
+              "fatigue": 30,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "move",
+                "target": 0,
+                "x": 4000,
+                "y": 21100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 120,
+              "health": 28,
+              "hunger": 21,
+              "thirst": 100,
+              "fatigue": 31,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "rest",
+                "target": 0,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 121,
+              "health": 26,
+              "hunger": 22,
+              "thirst": 100,
+              "fatigue": 23,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "move",
+                "target": 0,
+                "x": 3461,
+                "y": 21861,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 122,
+              "health": 24,
+              "hunger": 23,
+              "thirst": 100,
+              "fatigue": 24,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 21100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 123,
+              "health": 22,
+              "hunger": 24,
+              "thirst": 100,
+              "fatigue": 25,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "move",
+                "target": 0,
+                "x": 4000,
+                "y": 21100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 124,
+              "health": 20,
+              "hunger": 25,
+              "thirst": 100,
+              "fatigue": 26,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "move",
+                "target": 0,
+                "x": 3442,
+                "y": 21847,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 125,
+              "health": 18,
+              "hunger": 26,
+              "thirst": 100,
+              "fatigue": 27,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 21100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 126,
+              "health": 16,
+              "hunger": 27,
+              "thirst": 100,
+              "fatigue": 28,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "move",
+                "target": 0,
+                "x": 4000,
+                "y": 21100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 127,
+              "health": 14,
+              "hunger": 28,
+              "thirst": 100,
+              "fatigue": 29,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "move",
+                "target": 0,
+                "x": 3435,
+                "y": 21841,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 128,
+              "health": 12,
+              "hunger": 29,
+              "thirst": 100,
+              "fatigue": 30,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 21100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 129,
+              "health": 10,
+              "hunger": 30,
+              "thirst": 100,
+              "fatigue": 31,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "move",
+                "target": 0,
+                "x": 4000,
+                "y": 21100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 130,
+              "health": 8,
+              "hunger": 31,
+              "thirst": 100,
+              "fatigue": 32,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "rest",
+                "target": 0,
+                "x": 0,
+                "y": 0,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 131,
+              "health": 6,
+              "hunger": 32,
+              "thirst": 100,
+              "fatigue": 24,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "move",
+                "target": 0,
+                "x": 3227,
+                "y": 21602,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 132,
+              "health": 4,
+              "hunger": 33,
+              "thirst": 100,
+              "fatigue": 25,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "turn",
+                "target": 0,
+                "x": 4000,
+                "y": 21100,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            },
+            {
+              "tick": 133,
+              "health": 2,
+              "hunger": 34,
+              "thirst": 100,
+              "fatigue": 26,
+              "inventory": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "action": {
+                "kind": "move",
+                "target": 0,
+                "x": 3940,
+                "y": 21247,
+                "resource": 0,
+                "quantity": 1,
+                "ask_resource": 0,
+                "ask_quantity": 0,
+                "text": ""
+              }
+            }
+          ]
+        }
+      ],
+      "learner_survivors": 0,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50014-trade_good.jsonl.gz",
+      "seed": 50014,
+      "task": "trade_good",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "consume": 8,
+        "offer": 2,
+        "move": 98,
+        "turn": 4,
+        "gather": 6,
+        "rest": 9
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {
+        "thirst": 2
+      },
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50015-help_reciprocal.jsonl.gz",
+      "seed": 50015,
+      "task": "help_reciprocal",
+      "scenario_version": 2,
+      "actions": {
+        "answer_request": 1,
+        "offer": 2,
+        "request": 3,
+        "accept": 6,
+        "consume": 5,
+        "move": 21,
+        "turn": 87,
+        "decline": 2,
+        "rest": 1
+      },
+      "invalid_reasons": {
+        "no_direction": 84
+      },
+      "urgent_need_with_alternative_action": {
+        "fatigue": 48
+      },
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50015-invite_bad.jsonl.gz",
+      "seed": 50015,
+      "task": "invite_bad",
+      "scenario_version": 2,
+      "actions": {
+        "decline": 1,
+        "turn": 45,
+        "withdraw": 8,
+        "consume": 7,
+        "move": 45,
+        "offer": 10,
+        "rest": 9,
+        "gather": 3
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50015-invite_good.jsonl.gz",
+      "seed": 50015,
+      "task": "invite_good",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "withdraw": 6,
+        "consume": 8,
+        "move": 89,
+        "turn": 11,
+        "rest": 9,
+        "gather": 4
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50015-survival.jsonl.gz",
+      "seed": 50015,
+      "task": "survival",
+      "scenario_version": 2,
+      "actions": {
+        "turn": 206,
+        "move": 3016,
+        "rest": 434,
+        "gather": 218,
+        "consume": 195,
+        "offer": 14,
+        "decline": 13
+      },
+      "invalid_reasons": {
+        "out_of_reach": 1
+      },
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 8,
+      "learner_population": 8,
+      "conserved": true
+    },
+    {
+      "trace": "50015-trade_bad.jsonl.gz",
+      "seed": 50015,
+      "task": "trade_bad",
+      "scenario_version": 2,
+      "actions": {
+        "decline": 1,
+        "consume": 7,
+        "move": 97,
+        "turn": 8,
+        "gather": 6,
+        "rest": 9
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    },
+    {
+      "trace": "50015-trade_good.jsonl.gz",
+      "seed": 50015,
+      "task": "trade_good",
+      "scenario_version": 2,
+      "actions": {
+        "accept": 1,
+        "answer_request": 1,
+        "consume": 7,
+        "offer": 1,
+        "move": 93,
+        "turn": 10,
+        "gather": 6,
+        "rest": 9
+      },
+      "invalid_reasons": {},
+      "urgent_need_with_alternative_action": {},
+      "deaths": [],
+      "learner_survivors": 1,
+      "learner_population": 1,
+      "conserved": true
+    }
+  ],
+  "observed_deaths": 13
+}

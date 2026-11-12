@@ -82,3 +82,18 @@ that smoke run is not a trained-policy result. This remains a limited diagnostic
 UI check; no first-person or broad human playtest claim follows. First-person play,
 settlement construction, population magic, co-op, lag,
 broad cross-platform replay guarantees, sanitizers and release playthrough are pending.
+
+Experimental social-learning checks extend the local suite to 97 passing tests:
+local-only bounded inputs, affordable harmful choices, trust-independent membership
+availability, candidate permutation equivariance, separate hidden vectors, strict
+checkpoint restoration, factual v2 own-cost inputs and genuinely useful reciprocal
+consumption. The previously failing unseen-collision setup seed now replans and
+replays. Both social native formats reject malformed slices/masks/values without
+partial memory commits. A separate `python -S` process continues a v2 native
+checkpoint to the expected hash without importing Torch or NumPy.
+
+The experimental learned-social inspector was checked with `python -S`: labelled
+paused opening, normal autonomous running, useful gathering/consumption and local
+anonymous cues, pause state and clean close. A stale running label on pause was
+found, fixed and visually rechecked. This is a diagnostic UI check; learned social
+generalization is evaluated separately and remains an open gate.

@@ -28,6 +28,11 @@ def main():
     policy_library=ROOT/"build"/policy_name
     if not policy_library.is_file():raise SystemExit("Build the native policy library first")
     files.append(policy_library)
+    for stem in ("livingworld_social","livingworld_social_v2"):
+        name=stem+".dll" if sys.platform=="win32" else "lib"+stem+(".dylib" if sys.platform=="darwin" else ".so")
+        social=ROOT/"build"/name
+        if not social.is_file():raise SystemExit("Build both experimental social runtimes first")
+        files.append(social)
     manifest={"version":1,"kind":"headless-prototype","full_master_plan_complete":False,"files":{}}
     for source in files:
         relative=source.relative_to(ROOT)

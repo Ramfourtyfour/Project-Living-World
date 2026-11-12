@@ -3,7 +3,7 @@
 An original standalone survival simulation for a future first-person co-op RPG
 inhabited by independent, locally informed agents.
 
-**Current version: 0.4.0 — native survival, individual senses and social-mechanics prototype.** The full game described
+**Current version: 0.5.0 — native survival and experimental learned social prototype.** The full game described
 in [the master plan](docs/master-plan.md) is **not complete**. This repository
 implements the initial simulation/training work package and reports its results.
 There is no 3D client, network co-op, settlement construction, combat or population magic yet.
@@ -35,8 +35,11 @@ checkpoint folder. The separately labelled oracle toggle exposes global state fo
 answer/refuse proposals, report completed work, trade, found/name/leave a group, and deposit/withdraw from
 nearby authorized caches. A new cache costs 3 wood and 2 fiber acquired through
 ordinary gathering. Requests never command another person's controller. The
-social baseline responds from its own needs/resources; the learned model still
-handles survival only. See [social contracts](docs/social-contracts.md).
+social baseline responds from its own needs/resources; the default frozen learned
+model handles survival. Experimental learned social controllers now have a separate
+`--social-native-policy` inspector option and complete neural-memory saves. Their
+broader behavior gates remain open. See [social contracts](docs/social-contracts.md)
+and [social learning](docs/social-learning.md).
 
 ## Build and verify
 
@@ -68,7 +71,7 @@ ctest --test-dir build -C Release --output-on-failure
 Set `LIVINGWORLD_LIBRARY` to an absolute library path if using a custom build
 directory, and `LIVINGWORLD_POLICY_LIBRARY` for the separate policy library.
 Windows MSVC and Ubuntu GCC builds/tests have passed GitHub CI; the local Windows
-GCC run includes all 83 tests. See [the verified platform matrix](docs/platforms.md)
+GCC run includes all 97 tests. See [the verified platform matrix](docs/platforms.md)
 for exact scope, versions and optional-test skips.
 
 ## What runs
@@ -117,7 +120,14 @@ harvested 93 units, so broader coverage does not establish superior discovery
 efficiency. Earlier failed runs remain in `benchmarks/`; see
 [research results](docs/rl-training.md) and [native inference](docs/native-inference.md).
 
-Social choices, emergent society and the full game remain unproven. Current learned
+Experimental GRU/slate models now select real social, membership and storage
+actions independently. Their versioned native runtimes, recurrent PPO training,
+causal task construction and frozen-decision replay are implemented. The first
+candidate failed validation; its negative results and corrected comparison remain
+documented in [social learning](docs/social-learning.md). This does not replace the
+frozen survival pilot or demonstrate whole-world society.
+
+Social generalization, emergent society and the full game remain unproven. Current frozen learned
 policies have eight survival/exploration intents and do not choose social actions.
 Live neural weights stay fixed; individual recurrent memory can change. The frozen
 survival encoder does not yet learn from hearing, light or facing.

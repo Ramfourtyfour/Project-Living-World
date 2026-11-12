@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.13.2",
+  "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+  "policy_sha256": "e4d7751c5751045058daffa5fbef1107850b987b9a2922a1a1917e5a11e5298b",
+  "runtime_sha256": "c911f83d0131b0b112405b1d9d22d38e72312212ec888f51d2b77ad9d72b3a99",
+  "world_sha256": "f264165fbd1afb9b43279e048da494c1f12914ef5edd2352cf2f0046253e86a6",
+  "proposal_version": 2,
+  "batches": [
+    {
+      "population": 8,
+      "active": 8,
+      "candidates": 194,
+      "model_and_world_load_ms": 9.759499924257398,
+      "packing_and_native_batch": {
+        "median_ms": 2.93885,
+        "p95_ms": 5.0401,
+        "repetitions": 50
+      },
+      "encoding_and_native_batch": {
+        "median_ms": 6.92525,
+        "p95_ms": 11.7863,
+        "repetitions": 50
+      },
+      "python_only_call_peak_bytes": 384816,
+      "hidden_float_payload_bytes": 2048,
+      "conserved": true
+    },
+    {
+      "population": 32,
+      "active": 32,
+      "candidates": 1165,
+      "model_and_world_load_ms": 9.807599941268563,
+      "packing_and_native_batch": {
+        "median_ms": 22.7359,
+        "p95_ms": 39.2369,
+        "repetitions": 50
+      },
+      "encoding_and_native_batch": {
+        "median_ms": 55.379149999999996,
+        "p95_ms": 80.1492,
+        "repetitions": 50
+      },
+      "python_only_call_peak_bytes": 2332368,
+      "hidden_float_payload_bytes": 8192,
+      "conserved": true
+    },
+    {
+      "population": 64,
+      "active": 64,
+      "candidates": 2693,
+      "model_and_world_load_ms": 14.39990010112524,
+      "packing_and_native_batch": {
+        "median_ms": 64.99775,
+        "p95_ms": 98.0617,
+        "repetitions": 50
+      },
+      "encoding_and_native_batch": {
+        "median_ms": 111.60845,
+        "p95_ms": 145.3468,
+        "repetitions": 50
+      },
+      "python_only_call_peak_bytes": 5395817,
+      "hidden_float_payload_bytes": 16384,
+      "conserved": true
+    }
+  ],
+  "scope": "Local fixed-observation latency with evolving per-person hidden memory; no rendering/network work; other processes may contend for CPU",
+  "memory_scope": "Python allocator peak and float payload only; excludes native map/allocator/DLL overhead; not a total per-agent memory measurement"
+}
